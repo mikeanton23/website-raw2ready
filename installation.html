@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Installation | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready installation guide." />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+
+    <header id="header">
+
+        <h1>
+            <a href="index.html">Raw2Ready</a>
+        </h1>
+
+        <nav id="nav">
+            <ul>
+                <li class="special">
+
+                    <a href="#menu" class="menuToggle">
+                        <span>Menu</span>
+                    </a>
+
+                    <div id="menu">
+
+                        <ul>
+
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="overview.html">Overview</a></li>
+                            <li><a href="installation.html">Installation</a></li>
+                            <li><a href="workflow.html">Workflow</a></li>
+                            <li><a href="elements.html">Features</a></li>
+
+                            <li>
+                                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                                   target="_blank">
+                                   GitLab Repository
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <article id="main">
+
+        <header>
+
+            <h2>Installation</h2>
+
+            <p>
+                Complete installation guide for Raw2Ready.
+            </p>
+
+        </header>
+
+        <section class="wrapper style5">
+
+            <div class="inner">
+
+                <!-- Requirements -->
+
+                <section>
+
+                    <h2>System Requirements</h2>
+
+                    <ul>
+
+                        <li>Python 3.10 or newer</li>
+                        <li>Linux, Windows or macOS</li>
+                        <li>Minimum 8 GB RAM recommended</li>
+                        <li>Internet connection for external knowledge retrieval</li>
+                        <li>Optional GPU acceleration for transformer models</li>
+
+                    </ul>
+
+                </section>
+
+                <hr />
+
+                <!-- Supported Platforms -->
+
+                <section>
+
+                    <h2>Supported Platforms</h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+                                <tr>
+                                    <th>Operating System</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Ubuntu Linux</td>
+                                    <td>Fully Supported</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Windows</td>
+                                    <td>Supported</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Windows + WSL</td>
+                                    <td>Recommended</td>
+                                </tr>
+
+                                <tr>
+                                    <td>macOS</td>
+                                    <td>Supported</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr />
+
+                <!-- Clone Repository -->
+
+                <section>
+
+                    <h2>1. Clone the Repository</h2>
+
+<pre><code>
+git clone https://gitlab.com/bioindustry4.0/raw2ready.git
+
+cd raw2ready
+</code></pre>
+
+                    <p>
+                        Alternatively, clone the development branch:
+                    </p>
+
+<pre><code>
+git clone -b features/mikeantonbranch \
+https://gitlab.com/arc3972240/bioindustry/raw2ready.git
+
+cd raw2ready
+</code></pre>
+
+                </section>
+
+                <hr />
+
+                <!-- Virtual Environment -->
+
+                <section>
+
+                    <h2>2. Create a Virtual Environment</h2>
+
+<pre><code>
+python3 -m venv raw2ready
+
+source raw2ready/bin/activate
+</code></pre>
+
+                    <p>
+
+                        Windows PowerShell:
+
+                    </p>
+
+<pre><code>
+raw2ready\Scripts\activate
+</code></pre>
+
+                </section>
+
+                <hr />
+
+                <!-- Dependencies -->
+
+                <section>
+
+                    <h2>3. Install Dependencies</h2>
+
+<pre><code>
+pip install --upgrade pip
+
+pip install -r requirements.txt
+</code></pre>
+
+                    <h3>Main Dependencies</h3>
+
+                    <ul class="alt">
+
+                        <li>nicegui</li>
+                        <li>pandas</li>
+                        <li>numpy</li>
+                        <li>scipy</li>
+                        <li>plotly</li>
+                        <li>matplotlib</li>
+                        <li>scikit-learn</li>
+                        <li>requests</li>
+                        <li>beautifulsoup4</li>
+                        <li>bacdive</li>
+                        <li>crossrefapi</li>
+                        <li>spacy</li>
+                        <li>nltk</li>
+                        <li>ollama</li>
+
+                    </ul>
+
+                </section>
+
+                <hr />
+
+                <!-- NLP -->
+
+                <section>
+
+                    <h2>4. Install NLP Resources</h2>
+
+                    <h3>Install SpaCy Language Model</h3>
+
+<pre><code>
+python3 -m spacy download en_core_web_sm
+</code></pre>
+
+                    <h3>Download NLTK Resources</h3>
+
+<pre><code>
+python3
+</code></pre>
+
+<pre><code>
+import nltk
+
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('vader_lexicon')
+</code></pre>
+
+                </section>
+
+                <hr />
+
+                <!-- Ollama -->
+
+                <section>
+
+                    <h2>5. Install Ollama (Optional)</h2>
+
+                    <p>
+
+                        Raw2Ready supports local execution of
+                        Large Language Models using Ollama.
+
+                    </p>
+
+<pre><code>
+curl -fsSL https://ollama.com/install.sh | sh
+</code></pre>
+
+                    <h3>Download a Local Model</h3>
+
+<pre><code>
+ollama pull llama3
+</code></pre>
+
+                    <p>
+
+                        Other supported models:
+
+                    </p>
+
+                    <ul>
+
+                        <li>llama3</li>
+                        <li>mistral</li>
+                        <li>gemma</li>
+                        <li>phi3</li>
+
+                    </ul>
+
+                </section>
+
+                <hr />
+
+                <!-- Verify -->
+
+                <section>
+
+                    <h2>6. Verify Installation</h2>
+
+                    <h3>Command Line Interface</h3>
+
+<pre><code>
+python raw2ready.py --help
+</code></pre>
+
+                    <h3>Launch NiceGUI Application</h3>
+
+<pre><code>
+python run_app.py
+</code></pre>
+
+                    <p>
+
+                        Open your browser:
+
+                    </p>
+
+<pre><code>
+http://localhost:8080
+</code></pre>
+
+                </section>
+
+                <hr />
+
+                <!-- Docker -->
+
+                <section>
+
+                    <h2>Optional Docker Deployment</h2>
+
+<pre><code>
+docker build -t raw2ready .
+
+docker run -p 8080:8080 raw2ready
+</code></pre>
+
+                </section>
+
+                <hr />
+
+                <!-- Troubleshooting -->
+
+                <section>
+
+                    <h2>Troubleshooting</h2>
+
+                    <h3>Common Problems</h3>
+
+                    <ul>
+
+                        <li>Python version incompatible.</li>
+                        <li>Missing dependencies.</li>
+                        <li>SpaCy model not installed.</li>
+                        <li>Ollama service not running.</li>
+                        <li>Port 8080 already in use.</li>
+
+                    </ul>
+
+                    <h3>Check Ollama Status</h3>
+
+<pre><code>
+ollama list
+</code></pre>
+
+                    <h3>Check Running Processes on Port 8080</h3>
+
+<pre><code>
+lsof -i :8080
+</code></pre>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+            </li>
+
+            <li>
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; Raw2Ready 2026</li>
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>
+                Design:
+                <a href="https://html5up.net">
+                    HTML5 UP
+                </a>
+            </li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
