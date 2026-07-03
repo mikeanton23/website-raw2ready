@@ -1,0 +1,1051 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Load Module | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Load Module Documentation" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+
+    <header id="header">
+
+        <h1>
+            <a href="index.html">
+                Raw2Ready
+            </a>
+        </h1>
+
+        <nav id="nav">
+
+            <ul>
+
+                <li class="special">
+
+                    <a href="#menu"
+                       class="menuToggle">
+
+                        <span>Menu</span>
+
+                    </a>
+
+                    <div id="menu">
+
+                        <ul>
+
+                            <li>
+                                <a href="index.html">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="overview.html">
+                                    Overview
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="installation.html">
+                                    Installation
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="workflow.html">
+                                    Workflow
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="load.html">
+                                    Load Module
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="merge.html">
+                                    Merge Module
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="calculate.html">
+                                    Calculate Module
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="plot.html">
+                                    Plot Module
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="statistics.html">
+                                    Statistics
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="metadata.html">
+                                    Metadata
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="agents.html">
+                                    Multi-Agent AI
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="elements.html">
+                                    Features
+                                </a>
+                            </li>
+
+                            <li>
+
+                                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                                   target="_blank">
+
+                                    GitLab Repository
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <article id="main">
+
+        <header>
+
+            <h2>
+
+                Load Module
+
+            </h2>
+
+            <p>
+
+                Import, validate and prepare
+                heterogeneous fermentation datasets
+                for downstream analysis.
+
+            </p>
+
+        </header>
+
+        <section class="wrapper style5">
+
+            <div class="inner">
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Overview
+
+                    </h2>
+
+                    <p>
+
+                        The Load Module is the entry point of the
+                        Raw2Ready workflow.
+
+                        It imports heterogeneous experimental data
+                        originating from multiple industrial
+                        biotechnology devices and transforms them into
+                        standardized in-memory datasets that can be
+                        processed by the remaining modules.
+
+                    </p>
+
+                    <p>
+
+                        During loading, Raw2Ready performs automatic
+                        validation, datatype inference and preliminary
+                        quality assessment to ensure the imported
+                        dataset is suitable for downstream processing.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Objectives
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+                            Import heterogeneous datasets.
+                        </li>
+
+                        <li>
+                            Validate experimental files.
+                        </li>
+
+                        <li>
+                            Detect unsupported formats.
+                        </li>
+
+                        <li>
+                            Preview dataset contents.
+                        </li>
+
+                        <li>
+                            Automatically infer datatypes.
+                        </li>
+
+                        <li>
+                            Store datasets inside Runtime Memory.
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Supported File Formats
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Format</th>
+
+                                    <th>Description</th>
+
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>CSV</td>
+
+                                    <td>
+                                        Generic comma-separated datasets
+                                    </td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Excel (.xlsx)</td>
+
+                                    <td>
+                                        Microsoft Excel workbooks
+                                    </td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Sartorius</td>
+
+                                    <td>
+                                        Raw bioreactor exports
+                                    </td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>BioLectorXT</td>
+
+                                    <td>
+                                        BioLector experimental exports
+                                    </td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Gas Analyzer</td>
+
+                                    <td>
+                                        Time-series gas measurements
+                                    </td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Load Workflow
+
+                    </h2>
+
+                    <p>
+
+                        Importing a dataset follows a structured
+                        sequence of operations that guarantees the
+                        integrity of the imported data before it enters
+                        the Raw2Ready processing pipeline.
+
+                    </p>
+
+                    <pre><code>
+User selects dataset
+        ↓
+File validation
+        ↓
+Format detection
+        ↓
+Dataset parsing
+        ↓
+Column identification
+        ↓
+Datatype inference
+        ↓
+Preview generation
+        ↓
+Runtime memory storage
+                    </code></pre>
+                    </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Automatic Dataset Validation
+
+                    </h2>
+
+                    <p>
+
+                        Before a dataset is accepted into the Raw2Ready
+                        workflow, several validation procedures are
+                        executed automatically to ensure data quality
+                        and compatibility with downstream modules.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Verify that the selected file exists.</li>
+
+                        <li>Validate supported file extensions.</li>
+
+                        <li>Detect empty datasets.</li>
+
+                        <li>Check duplicate column names.</li>
+
+                        <li>Identify corrupted files.</li>
+
+                        <li>Inspect missing headers.</li>
+
+                        <li>Verify timestamp availability.</li>
+
+                        <li>Generate informative error messages.</li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Validation is performed automatically before any
+                        preprocessing operation begins, preventing
+                        incompatible datasets from propagating through
+                        the analysis pipeline.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Automatic Datatype Detection
+
+                    </h2>
+
+                    <p>
+
+                        After loading the dataset, Raw2Ready analyses
+                        every column and automatically determines the
+                        most appropriate datatype.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Detected Type</th>
+
+                                    <th>Examples</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Numeric</td>
+
+                                    <td>
+
+                                        Biomass, pH, DO, OUR, CER
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Datetime</td>
+
+                                    <td>
+
+                                        Timestamp, Sampling Time
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Text</td>
+
+                                    <td>
+
+                                        Organism Name, Notes
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Boolean</td>
+
+                                    <td>
+
+                                        True / False variables
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Categorical</td>
+
+                                    <td>
+
+                                        Reactor ID, Experimental Group
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Dataset Preview
+
+                    </h2>
+
+                    <p>
+
+                        Before processing, Raw2Ready provides an
+                        interactive preview of the imported dataset.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Display first rows of the dataset.</li>
+
+                        <li>Display column names.</li>
+
+                        <li>Display detected datatypes.</li>
+
+                        <li>Display dataset dimensions.</li>
+
+                        <li>Display missing values.</li>
+
+                        <li>Display memory usage.</li>
+
+                    </ul>
+
+                    <p>
+
+                        <strong>Suggested Figure</strong>
+
+                    </p>
+
+                    <p>
+
+                        Figure XX — Dataset Preview Window
+
+                    </p>
+
+                    <img src="images/load/dataset_preview.png"
+                         class="image fit"
+                         alt="Dataset Preview">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Missing Value Inspection
+
+                    </h2>
+
+                    <p>
+
+                        Immediately after loading, the system evaluates
+                        missing values across all variables.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Total missing values.</li>
+
+                        <li>Percentage of missing data.</li>
+
+                        <li>Variables with highest missing rate.</li>
+
+                        <li>Heatmap visualization.</li>
+
+                        <li>Missing-value summary table.</li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Early identification of missing values allows
+                        users to perform data cleaning before statistical
+                        analysis or machine learning.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Once validation is complete, the imported
+                        dataset is stored inside the Runtime Memory
+                        Manager.
+
+                    </p>
+
+                    <p>
+
+                        Runtime Memory enables every Raw2Ready module
+                        to access the currently active dataset without
+                        requiring repeated file loading.
+
+                    </p>
+
+                    <pre><code>
+Load Module
+        │
+        ▼
+Runtime Memory
+        │
+ ├── Merge Module
+ ├── Calculate Module
+ ├── Plot Module
+ ├── Statistics Module
+ ├── Metadata Module
+ └── AI Agents
+                    </code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        User Interface
+
+                    </h2>
+
+                    <p>
+
+                        The NiceGUI interface provides an intuitive
+                        workflow for importing datasets.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Upload button.</li>
+
+                        <li>Drag-and-drop support.</li>
+
+                        <li>Recent datasets.</li>
+
+                        <li>Dataset information panel.</li>
+
+                        <li>Preview table.</li>
+
+                        <li>Validation status.</li>
+
+                    </ul>
+
+                    <img src="images/load/load_module_gui.png"
+                         class="image fit"
+                         alt="Load Module Interface">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>Use descriptive filenames.</li>
+
+                        <li>Maintain consistent timestamp formats.</li>
+
+                        <li>Verify units before importing.</li>
+
+                        <li>Avoid duplicate column names.</li>
+
+                        <li>Keep metadata synchronized with datasets.</li>
+
+                        <li>Inspect missing values before merging.</li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <p>
+
+                        The following table summarizes common problems
+                        encountered during dataset loading together with
+                        their recommended solutions.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Dataset cannot be loaded</td>
+
+                                    <td>Unsupported file format</td>
+
+                                    <td>Verify that the file is CSV, Excel or a supported Raw2Ready format.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Incorrect timestamps</td>
+
+                                    <td>Datetime column not recognized</td>
+
+                                    <td>Ensure timestamps use a consistent format.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing columns</td>
+
+                                    <td>Corrupted or incomplete dataset</td>
+
+                                    <td>Verify the exported experimental file.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Unexpected missing values</td>
+
+                                    <td>Incomplete experimental recording</td>
+
+                                    <td>Inspect missing-value statistics before continuing.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Slow loading</td>
+
+                                    <td>Very large datasets</td>
+
+                                    <td>Use filtering or load only required variables.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Load Module is responsible for importing,
+                        validating and preparing experimental datasets
+                        for every subsequent Raw2Ready component.
+
+                    </p>
+
+                    <p>
+
+                        By automatically detecting datatypes,
+                        validating file integrity, inspecting missing
+                        values and storing datasets inside Runtime
+                        Memory, the module provides a reliable
+                        foundation for preprocessing, statistical
+                        analysis and AI-assisted reasoning.
+
+                    </p>
+
+                    <blockquote>
+
+                        Every Raw2Ready workflow begins with the Load
+                        Module. The quality of downstream analyses
+                        depends directly on the correctness and
+                        completeness of the imported datasets.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        After successfully loading a dataset, users
+                        typically continue with the <strong>Merge
+                        Module</strong> to synchronize measurements from
+                        multiple instruments, or directly proceed to the
+                        <strong>Calculate Module</strong> when working
+                        with a single dataset.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="workflow.html"
+                           class="button">
+
+                            Previous: Workflow
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="merge.html"
+                           class="button primary">
+
+                            Next: Merge Module
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   class="icon brands fa-gitlab"
+                   target="_blank">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>
+
+                &copy; 2026 Raw2Ready
+
+            </li>
+
+            <li>
+
+                BIOINDUSTRY4.0 Project
+
+            </li>
+
+            <li>
+
+                Athens Research Center
+
+            </li>
+
+            <li>
+
+                Documentation Website
+
+            </li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/jquery.scrollex.min.js"></script>
+
+<script src="assets/js/jquery.scrolly.min.js"></script>
+
+<script src="assets/js/browser.min.js"></script>
+
+<script src="assets/js/breakpoints.min.js"></script>
+
+<script src="assets/js/util.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
