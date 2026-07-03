@@ -1,0 +1,1298 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Merge Module | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Merge Module Documentation" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+
+    <header id="header">
+
+        <h1>
+
+            <a href="index.html">
+
+                Raw2Ready
+
+            </a>
+
+        </h1>
+
+        <nav id="nav">
+
+            <ul>
+
+                <li class="special">
+
+                    <a href="#menu"
+                       class="menuToggle">
+
+                        <span>Menu</span>
+
+                    </a>
+
+                    <div id="menu">
+
+                        <ul>
+
+                            <li><a href="index.html">Home</a></li>
+
+                            <li><a href="overview.html">Overview</a></li>
+
+                            <li><a href="installation.html">Installation</a></li>
+
+                            <li><a href="workflow.html">Workflow</a></li>
+
+                            <li><a href="load.html">Load Module</a></li>
+
+                            <li><a href="merge.html">Merge Module</a></li>
+
+                            <li><a href="calculate.html">Calculate Module</a></li>
+
+                            <li><a href="plot.html">Plot Module</a></li>
+
+                            <li><a href="statistics.html">Statistics</a></li>
+
+                            <li><a href="metadata.html">Metadata</a></li>
+
+                            <li><a href="agents.html">Multi-Agent AI</a></li>
+
+                            <li><a href="elements.html">Features</a></li>
+
+                            <li>
+
+                                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                                   target="_blank">
+
+                                    GitLab Repository
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <article id="main">
+
+        <header>
+
+            <h2>
+
+                Merge Module
+
+            </h2>
+
+            <p>
+
+                Synchronize heterogeneous experimental datasets into a
+                unified time-series representation.
+
+            </p>
+
+        </header>
+
+        <section class="wrapper style5">
+
+            <div class="inner">
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Overview
+
+                    </h2>
+
+                    <p>
+
+                        Experimental fermentation campaigns typically
+                        generate multiple datasets originating from
+                        different laboratory instruments. Each device
+                        records measurements independently and often
+                        operates at different acquisition frequencies.
+
+                    </p>
+
+                    <p>
+
+                        The Merge Module integrates these heterogeneous
+                        datasets into a single synchronized table,
+                        allowing downstream calculations,
+                        visualization, statistical analysis and
+                        AI-assisted reasoning to operate on one
+                        consistent experimental dataset.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Objectives
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Synchronize multiple datasets.
+
+                        </li>
+
+                        <li>
+
+                            Align timestamps automatically.
+
+                        </li>
+
+                        <li>
+
+                            Preserve experimental chronology.
+
+                        </li>
+
+                        <li>
+
+                            Minimize temporal inconsistencies.
+
+                        </li>
+
+                        <li>
+
+                            Generate one unified dataset.
+
+                        </li>
+
+                        <li>
+
+                            Prepare data for downstream modules.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Why Dataset Merging is Necessary
+
+                    </h2>
+
+                    <p>
+
+                        During fermentation experiments, different
+                        instruments rarely produce synchronized
+                        measurements.
+
+                    </p>
+
+                    <p>
+
+                        For example:
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Bioreactors may record sensor values every
+                            minute.
+
+                        </li>
+
+                        <li>
+
+                            Gas analyzers may record every 30 seconds.
+
+                        </li>
+
+                        <li>
+
+                            BioLectorXT systems may export measurements
+                            every few minutes.
+
+                        </li>
+
+                        <li>
+
+                            Manual laboratory measurements may be
+                            recorded only once every several hours.
+
+                        </li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Without temporal synchronization, these datasets
+                        cannot be analysed together effectively.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Merge Concepts
+
+                    </h2>
+
+                    <p>
+
+                        The Merge Module combines datasets based on
+                        their temporal relationship rather than their
+                        row positions.
+
+                    </p>
+
+                    <p>
+
+                        Instead of matching rows directly, Raw2Ready
+                        aligns observations according to their datetime
+                        values, preserving the chronological evolution
+                        of the fermentation process.
+
+                    </p>
+
+                    <pre><code>
+Sensor Dataset
+        │
+Gas Analyzer
+        │
+BioLectorXT
+        │
+Laboratory Measurements
+        │
+        ▼
+Time Alignment
+        ▼
+Merged Dataset
+                    </code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Supported Merge Strategies
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Strategy</th>
+
+                                    <th>Description</th>
+
+                                    <th>Typical Use</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Exact Match
+
+                                    </td>
+
+                                    <td>
+
+                                        Merge rows sharing identical
+                                        timestamps.
+
+                                    </td>
+
+                                    <td>
+
+                                        Perfectly synchronized devices.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Nearest Neighbor
+
+                                    </td>
+
+                                    <td>
+
+                                        Select the closest available
+                                        measurement.
+
+                                    </td>
+
+                                    <td>
+
+                                        Different sampling frequencies.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Reference Dataset
+
+                                    </td>
+
+                                    <td>
+
+                                        Use one dataset as the temporal
+                                        reference for all others.
+
+                                    </td>
+
+                                    <td>
+
+                                        Industrial fermentation
+                                        experiments.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Left Join
+
+                                    </td>
+
+                                    <td>
+
+                                        Preserve all observations from
+                                        the reference dataset.
+
+                                    </td>
+
+                                    <td>
+
+                                        Recommended default strategy.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Merge Workflow
+
+                    </h2>
+
+                    <p>
+
+                        The Merge Module executes a structured workflow
+                        to synchronize multiple heterogeneous datasets
+                        into a unified experimental representation.
+
+                    </p>
+
+                    <pre><code>
+Load Reference Dataset
+        │
+Load Additional Datasets
+        │
+Validate Datetime Columns
+        │
+Sort Chronologically
+        │
+Apply Merge Strategy
+        │
+Generate Unified Dataset
+        │
+Store in Runtime Memory
+                    </code></pre>
+                    </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Reference Dataset
+
+                    </h2>
+
+                    <p>
+
+                        Every merge operation begins by selecting a
+                        <strong>reference dataset</strong>. The timestamps
+                        contained in this dataset become the temporal backbone
+                        of the merged experiment.
+
+                    </p>
+
+                    <p>
+
+                        All additional datasets are synchronized against these
+                        timestamps, ensuring that every measurement is aligned
+                        with the experimental timeline.
+
+                    </p>
+
+                    <blockquote>
+
+                        In most fermentation experiments the primary
+                        bioreactor dataset is selected as the reference
+                        dataset because it contains the complete process
+                        timeline.
+
+                    </blockquote>
+
+                    <img src="images/merge/reference_dataset.png"
+                         class="image fit"
+                         alt="Reference Dataset">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Datetime Synchronization
+
+                    </h2>
+
+                    <p>
+
+                        Time synchronization represents the most important
+                        stage of the Merge Module. Every imported dataset
+                        contains timestamps that must be converted into a
+                        common temporal representation.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Datetime parsing</li>
+
+                        <li>Timezone normalization</li>
+
+                        <li>Chronological sorting</li>
+
+                        <li>Duplicate timestamp detection</li>
+
+                        <li>Timestamp consistency verification</li>
+
+                        <li>Reference timeline creation</li>
+
+                    </ul>
+
+                    <pre><code>
+Dataset A
+08:00
+08:01
+08:02
+08:03
+
+Dataset B
+08:00:20
+08:01:22
+08:02:18
+
+↓
+
+Common Timeline
+
+08:00
+08:01
+08:02
+08:03
+                    </code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Nearest-Neighbor Alignment
+
+                    </h2>
+
+                    <p>
+
+                        Experimental devices frequently operate using
+                        different acquisition frequencies. In these
+                        situations exact timestamp matching is impossible.
+
+                    </p>
+
+                    <p>
+
+                        Raw2Ready therefore applies a nearest-neighbor
+                        alignment strategy, matching each reference
+                        timestamp to the closest available measurement.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Reference Time</th>
+
+                                    <th>Closest Measurement</th>
+
+                                    <th>Difference</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>08:00:00</td>
+
+                                    <td>08:00:07</td>
+
+                                    <td>7 sec</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>08:01:00</td>
+
+                                    <td>08:00:58</td>
+
+                                    <td>2 sec</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>08:02:00</td>
+
+                                    <td>08:02:05</td>
+
+                                    <td>5 sec</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Merge Quality Control
+
+                    </h2>
+
+                    <p>
+
+                        Following synchronization, Raw2Ready performs a
+                        series of quality-control procedures to ensure the
+                        integrity of the merged dataset.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Chronological consistency</li>
+
+                        <li>Duplicate row detection</li>
+
+                        <li>Missing timestamp detection</li>
+
+                        <li>Column validation</li>
+
+                        <li>Dataset dimension verification</li>
+
+                        <li>Integrity reporting</li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Automatic validation ensures that synchronization
+                        errors are detected before statistical analysis or
+                        AI-assisted reasoning begins.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        NiceGUI Merge Interface
+
+                    </h2>
+
+                    <p>
+
+                        The Merge Module is fully integrated into the
+                        Raw2Ready graphical user interface, enabling users
+                        to configure merge operations interactively.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Select reference dataset</li>
+
+                        <li>Select additional datasets</li>
+
+                        <li>Choose merge strategy</li>
+
+                        <li>Configure datetime column</li>
+
+                        <li>Preview merged output</li>
+
+                        <li>Export merged dataset</li>
+
+                    </ul>
+
+                    <img src="images/merge/merge_gui.png"
+                         class="image fit"
+                         alt="Merge Module Interface">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Once merging has completed successfully, the
+                        resulting dataset replaces the previous active
+                        dataset inside the Runtime Memory Manager.
+
+                    </p>
+
+                    <pre><code>
+Load Module
+      │
+      ▼
+Runtime Memory
+      │
+      ▼
+Merge Module
+      │
+Merged Dataset
+      │
+      ▼
+Runtime Memory
+      │
+ ├── Calculate Module
+ ├── Plot Module
+ ├── Statistics Module
+ ├── Metadata Module
+ └── AI Agents
+                    </code></pre>
+
+                    <p>
+
+                        By storing the merged dataset in Runtime Memory,
+                        every downstream component accesses the same
+                        synchronized experimental representation without
+                        requiring additional disk operations.
+
+                    </p>
+
+                </section>
+
+                <hr>
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Exporting the Merged Dataset
+
+                    </h2>
+
+                    <p>
+
+                        After synchronization is complete, Raw2Ready
+                        generates a unified experimental dataset that can
+                        be used by every downstream module.
+
+                    </p>
+
+                    <p>
+
+                        The merged dataset preserves the complete
+                        experimental timeline while combining variables
+                        originating from multiple laboratory
+                        instruments.
+
+                    </p>
+
+                    <ul>
+
+                        <li>CSV export</li>
+
+                        <li>Microsoft Excel export</li>
+
+                        <li>Automatic filename generation</li>
+
+                        <li>Preservation of original timestamps</li>
+
+                        <li>Compatible with all Raw2Ready modules</li>
+
+                    </ul>
+
+                    <img src="images/merge/merged_dataset.png"
+                         class="image fit"
+                         alt="Merged Dataset">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <p>
+
+                        Following these recommendations helps ensure
+                        accurate synchronization and reliable downstream
+                        analysis.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Use the primary bioreactor dataset as the
+                            reference dataset whenever possible.
+
+                        </li>
+
+                        <li>
+
+                            Verify datetime formats before merging.
+
+                        </li>
+
+                        <li>
+
+                            Ensure all datasets use the same timezone.
+
+                        </li>
+
+                        <li>
+
+                            Remove duplicate timestamps before
+                            synchronization.
+
+                        </li>
+
+                        <li>
+
+                            Check for missing observations after the
+                            merge process.
+
+                        </li>
+
+                        <li>
+
+                            Review merged variables before continuing
+                            with calculations.
+
+                        </li>
+
+                        <li>
+
+                            Keep the original datasets unchanged for
+                            reproducibility.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Merge failed
+
+                                    </td>
+
+                                    <td>
+
+                                        Missing datetime column
+
+                                    </td>
+
+                                    <td>
+
+                                        Verify that every dataset
+                                        contains a valid datetime
+                                        variable.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Empty merged dataset
+
+                                    </td>
+
+                                    <td>
+
+                                        Incorrect merge strategy
+
+                                    </td>
+
+                                    <td>
+
+                                        Try Nearest-Neighbor or
+                                        Reference Dataset merging.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Duplicate timestamps
+
+                                    </td>
+
+                                    <td>
+
+                                        Experimental export issue
+
+                                    </td>
+
+                                    <td>
+
+                                        Remove duplicate observations
+                                        before merging.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Incorrect alignment
+
+                                    </td>
+
+                                    <td>
+
+                                        Datetime parsing error
+
+                                    </td>
+
+                                    <td>
+
+                                        Verify timestamp formatting and
+                                        timezone consistency.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Missing variables
+
+                                    </td>
+
+                                    <td>
+
+                                        Dataset selection error
+
+                                    </td>
+
+                                    <td>
+
+                                        Confirm all required datasets
+                                        were included in the merge.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Merge Module is responsible for transforming
+                        multiple heterogeneous experimental datasets into
+                        a single synchronized representation.
+
+                    </p>
+
+                    <p>
+
+                        Through automatic datetime alignment,
+                        nearest-neighbor synchronization, quality
+                        validation and Runtime Memory integration,
+                        Raw2Ready provides a robust foundation for all
+                        subsequent processing stages.
+
+                    </p>
+
+                    <blockquote>
+
+                        Accurate dataset synchronization is essential
+                        for reliable statistical analysis, visualization,
+                        metadata integration and AI-assisted reasoning.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        Once datasets have been merged successfully, the
+                        resulting unified dataset can be processed by the
+                        <strong>Calculate Module</strong>, where users
+                        may compute derived variables, biochemical
+                        parameters and custom mathematical expressions.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="load.html"
+                           class="button">
+
+                            Previous: Load Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="calculate.html"
+                           class="button primary">
+
+                            Next: Calculate Module
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>
+
+                &copy; 2026 Raw2Ready
+
+            </li>
+
+            <li>
+
+                BIOINDUSTRY4.0 Project
+
+            </li>
+
+            <li>
+
+                Athens Research Center
+
+            </li>
+
+            <li>
+
+                Documentation Website
+
+            </li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/jquery.scrollex.min.js"></script>
+
+<script src="assets/js/jquery.scrolly.min.js"></script>
+
+<script src="assets/js/browser.min.js"></script>
+
+<script src="assets/js/breakpoints.min.js"></script>
+
+<script src="assets/js/util.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
