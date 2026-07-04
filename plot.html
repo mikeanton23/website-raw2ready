@@ -1,0 +1,1425 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Plot Module | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Plot Module Documentation" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+
+    <header id="header">
+
+        <h1>
+
+            <a href="index.html">
+
+                Raw2Ready
+
+            </a>
+
+        </h1>
+
+        <nav id="nav">
+
+            <ul>
+
+                <li class="special">
+
+                    <a href="#menu" class="menuToggle">
+
+                        <span>Menu</span>
+
+                    </a>
+
+                    <div id="menu">
+
+                        <ul>
+
+                            <li><a href="index.html">Home</a></li>
+
+                            <li><a href="overview.html">Overview</a></li>
+
+                            <li><a href="installation.html">Installation</a></li>
+
+                            <li><a href="workflow.html">Workflow</a></li>
+
+                            <li><a href="load.html">Load Module</a></li>
+
+                            <li><a href="merge.html">Merge Module</a></li>
+
+                            <li><a href="calculate.html">Calculate Module</a></li>
+
+                            <li><a href="plot.html">Plot Module</a></li>
+
+                            <li><a href="statistics.html">Statistics</a></li>
+
+                            <li><a href="metadata.html">Metadata</a></li>
+
+                            <li><a href="agents.html">Multi-Agent AI</a></li>
+
+                            <li><a href="elements.html">Features</a></li>
+
+                            <li>
+
+                                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                                   target="_blank">
+
+                                    GitLab Repository
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <article id="main">
+
+        <header>
+
+            <h2>
+
+                Plot Module
+
+            </h2>
+
+            <p>
+
+                Interactive visualization of fermentation experiments,
+                calculated variables and statistical results.
+
+            </p>
+
+        </header>
+
+        <section class="wrapper style5">
+
+            <div class="inner">
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Overview
+
+                    </h2>
+
+                    <p>
+
+                        The Plot Module provides interactive visualization
+                        capabilities for experimental fermentation data.
+
+                    </p>
+
+                    <p>
+
+                        Users can generate publication-quality figures
+                        directly from harmonized datasets without exporting
+                        the data to external software such as Excel,
+                        OriginPro or GraphPad Prism.
+
+                    </p>
+
+                    <p>
+
+                        All plots are generated directly from the dataset
+                        stored in Runtime Memory, ensuring that every
+                        visualization reflects the latest preprocessing,
+                        merging and calculation operations.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Objectives
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Explore experimental trends.
+
+                        </li>
+
+                        <li>
+
+                            Compare fermentation variables.
+
+                        </li>
+
+                        <li>
+
+                            Detect abnormal behaviour.
+
+                        </li>
+
+                        <li>
+
+                            Produce publication-quality figures.
+
+                        </li>
+
+                        <li>
+
+                            Support exploratory data analysis.
+
+                        </li>
+
+                        <li>
+
+                            Assist AI-based interpretation.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Why Visualization Matters
+
+                    </h2>
+
+                    <p>
+
+                        Numerical tables alone rarely reveal hidden
+                        relationships within fermentation experiments.
+
+                    </p>
+
+                    <p>
+
+                        Visual representations enable researchers to
+                        identify process trends, biological behaviour,
+                        sensor anomalies and experimental deviations much
+                        more efficiently.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Growth dynamics
+
+                        </li>
+
+                        <li>
+
+                            Oxygen consumption
+
+                        </li>
+
+                        <li>
+
+                            Biomass accumulation
+
+                        </li>
+
+                        <li>
+
+                            Product formation
+
+                        </li>
+
+                        <li>
+
+                            Process disturbances
+
+                        </li>
+
+                        <li>
+
+                            Correlations between variables
+
+                        </li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Visualization transforms complex datasets into
+                        interpretable biological knowledge.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Plot Architecture
+
+                    </h2>
+
+                    <p>
+
+                        Every visualization follows the same execution
+                        pipeline.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+      │
+      ▼
+Variable Selection
+      │
+      ▼
+Plot Configuration
+      │
+      ▼
+Rendering Engine
+      │
+      ▼
+Interactive Figure
+      │
+      ▼
+Export
+</code></pre>
+
+                    <p>
+
+                        This architecture guarantees consistency across
+                        all visualization types.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Supported Plot Types
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Plot Type</th>
+
+                                    <th>Purpose</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Line Plot
+
+                                    </td>
+
+                                    <td>
+
+                                        Time-series visualization.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Scatter Plot
+
+                                    </td>
+
+                                    <td>
+
+                                        Variable relationships.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Bar Chart
+
+                                    </td>
+
+                                    <td>
+
+                                        Category comparison.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Histogram
+
+                                    </td>
+
+                                    <td>
+
+                                        Distribution analysis.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Box Plot
+
+                                    </td>
+
+                                    <td>
+
+                                        Outlier detection.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Multi-Series Plot
+
+                                    </td>
+
+                                    <td>
+
+                                        Comparison of multiple variables.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Visualization Workflow
+
+                    </h2>
+
+                    <p>
+
+                        Every visualization follows a structured workflow
+                        from dataset selection to interactive rendering.
+
+                    </p>
+
+<pre><code>
+Dataset
+      │
+      ▼
+Select Variables
+      │
+      ▼
+Choose Plot Type
+      │
+      ▼
+Configure Options
+      │
+      ▼
+Render Figure
+      │
+      ▼
+Export Image
+</code></pre>
+             <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Line Plots
+
+                    </h2>
+
+                    <p>
+
+                        Line plots are the primary visualization for
+                        fermentation experiments. They illustrate the
+                        evolution of process variables over time and are
+                        particularly useful for monitoring biomass growth,
+                        dissolved oxygen, pH, temperature and substrate
+                        consumption.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Single-variable trends</li>
+
+                        <li>Time-series analysis</li>
+
+                        <li>Fermentation monitoring</li>
+
+                        <li>Growth curve visualization</li>
+
+                    </ul>
+
+                    <img src="images/plot/line_plot.png"
+                         class="image fit"
+                         alt="Line Plot Example">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Scatter Plots
+
+                    </h2>
+
+                    <p>
+
+                        Scatter plots visualize the relationship between
+                        two quantitative variables and help identify
+                        correlations, clusters and abnormal observations.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Variable correlation</li>
+
+                        <li>Process relationships</li>
+
+                        <li>Pattern discovery</li>
+
+                        <li>Outlier detection</li>
+
+                    </ul>
+
+                    <img src="images/plot/scatter_plot.png"
+                         class="image fit"
+                         alt="Scatter Plot Example">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Bar Charts
+
+                    </h2>
+
+                    <p>
+
+                        Bar charts compare categorical values or summary
+                        statistics across experimental conditions.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Use Case</th>
+
+                                    <th>Example</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Average Biomass</td>
+
+                                    <td>Bioreactor Comparison</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Maximum Product</td>
+
+                                    <td>Culture Comparison</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Yield Values</td>
+
+                                    <td>Process Optimization</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <img src="images/plot/bar_plot.png"
+                         class="image fit"
+                         alt="Bar Chart Example">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Histograms
+
+                    </h2>
+
+                    <p>
+
+                        Histograms display the frequency distribution of
+                        numerical variables, allowing users to evaluate
+                        data spread, skewness and distribution shape.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Normality assessment</li>
+
+                        <li>Distribution analysis</li>
+
+                        <li>Data exploration</li>
+
+                        <li>Quality assessment</li>
+
+                    </ul>
+
+                    <img src="images/plot/histogram.png"
+                         class="image fit"
+                         alt="Histogram Example">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Box Plots
+
+                    </h2>
+
+                    <p>
+
+                        Box plots summarize variable distributions while
+                        highlighting quartiles, variability and potential
+                        outliers.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Median</li>
+
+                        <li>Interquartile Range</li>
+
+                        <li>Whiskers</li>
+
+                        <li>Outlier Identification</li>
+
+                    </ul>
+
+                    <img src="images/plot/box_plot.png"
+                         class="image fit"
+                         alt="Box Plot Example">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Multi-Series Plots
+
+                    </h2>
+
+                    <p>
+
+                        Multiple variables can be visualized
+                        simultaneously on the same figure, enabling direct
+                        comparison of process behaviour.
+
+                    </p>
+
+<pre><code>
+Biomass
+      │
+Temperature
+      │
+pH
+      │
+Dissolved Oxygen
+      │
+Substrate Feed
+      │
+▼
+Combined Plot
+</code></pre>
+
+                    <p>
+
+                        Multi-series visualizations simplify the analysis
+                        of interactions between experimental variables.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Interactive Plot Controls
+
+                    </h2>
+
+                    <p>
+
+                        The NiceGUI interface provides interactive tools
+                        for configuring every visualization.
+
+                    </p>
+
+                    <ul>
+
+                        <li>X-axis selection</li>
+
+                        <li>Y-axis selection</li>
+
+                        <li>Multiple variable selection</li>
+
+                        <li>Legend control</li>
+
+                        <li>Zoom and pan</li>
+
+                        <li>Automatic scaling</li>
+
+                        <li>Grid visibility</li>
+
+                        <li>Figure titles</li>
+
+                    </ul>
+
+                    <img src="images/plot/plot_controls.png"
+                         class="image fit"
+                         alt="Plot Controls">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Plot Customization
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready enables users to customize generated
+                        figures before exporting them.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Feature</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Titles</td>
+
+                                    <td>Custom figure titles</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Axis Labels</td>
+
+                                    <td>Descriptive variable names</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Legends</td>
+
+                                    <td>Automatic legend generation</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Grid</td>
+
+                                    <td>Enable or disable background grid</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Colors</td>
+
+                                    <td>Automatic color assignment</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Resolution</td>
+
+                                    <td>Publication-quality export</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Every visualization is generated directly from
+                        the dataset stored in Runtime Memory.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+      │
+      ▼
+Plot Module
+      │
+      ▼
+Interactive Figure
+      │
+      ▼
+User Interface
+</code></pre>
+
+                    <blockquote>
+
+                        Because all modules share the same Runtime Memory,
+                        every generated plot always reflects the most
+                        recent preprocessing, merge and calculation
+                        operations.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+                  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Exporting Figures
+
+                    </h2>
+
+                    <p>
+
+                        Once a visualization has been generated, Raw2Ready
+                        allows users to export publication-quality figures
+                        for reports, presentations and scientific
+                        publications.
+
+                    </p>
+
+                    <ul>
+
+                        <li>PNG export</li>
+
+                        <li>SVG export</li>
+
+                        <li>High-resolution figures</li>
+
+                        <li>Transparent background support</li>
+
+                        <li>Automatic figure titles</li>
+
+                        <li>Publication-ready output</li>
+
+                    </ul>
+
+                    <img src="images/plot/export.png"
+                         class="image fit"
+                         alt="Figure Export">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI Integration
+
+                    </h2>
+
+                    <p>
+
+                        Generated visualizations are directly available to
+                        the Raw2Ready Multi-Agent framework.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+        │
+        ▼
+Plot Module
+        │
+        ▼
+Interactive Figures
+        │
+        ▼
+Data Analyst Agent
+        │
+        ▼
+Master Summarizer
+</code></pre>
+
+                    <p>
+
+                        The Data Analyst Agent uses visualization outputs
+                        together with statistical results to automatically
+                        interpret fermentation experiments and identify
+                        significant biological patterns.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Typical Visualization Workflow
+
+                    </h2>
+
+<pre><code>
+Load Dataset
+      │
+      ▼
+Merge Datasets
+      │
+      ▼
+Calculate Variables
+      │
+      ▼
+Select Variables
+      │
+      ▼
+Generate Plot
+      │
+      ▼
+Interpret Results
+      │
+      ▼
+Export Figure
+</code></pre>
+
+                    <p>
+
+                        This workflow ensures that every figure is created
+                        using the most recent version of the experimental
+                        dataset.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Label all axes clearly.
+
+                        </li>
+
+                        <li>
+
+                            Include informative figure titles.
+
+                        </li>
+
+                        <li>
+
+                            Compare variables using common scales when
+                            appropriate.
+
+                        </li>
+
+                        <li>
+
+                            Remove unnecessary visual clutter.
+
+                        </li>
+
+                        <li>
+
+                            Verify units before plotting variables.
+
+                        </li>
+
+                        <li>
+
+                            Inspect outliers before interpretation.
+
+                        </li>
+
+                        <li>
+
+                            Export high-resolution figures for
+                            publications.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>No plot generated</td>
+
+                                    <td>No dataset loaded</td>
+
+                                    <td>Load a dataset before creating plots.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Empty figure</td>
+
+                                    <td>No variables selected</td>
+
+                                    <td>Select valid X and Y variables.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Incorrect axis</td>
+
+                                    <td>Wrong variable selection</td>
+
+                                    <td>Verify the selected columns.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing legend</td>
+
+                                    <td>Legend disabled</td>
+
+                                    <td>Enable legends in the plot settings.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Poor image quality</td>
+
+                                    <td>Low export resolution</td>
+
+                                    <td>Export using high-resolution settings.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Plot Module transforms numerical fermentation
+                        datasets into interactive visualizations that
+                        facilitate exploratory analysis, experimental
+                        interpretation and scientific communication.
+
+                    </p>
+
+                    <p>
+
+                        By integrating seamlessly with Runtime Memory and
+                        the Multi-Agent framework, every visualization
+                        reflects the latest preprocessing, calculations
+                        and statistical analyses performed within
+                        Raw2Ready.
+
+                    </p>
+
+                    <blockquote>
+
+                        Effective visualization is a critical step in
+                        transforming experimental measurements into
+                        actionable biological knowledge.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        After exploring experimental data visually, users
+                        can continue with the
+                        <strong>Statistics Module</strong> to perform
+                        descriptive statistics, distribution analysis,
+                        hypothesis testing and exploratory data analysis.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="calculate.html"
+                           class="button">
+
+                            Previous: Calculate Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="statistics.html"
+                           class="button primary">
+
+                            Next: Statistics Module
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center</li>
+
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+                  
+
+                </section>
+
+                <hr>
