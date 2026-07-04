@@ -1,0 +1,1458 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>BacDive Explorer | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready BacDive Explorer Documentation" />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Menu</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics Module</a></li>
+
+<li><a href="metadata.html">Metadata Module</a></li>
+
+<li><a href="bacdive.html">BacDive Explorer</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<article id="main">
+
+<header>
+
+<h2>
+
+BacDive Explorer
+
+</h2>
+
+<p>
+
+Microbial knowledge retrieval using the BacDive bacterial
+metadatabase.
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<hr>
+
+<section>
+
+<h2>
+
+Overview
+
+</h2>
+
+<p>
+
+The BacDive Explorer integrates microbial knowledge into
+Raw2Ready by connecting fermentation experiments with the
+Bacterial Diversity Metadatabase (BacDive).
+
+</p>
+
+<p>
+
+Instead of relying only on experimental measurements,
+Raw2Ready enriches datasets with biological information
+including strain characteristics, cultivation conditions,
+physiology, taxonomy and environmental preferences.
+
+</p>
+
+<p>
+
+This additional context allows AI agents to interpret
+fermentation behaviour using both experimental evidence
+and established microbiological knowledge.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Objectives
+
+</h2>
+
+<ul>
+
+<li>Retrieve microbial information.</li>
+
+<li>Support strain identification.</li>
+
+<li>Provide cultivation conditions.</li>
+
+<li>Retrieve physiological properties.</li>
+
+<li>Improve biological interpretation.</li>
+
+<li>Support AI-assisted reasoning.</li>
+
+<li>Integrate external biological knowledge.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Why BacDive?
+
+</h2>
+
+<p>
+
+Experimental datasets describe what happened during a
+fermentation process, while BacDive explains why those
+observations may have occurred.
+
+</p>
+
+<p>
+
+Combining numerical measurements with microbial knowledge
+creates a richer understanding of experimental behaviour.
+
+</p>
+
+<blockquote>
+
+Raw2Ready combines experimental evidence with biological
+knowledge to support evidence-based interpretation.
+
+</blockquote>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Knowledge Architecture
+
+</h2>
+
+<pre><code>
+User Query
+      │
+      ▼
+Microorganism
+      │
+      ▼
+BacDive Explorer
+      │
+      ▼
+BacDive Database
+      │
+      ▼
+Retrieved Knowledge
+      │
+      ▼
+Runtime Memory
+      │
+      ▼
+AI Agents
+</code></pre>
+
+<p>
+
+The BacDive Explorer communicates directly with the BacDive
+repository and stores retrieved knowledge in Runtime Memory.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Retrieved Information
+
+</h2>
+
+<p>
+
+The BacDive Explorer retrieves a broad range of biological
+information describing microbial strains.
+
+</p>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Category</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Taxonomy</td>
+
+<td>Scientific classification.</td>
+
+</tr>
+
+<tr>
+
+<td>Strain</td>
+
+<td>Culture collection identifiers.</td>
+
+</tr>
+
+<tr>
+
+<td>Morphology</td>
+
+<td>Cell characteristics.</td>
+
+</tr>
+
+<tr>
+
+<td>Physiology</td>
+
+<td>Growth behaviour.</td>
+
+</tr>
+
+<tr>
+
+<td>Cultivation</td>
+
+<td>Optimal cultivation conditions.</td>
+
+</tr>
+
+<tr>
+
+<td>Isolation</td>
+
+<td>Environmental origin.</td>
+
+</tr>
+
+<tr>
+
+<td>References</td>
+
+<td>Associated publications.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Typical Workflow
+
+</h2>
+
+<pre><code>
+Microorganism Name
+        │
+        ▼
+Name Validation
+        │
+        ▼
+BacDive Search
+        │
+        ▼
+Retrieve Record
+        │
+        ▼
+Extract Biological Data
+        │
+        ▼
+Runtime Memory
+</code></pre>
+
+<p>
+
+The retrieved information immediately becomes available to
+the Multi-Agent framework.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Supported Biological Information
+
+</h2>
+
+<ul>
+
+<li>Scientific name</li>
+
+<li>Species</li>
+
+<li>Strain number</li>
+
+<li>Culture collection</li>
+
+<li>Growth temperature</li>
+
+<li>Growth pH</li>
+
+<li>Oxygen requirements</li>
+
+<li>Salinity tolerance</li>
+
+<li>Cell morphology</li>
+
+<li>Gram staining</li>
+
+<li>Isolation source</li>
+
+<li>Associated publications</li>
+
+</ul>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Strain Search
+
+                    </h2>
+
+                    <p>
+
+                        The BacDive Explorer allows users to search for
+                        microorganisms using scientific names, strain
+                        identifiers or culture collection numbers.
+
+                    </p>
+
+                    <p>
+
+                        Retrieved records are automatically validated and
+                        linked to the active fermentation experiment.
+
+                    </p>
+
+                    <img src="images/bacdive/strain_search.png"
+                         class="image fit"
+                         alt="Strain Search">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Taxonomic Classification
+
+                    </h2>
+
+                    <p>
+
+                        Each microorganism is associated with its complete
+                        taxonomic hierarchy.
+
+                    </p>
+
+<pre><code>
+Domain
+   │
+   ▼
+Phylum
+   │
+   ▼
+Class
+   │
+   ▼
+Order
+   │
+   ▼
+Family
+   │
+   ▼
+Genus
+   │
+   ▼
+Species
+   │
+   ▼
+Strain
+</code></pre>
+
+                    <p>
+
+                        Taxonomic information provides biological context
+                        and enables comparison between related organisms.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Growth Conditions
+
+                    </h2>
+
+                    <p>
+
+                        BacDive provides experimentally verified growth
+                        conditions that assist researchers in interpreting
+                        fermentation performance.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Parameter</th>
+
+                                    <th>Example</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Temperature</td>
+
+                                    <td>30°C</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>pH</td>
+
+                                    <td>7.0</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Oxygen</td>
+
+                                    <td>Aerobic</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Salinity</td>
+
+                                    <td>2% NaCl</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Medium</td>
+
+                                    <td>LB Broth</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Physiological Properties
+
+                    </h2>
+
+                    <p>
+
+                        Physiological characteristics provide insight into
+                        microbial metabolism and expected fermentation
+                        behaviour.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Aerobic or anaerobic growth</li>
+
+                        <li>Carbon source utilization</li>
+
+                        <li>Nitrogen metabolism</li>
+
+                        <li>Enzyme production</li>
+
+                        <li>Stress tolerance</li>
+
+                        <li>Growth kinetics</li>
+
+                    </ul>
+
+                    <img src="images/bacdive/physiology.png"
+                         class="image fit"
+                         alt="Physiology">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Morphological Characteristics
+
+                    </h2>
+
+                    <p>
+
+                        Cell morphology provides complementary biological
+                        information describing microbial structure.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Cell shape</li>
+
+                        <li>Gram staining</li>
+
+                        <li>Motility</li>
+
+                        <li>Spore formation</li>
+
+                        <li>Cell size</li>
+
+                        <li>Pigmentation</li>
+
+                    </ul>
+
+                    <img src="images/bacdive/morphology.png"
+                         class="image fit"
+                         alt="Morphology">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Environmental Information
+
+                    </h2>
+
+                    <p>
+
+                        BacDive records the natural habitat and isolation
+                        source of each microorganism.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Soil</li>
+
+                        <li>Marine environments</li>
+
+                        <li>Freshwater</li>
+
+                        <li>Plants</li>
+
+                        <li>Animals</li>
+
+                        <li>Industrial bioprocesses</li>
+
+                    </ul>
+
+                    <img src="images/bacdive/environment.png"
+                         class="image fit"
+                         alt="Environmental Information">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        BacDive Explorer Agent
+
+                    </h2>
+
+                    <p>
+
+                        The BacDive Explorer Agent automatically queries
+                        the BacDive repository whenever microorganism
+                        information is required.
+
+                    </p>
+
+<pre><code>
+Microorganism
+      │
+      ▼
+BacDive Explorer Agent
+      │
+      ▼
+Retrieve Record
+      │
+      ▼
+Extract Information
+      │
+      ▼
+Runtime Memory
+      │
+      ▼
+Master Summarizer
+</code></pre>
+
+                    <blockquote>
+
+                        The BacDive Explorer Agent enriches experimental
+                        data with curated microbiological knowledge.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Retrieved BacDive information is stored in Runtime
+                        Memory together with experimental datasets and
+                        metadata.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+
+├── Experimental Dataset
+
+├── Metadata
+
+├── BacDive Knowledge
+
+├── Statistical Results
+
+├── Literature Evidence
+
+└── AI Responses
+</code></pre>
+
+                    <p>
+
+                        All AI agents can immediately access the retrieved
+                        microbial knowledge during reasoning.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example BacDive Response
+
+                    </h2>
+
+                    <p>
+
+                        Example information returned for a microorganism.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Field</th>
+
+                                    <th>Value</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Species</td>
+
+                                    <td><em>Escherichia coli</em></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Gram Stain</td>
+
+                                    <td>Negative</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Temperature</td>
+
+                                    <td>37°C</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Oxygen</td>
+
+                                    <td>Facultative anaerobe</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Habitat</td>
+
+                                    <td>Intestinal tract</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI-Assisted Biological Reasoning
+
+                    </h2>
+
+                    <p>
+
+                        BacDive information becomes significantly more
+                        valuable when combined with experimental data,
+                        metadata and statistical analyses.
+
+                    </p>
+
+                    <p>
+
+                        The Multi-Agent AI framework integrates microbial
+                        knowledge with experimental evidence to provide
+                        biologically meaningful explanations instead of
+                        isolated database records.
+
+                    </p>
+
+<pre><code>
+Experimental Dataset
+         │
+         ▼
+Statistics Module
+         │
+         ▼
+Metadata Module
+         │
+         ▼
+BacDive Explorer
+         │
+         ▼
+Evidence Integration
+         │
+         ▼
+Master Summarizer
+         │
+         ▼
+Final Biological Interpretation
+</code></pre>
+
+                    <blockquote>
+
+                        Raw2Ready combines biological knowledge with
+                        experimental observations to support
+                        evidence-based fermentation analysis.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Knowledge Integration
+
+                    </h2>
+
+                    <p>
+
+                        The BacDive Explorer is one component of a larger
+                        biological knowledge ecosystem inside Raw2Ready.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Knowledge Source</th>
+
+                                    <th>Contribution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Experimental Dataset</td>
+
+                                    <td>Numerical measurements</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>MIFE Metadata</td>
+
+                                    <td>Experimental context</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>BacDive</td>
+
+                                    <td>Microbial knowledge</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Scientific Literature</td>
+
+                                    <td>Published evidence</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Internet Resources</td>
+
+                                    <td>Recent biological information</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example AI Workflow
+
+                    </h2>
+
+                    <p>
+
+                        Example question processed by the Multi-Agent
+                        framework.
+
+                    </p>
+
+<pre><code>
+User:
+
+"Why did Escherichia coli grow slowly?"
+
+          │
+
+          ▼
+
+Data Analyst
+        +
+Metadata Analyst
+        +
+BacDive Explorer
+        +
+Literature Reviewer
+
+          │
+
+          ▼
+
+Master Summarizer
+
+          │
+
+          ▼
+
+Integrated Biological Explanation
+</code></pre>
+
+                    <p>
+
+                        Multiple agents contribute complementary evidence
+                        before the final response is generated.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Exporting BacDive Information
+
+                    </h2>
+
+                    <p>
+
+                        Retrieved microbial information can be exported
+                        together with the experimental metadata for future
+                        analysis and documentation.
+
+                    </p>
+
+                    <ul>
+
+                        <li>JSON</li>
+
+                        <li>CSV</li>
+
+                        <li>YAML</li>
+
+                        <li>MIFE-compatible metadata</li>
+
+                        <li>AI-ready structured output</li>
+
+                    </ul>
+
+                    <img src="images/bacdive/export.png"
+                         class="image fit"
+                         alt="Export BacDive Information">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Use complete scientific names whenever
+                            possible.
+
+                        </li>
+
+                        <li>
+
+                            Verify microorganism strain identifiers.
+
+                        </li>
+
+                        <li>
+
+                            Combine BacDive information with metadata.
+
+                        </li>
+
+                        <li>
+
+                            Compare retrieved growth conditions with
+                            experimental observations.
+
+                        </li>
+
+                        <li>
+
+                            Use literature evidence to validate
+                            biological conclusions.
+
+                        </li>
+
+                        <li>
+
+                            Review retrieved information before exporting.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>No BacDive record found</td>
+
+                                    <td>Unknown strain</td>
+
+                                    <td>Verify the scientific name.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Incomplete information</td>
+
+                                    <td>Limited BacDive record</td>
+
+                                    <td>Supplement with literature evidence.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Connection failed</td>
+
+                                    <td>Internet unavailable</td>
+
+                                    <td>Check network connectivity.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Incorrect organism</td>
+
+                                    <td>Misspelled species name</td>
+
+                                    <td>Validate taxonomy before querying.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing AI interpretation</td>
+
+                                    <td>Metadata unavailable</td>
+
+                                    <td>Complete the Metadata Module first.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The BacDive Explorer enriches fermentation
+                        experiments with curated microbiological
+                        knowledge retrieved from the BacDive bacterial
+                        metadatabase.
+
+                    </p>
+
+                    <p>
+
+                        Combined with experimental measurements,
+                        metadata and scientific literature, BacDive
+                        enables biologically informed reasoning that
+                        significantly improves the interpretability of
+                        fermentation experiments.
+
+                    </p>
+
+                    <blockquote>
+
+                        Biological knowledge transforms experimental
+                        measurements into scientifically meaningful
+                        interpretations.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        Continue to the
+                        <strong>Multi-Agent AI Framework</strong>
+                        documentation to learn how BacDive knowledge is
+                        combined with statistical analyses, metadata,
+                        scientific literature and internet resources to
+                        generate evidence-based responses.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="metadata.html"
+                           class="button">
+
+                            Previous: Metadata Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="agents.html"
+                           class="button primary">
+
+                            Next: Multi-Agent AI
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+            <li>BIOINDUSTRY4.0 Project</li>
+            <li>Athens Research Center</li>
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+</section>
+
+<hr>
