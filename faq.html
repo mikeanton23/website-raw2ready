@@ -1,0 +1,1525 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>FAQ | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Frequently Asked Questions for Raw2Ready" />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Menu</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="workflow.html">Workflow</a></li>
+<li><a href="load.html">Load Module</a></li>
+<li><a href="merge.html">Merge Module</a></li>
+<li><a href="calculate.html">Calculate Module</a></li>
+<li><a href="plot.html">Plot Module</a></li>
+<li><a href="statistics.html">Statistics Module</a></li>
+<li><a href="metadata.html">Metadata Module</a></li>
+<li><a href="bacdive.html">BacDive Explorer</a></li>
+<li><a href="literature.html">Literature Reviewer</a></li>
+<li><a href="agents.html">Multi-Agent AI</a></li>
+<li><a href="faq.html">FAQ</a></li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Frequently Asked Questions
+
+</h2>
+
+<p>
+
+Answers to the most common questions regarding installation,
+configuration, data processing and AI-assisted analysis.
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<hr>
+
+<section>
+
+<h2>
+
+General Questions
+
+</h2>
+
+</section>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Question</th>
+
+<th>Answer</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+What is Raw2Ready?
+
+</td>
+
+<td>
+
+Raw2Ready is a Python-based platform for harmonizing,
+processing, visualizing and intelligently exploring
+fermentation datasets using statistical methods,
+semantic metadata and Large Language Models.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Who is Raw2Ready designed for?
+
+</td>
+
+<td>
+
+Researchers, process engineers, microbiologists,
+biotechnologists and industrial biotechnology
+organizations working with fermentation experiments.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Can Raw2Ready be used without programming knowledge?
+
+</td>
+
+<td>
+
+Yes. The NiceGUI graphical interface provides an
+interactive environment that requires no programming
+experience for most workflows.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Is Raw2Ready open source?
+
+</td>
+
+<td>
+
+Yes. The source code is available through the
+project GitLab repository.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Does Raw2Ready require an internet connection?
+
+</td>
+
+<td>
+
+No. Core functionality operates locally. Internet
+access is only required for external knowledge
+sources such as BacDive, CrossRef and optional
+internet search.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<hr>
+
+<section>
+
+<h2>
+
+Installation
+
+</h2>
+
+</section>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Question</th>
+
+<th>Answer</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+Which Python version is recommended?
+
+</td>
+
+<td>
+
+Python 3.10 or newer.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Can Raw2Ready run on Windows?
+
+</td>
+
+<td>
+
+Yes. Windows, Linux and macOS are supported.
+Windows Subsystem for Linux (WSL) is recommended
+for the best compatibility.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Is a GPU required?
+
+</td>
+
+<td>
+
+No. All processing modules work on CPUs.
+Local LLM inference can optionally benefit
+from GPU acceleration.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Is Ollama mandatory?
+
+</td>
+
+<td>
+
+No. Ollama is only required when using local
+Large Language Models.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+How do I verify my installation?
+
+</td>
+
+<td>
+
+Run:
+
+<pre><code>python3 run_app.py</code></pre>
+
+and open the browser at:
+
+<pre><code>http://localhost:8080</code></pre>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<hr>
+
+<section>
+
+<h2>
+
+Supported Data
+
+</h2>
+
+</section>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Question</th>
+
+<th>Answer</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+Which file formats are supported?
+
+</td>
+
+<td>
+
+CSV, XLSX, TXT and vendor-specific fermentation
+exports.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Which equipment is currently supported?
+
+</td>
+
+<td>
+
+Sartorius bioreactors, BioLectorXT systems,
+gas analyzers and generic spreadsheet data.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Can I import multiple datasets?
+
+</td>
+
+<td>
+
+Yes. Multiple datasets can be loaded and merged
+using datetime synchronization.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Can Raw2Ready process time-series data?
+
+</td>
+
+<td>
+
+Yes. Time-series processing is one of the core
+features of the platform.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Can datasets have different sampling rates?
+
+</td>
+
+<td>
+
+Yes. The Merge Module aligns asynchronous
+measurements using nearest-neighbor matching.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<hr>
+
+<section>
+
+<h2>
+
+Data Processing
+
+</h2>
+
+<p>
+
+The following section answers common questions
+regarding preprocessing, merging and calculation
+modules.
+
+</p>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Data Processing Modules
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    What does the Load Module do?
+
+                                </td>
+
+                                <td>
+
+                                    The Load Module imports raw fermentation
+                                    files, validates their structure and
+                                    prepares them for preprocessing.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can I load multiple files simultaneously?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Multiple datasets can be imported
+                                    during the same session.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    What is the Merge Module used for?
+
+                                </td>
+
+                                <td>
+
+                                    It synchronizes multiple time-series
+                                    datasets originating from different
+                                    instruments.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Which merge strategy is implemented?
+
+                                </td>
+
+                                <td>
+
+                                    Nearest-neighbor datetime alignment using
+                                    a user-selected reference dataset.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    What does the Calculate Module do?
+
+                                </td>
+
+                                <td>
+
+                                    It evaluates mathematical expressions to
+                                    generate new variables directly from
+                                    existing dataset columns.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can formulas use multiple variables?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Formulas may combine any number of
+                                    dataset columns together with constants
+                                    defined in the configuration file.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Visualization
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    Which plots are available?
+
+                                </td>
+
+                                <td>
+
+                                    Line plots, scatter plots, histograms,
+                                    boxplots, correlation matrices,
+                                    heatmaps and interactive Plotly
+                                    visualizations.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can plots be exported?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Figures can be exported in PNG,
+                                    SVG, PDF and HTML formats.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Are interactive figures supported?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Interactive Plotly visualizations
+                                    allow zooming, panning and data
+                                    inspection.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Statistics
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    Which statistical analyses are available?
+
+                                </td>
+
+                                <td>
+
+                                    Descriptive statistics, correlation
+                                    analysis, PCA, clustering, ANOVA,
+                                    regression and hypothesis testing.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can statistical results be exported?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Statistical tables and figures may
+                                    be exported for publication.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Does Raw2Ready automatically detect
+                                    numerical columns?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Numerical variables are identified
+                                    automatically before analysis.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata & MIFE
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    What is MIFE?
+
+                                </td>
+
+                                <td>
+
+                                    The Minimum Information Framework for
+                                    Fermentation Experiments standardizes
+                                    experimental metadata.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Why is metadata important?
+
+                                </td>
+
+                                <td>
+
+                                    Metadata provides experimental context
+                                    that significantly improves AI-assisted
+                                    interpretation.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can metadata be exported?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Metadata can be exported in JSON,
+                                    YAML and MIFE-compatible formats.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI Agents
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    Which AI agents are included?
+
+                                </td>
+
+                                <td>
+
+                                    Data Analyst, Metadata Analyst,
+                                    BacDive Explorer, Literature Reviewer,
+                                    Internet Explorer and Master
+                                    Summarizer.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Does Raw2Ready use Large Language Models?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Multiple LLMs can be integrated,
+                                    including local models executed
+                                    through Ollama.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can the AI answer questions about my
+                                    dataset?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. AI agents combine experimental
+                                    data, metadata and biological
+                                    knowledge to answer natural-language
+                                    questions.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Is internet access mandatory for AI?
+
+                                </td>
+
+                                <td>
+
+                                    No. Local reasoning works without
+                                    internet access. External services are
+                                    optional.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    What is Runtime Memory?
+
+                                </td>
+
+                                <td>
+
+                                    Runtime Memory stores datasets,
+                                    metadata, statistical results and AI
+                                    evidence during an active session so
+                                    agents can share information.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Performance & Runtime
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    Can Raw2Ready process large datasets?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Raw2Ready is designed to efficiently
+                                    process large fermentation datasets
+                                    containing thousands of measurements.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Is all processing performed locally?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Dataset processing, statistical
+                                    analysis and visualization are executed
+                                    locally. External services are only used
+                                    when requested.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Does Raw2Ready save Runtime Memory?
+
+                                </td>
+
+                                <td>
+
+                                    Runtime Memory exists only during the
+                                    current session unless exported by the
+                                    user.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can multiple datasets be analyzed in one
+                                    session?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Multiple datasets may be loaded,
+                                    merged and analyzed simultaneously.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Export & Reporting
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Question</th>
+
+                                <th>Answer</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    Which export formats are supported?
+
+                                </td>
+
+                                <td>
+
+                                    CSV, Excel, JSON, YAML, PDF, PNG, SVG
+                                    and HTML depending on the module.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can figures be used in publications?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. High-resolution publication-quality
+                                    figures can be exported.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Can processed datasets be reused?
+
+                                </td>
+
+                                <td>
+
+                                    Yes. Harmonized datasets may be exported
+                                    and reused by other software or machine
+                                    learning workflows.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                </section>
+
+                <div class="table-wrapper">
+
+                    <table class="alt">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Problem</th>
+
+                                <th>Recommended Solution</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    Application does not start
+
+                                </td>
+
+                                <td>
+
+                                    Verify that all required Python
+                                    dependencies have been installed.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Dataset cannot be loaded
+
+                                </td>
+
+                                <td>
+
+                                    Check the file format, delimiter and
+                                    required datetime columns.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    Merge operation fails
+
+                                </td>
+
+                                <td>
+
+                                    Ensure that all datasets contain valid
+                                    datetime information.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    AI agent returns no response
+
+                                </td>
+
+                                <td>
+
+                                    Verify that a dataset has been loaded
+                                    and Runtime Memory contains data.
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    BacDive or Literature search fails
+
+                                </td>
+
+                                <td>
+
+                                    Verify internet connectivity and the
+                                    availability of external services.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>Load and validate datasets before analysis.</li>
+
+                        <li>Complete metadata before using AI agents.</li>
+
+                        <li>Merge datasets using synchronized timestamps.</li>
+
+                        <li>Create calculated variables before visualization.</li>
+
+                        <li>Review statistical results prior to AI interpretation.</li>
+
+                        <li>Use BacDive and Literature modules together for richer biological context.</li>
+
+                        <li>Export processed datasets regularly.</li>
+
+                        <li>Keep Raw2Ready and its Python dependencies updated.</li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Need More Help?
+
+                    </h2>
+
+                    <p>
+
+                        If your question is not answered here, consult the
+                        remaining documentation pages or visit the project
+                        repository for updates, examples and issue tracking.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="agents.html"
+                           class="button">
+
+                            Previous: Multi-Agent AI
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="index.html"
+                           class="button primary">
+
+                            Back to Home
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+            <li>BIOINDUSTRY4.0 Project</li>
+            <li>Athens Research Center</li>
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+</section>
+
+<hr>
