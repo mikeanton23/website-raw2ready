@@ -1,0 +1,2000 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Multi-Agent AI | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Multi-Agent AI Documentation" />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<!-- ====================================================== -->
+<!-- Header -->
+<!-- ====================================================== -->
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Menu</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics Module</a></li>
+
+<li><a href="metadata.html">Metadata Module</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<li><a href="elements.html">Features</a></li>
+
+<li>
+
+<a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+target="_blank">
+
+GitLab Repository
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ====================================================== -->
+<!-- Main -->
+<!-- ====================================================== -->
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Multi-Agent AI Framework
+
+</h2>
+
+<p>
+
+Collaborative Large Language Model agents for intelligent
+analysis of fermentation experiments.
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Overview
+
+</h2>
+
+<p>
+
+The Multi-Agent AI Framework is the central intelligence
+layer of Raw2Ready.
+
+</p>
+
+<p>
+
+Instead of relying on a single Large Language Model,
+Raw2Ready distributes reasoning across multiple specialized
+agents, each responsible for a different knowledge domain.
+
+</p>
+
+<p>
+
+This collaborative architecture improves reasoning quality,
+reduces hallucinations, increases explainability and enables
+evidence-based responses supported by structured
+experimental data, metadata and external biological
+knowledge.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Objectives
+
+</h2>
+
+<ul>
+
+<li>Support evidence-based reasoning.</li>
+
+<li>Reduce hallucinations.</li>
+
+<li>Combine multiple knowledge sources.</li>
+
+<li>Improve biological interpretation.</li>
+
+<li>Provide transparent reasoning.</li>
+
+<li>Maintain execution traceability.</li>
+
+<li>Support modular AI extensions.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Why Multi-Agent AI?
+
+</h2>
+
+<p>
+
+A single Large Language Model cannot reliably perform every
+task required during fermentation analysis.
+
+</p>
+
+<p>
+
+Different reasoning problems require different expertise,
+including statistical interpretation, microorganism
+knowledge, literature retrieval and protocol analysis.
+
+</p>
+
+<p>
+
+Raw2Ready therefore decomposes complex reasoning into
+multiple specialized agents coordinated by a central Agent
+Orchestrator.
+
+</p>
+
+<blockquote>
+
+Specialization improves accuracy, transparency and
+maintainability.
+
+</blockquote>
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+High-Level Architecture
+
+</h2>
+
+<pre><code>
+                 User Question
+                       │
+                       ▼
+               Agent Orchestrator
+                       │
+     ┌─────────────────┼─────────────────┐
+     │                 │                 │
+     ▼                 ▼                 ▼
+Dataset        Metadata Analyst    BacDive Agent
+     │                 │                 │
+     ▼                 ▼                 ▼
+Statistics      Literature Agent   Internet Agent
+     │                 │                 │
+     └─────────────────┼─────────────────┘
+                       ▼
+              Master Summarizer
+                       │
+                       ▼
+               Final AI Response
+</code></pre>
+
+<p>
+
+The Agent Orchestrator coordinates every reasoning step,
+ensuring that only the necessary agents participate in the
+analysis.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Agent Orchestrator
+
+</h2>
+
+<p>
+
+The Agent Orchestrator serves as the decision-making
+component of the Multi-Agent framework.
+
+</p>
+
+<p>
+
+It analyses each user request, determines which agents are
+required and coordinates the complete execution workflow.
+
+</p>
+
+<ul>
+
+<li>Receives user requests.</li>
+
+<li>Determines required agents.</li>
+
+<li>Schedules execution.</li>
+
+<li>Collects intermediate results.</li>
+
+<li>Coordinates evidence fusion.</li>
+
+<li>Invokes the Master Summarizer.</li>
+
+</ul>
+
+<img src="images/agents/orchestrator.png"
+class="image fit"
+alt="Agent Orchestrator">
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Runtime Memory
+
+</h2>
+
+<p>
+
+Every AI agent accesses a shared Runtime Memory that stores
+the current state of the experiment.
+
+</p>
+
+<p>
+
+Rather than exchanging information directly, agents read
+from and write to Runtime Memory, simplifying communication
+and improving consistency.
+
+</p>
+
+<pre><code>
+Runtime Memory
+
+├── Active Dataset
+
+├── Metadata
+
+├── Calculated Variables
+
+├── Statistical Results
+
+├── BacDive Knowledge
+
+├── Literature Evidence
+
+├── Internet Evidence
+
+└── Agent Outputs
+</code></pre>
+
+<p>
+
+Runtime Memory ensures that every agent operates using the
+same experimental context.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Agent Communication Model
+
+</h2>
+
+<p>
+
+Agents communicate indirectly through the Agent Orchestrator
+and Runtime Memory.
+
+</p>
+
+<pre><code>
+User
+ │
+ ▼
+Orchestrator
+ │
+ ├──────────────► Data Analyst
+ │
+ ├──────────────► Metadata Analyst
+ │
+ ├──────────────► BacDive Explorer
+ │
+ ├──────────────► Literature Reviewer
+ │
+ ├──────────────► Internet Explorer
+ │
+ ▼
+Master Summarizer
+ │
+ ▼
+User Response
+</code></pre>
+
+<p>
+
+This communication model minimizes dependencies between
+agents while maintaining complete execution traceability.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ====================================================== -->
+
+<section>
+
+<h2>
+
+Execution Workflow
+
+</h2>
+
+<pre><code>
+User Query
+      │
+      ▼
+Intent Analysis
+      │
+      ▼
+Agent Selection
+      │
+      ▼
+Parallel Execution
+      │
+      ▼
+Evidence Collection
+      │
+      ▼
+Evidence Fusion
+      │
+      ▼
+Master Summarization
+      │
+      ▼
+Final Response
+</code></pre>
+
+<p>
+
+Only the agents relevant to the current query are executed,
+making the reasoning process efficient and scalable.
+
+</p>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Data Analyst Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Data Analyst Agent is responsible for
+                        interpreting numerical fermentation datasets.
+
+                    </p>
+
+                    <p>
+
+                        It combines descriptive statistics,
+                        distribution analysis, correlations,
+                        missing-value analysis and calculated variables
+                        to produce human-readable explanations.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Descriptive statistics</li>
+
+                        <li>Distribution analysis</li>
+
+                        <li>Correlation interpretation</li>
+
+                        <li>Outlier detection</li>
+
+                        <li>Trend analysis</li>
+
+                        <li>Automatic biological interpretation</li>
+
+                    </ul>
+
+                    <img src="images/agents/data_analyst.png"
+                         class="image fit"
+                         alt="Data Analyst Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Internet Explorer Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Internet Explorer Agent retrieves
+                        up-to-date scientific information from
+                        external online resources whenever additional
+                        evidence is required.
+
+                    </p>
+
+                    <p>
+
+                        Instead of relying only on the local dataset,
+                        the agent expands the available knowledge
+                        using trusted web sources.
+
+                    </p>
+
+<pre><code>
+User Question
+      │
+      ▼
+Internet Search
+      │
+      ▼
+Document Retrieval
+      │
+      ▼
+Evidence Extraction
+      │
+      ▼
+Runtime Memory
+</code></pre>
+
+                    <img src="images/agents/internet_agent.png"
+                         class="image fit"
+                         alt="Internet Explorer Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Literature Reviewer Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Literature Reviewer Agent searches and
+                        analyzes scientific publications relevant to
+                        the user's question.
+
+                    </p>
+
+                    <p>
+
+                        Instead of returning individual papers,
+                        the agent summarizes scientific consensus
+                        across multiple publications.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Scientific literature retrieval</li>
+
+                        <li>Claim extraction</li>
+
+                        <li>Consensus detection</li>
+
+                        <li>Evidence summarization</li>
+
+                        <li>Citation generation</li>
+
+                    </ul>
+
+                    <img src="images/agents/literature_agent.png"
+                         class="image fit"
+                         alt="Literature Reviewer Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        BacDive Explorer Agent
+
+                    </h2>
+
+                    <p>
+
+                        The BacDive Explorer Agent provides detailed
+                        microorganism knowledge using the BacDive
+                        microbial database.
+
+                    </p>
+
+                    <p>
+
+                        It automatically resolves organism names,
+                        retrieves strain information and provides
+                        biologically relevant growth conditions.
+
+                    </p>
+
+<pre><code>
+Microorganism
+      │
+      ▼
+Name Resolution
+      │
+      ▼
+BacDive Query
+      │
+      ▼
+Growth Conditions
+      │
+      ▼
+Runtime Memory
+</code></pre>
+
+                    <img src="images/agents/bacdive_agent.png"
+                         class="image fit"
+                         alt="BacDive Explorer Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata Analyst Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Metadata Analyst Agent interprets
+                        experimental protocols and structured
+                        metadata stored using the MIFE schema.
+
+                    </p>
+
+                    <p>
+
+                        It transforms protocol descriptions into
+                        structured contextual knowledge that can
+                        be combined with experimental observations.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Protocol interpretation</li>
+
+                        <li>Experimental conditions</li>
+
+                        <li>Time-dependent events</li>
+
+                        <li>Process variable extraction</li>
+
+                        <li>Metadata summarization</li>
+
+                    </ul>
+
+                    <img src="images/agents/metadata_agent.png"
+                         class="image fit"
+                         alt="Metadata Analyst Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Agent Cooperation
+
+                    </h2>
+
+                    <p>
+
+                        Individual agents do not work in isolation.
+                        Instead, they collaborate by contributing
+                        complementary evidence to solve complex
+                        biological questions.
+
+                    </p>
+
+<pre><code>
+Dataset
+     │
+     ▼
+Data Analyst
+     │
+     ├──────────┐
+     │          │
+Metadata      BacDive
+     │          │
+     ├──────────┤
+     │          │
+Literature  Internet
+     │          │
+     └──────────┘
+           │
+           ▼
+Master Summarizer
+</code></pre>
+
+                    <blockquote>
+
+                        Each agent contributes a specialized view of
+                        the problem, enabling richer and more reliable
+                        responses than a single general-purpose model.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Agent Activation Logic
+
+                    </h2>
+
+                    <p>
+
+                        Agents are activated dynamically according
+                        to the content of the user's request.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>User Request</th>
+
+                                    <th>Activated Agent(s)</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Analyze fermentation data
+
+                                    </td>
+
+                                    <td>
+
+                                        Data Analyst
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Explain protocol
+
+                                    </td>
+
+                                    <td>
+
+                                        Metadata Analyst
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Growth conditions
+
+                                    </td>
+
+                                    <td>
+
+                                        BacDive Explorer
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Scientific evidence
+
+                                    </td>
+
+                                    <td>
+
+                                        Literature Reviewer
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Latest information
+
+                                    </td>
+
+                                    <td>
+
+                                        Internet Explorer
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Complex biological question
+
+                                    </td>
+
+                                    <td>
+
+                                        Multiple agents
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Parallel Execution
+
+                    </h2>
+
+                    <p>
+
+                        Whenever multiple agents are required,
+                        Raw2Ready executes them independently before
+                        combining their outputs.
+
+                    </p>
+
+<pre><code>
+User Query
+      │
+      ▼
+Agent Selection
+      │
+      ├──────────────► Data Analyst
+      ├──────────────► Metadata Analyst
+      ├──────────────► BacDive Explorer
+      ├──────────────► Literature Reviewer
+      └──────────────► Internet Explorer
+                 │
+                 ▼
+        Parallel Execution
+                 │
+                 ▼
+        Evidence Collection
+</code></pre>
+
+                </section>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Master Summarizer Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Master Summarizer Agent is the final component
+                        of the Multi-Agent framework.
+
+                    </p>
+
+                    <p>
+
+                        Instead of generating knowledge itself, it combines
+                        the outputs produced by all specialized agents into
+                        a single coherent response.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Collects agent outputs</li>
+
+                        <li>Removes duplicated information</li>
+
+                        <li>Resolves conflicting evidence</li>
+
+                        <li>Produces a unified explanation</li>
+
+                        <li>Maintains scientific consistency</li>
+
+                        <li>Generates the final answer</li>
+
+                    </ul>
+
+                    <img src="images/agents/master_summarizer.png"
+                         class="image fit"
+                         alt="Master Summarizer Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Evidence Fusion
+
+                    </h2>
+
+                    <p>
+
+                        Evidence generated by specialized agents is merged
+                        before the final response is produced.
+
+                    </p>
+
+<pre><code>
+Data Analyst
+      │
+Metadata Analyst
+      │
+BacDive Explorer
+      │
+Literature Reviewer
+      │
+Internet Explorer
+      │
+      ▼
+Evidence Fusion
+      │
+      ▼
+Master Summarizer
+      │
+      ▼
+Final Response
+</code></pre>
+
+                    <blockquote>
+
+                        Final responses combine numerical evidence,
+                        metadata, microbial knowledge and scientific
+                        literature into a single explanation.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Agent Routing Logic
+
+                    </h2>
+
+                    <p>
+
+                        Before execution begins, the Agent Orchestrator
+                        determines which agents are required.
+
+                    </p>
+
+                    <p>
+
+                        Only relevant agents are activated, reducing
+                        execution time while maintaining response quality.
+
+                    </p>
+
+                    <img src="images/agents/routing_logic.png"
+                         class="image fit"
+                         alt="Agent Routing Logic">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Safe Execution Framework
+
+                    </h2>
+
+                    <p>
+
+                        Every agent operates independently inside a
+                        controlled execution environment.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Independent execution</li>
+
+                        <li>Error isolation</li>
+
+                        <li>Controlled communication</li>
+
+                        <li>Execution monitoring</li>
+
+                        <li>Result validation</li>
+
+                    </ul>
+
+<pre><code>
+Agent
+   │
+Execute
+   │
+Validate
+   │
+Store Result
+   │
+Continue
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Lifecycle
+
+                    </h2>
+
+                    <p>
+
+                        Runtime Memory evolves continuously throughout the
+                        execution of the AI workflow.
+
+                    </p>
+
+<pre><code>
+Load Dataset
+      │
+      ▼
+Store Dataset
+      │
+      ▼
+Metadata Added
+      │
+      ▼
+Statistics Generated
+      │
+      ▼
+External Knowledge
+      │
+      ▼
+Agent Outputs
+      │
+      ▼
+Master Summary
+</code></pre>
+
+                    <p>
+
+                        Every reasoning step enriches Runtime Memory with
+                        additional information.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Execution Monitoring
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready records every AI operation during agent
+                        execution.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Agent start time</li>
+
+                        <li>Execution duration</li>
+
+                        <li>Retrieved evidence</li>
+
+                        <li>Generated summaries</li>
+
+                        <li>Errors</li>
+
+                        <li>Completion status</li>
+
+                    </ul>
+
+                    <img src="images/agents/execution_monitor.png"
+                         class="image fit"
+                         alt="Execution Monitoring">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Agent Traceability
+
+                    </h2>
+
+                    <p>
+
+                        Every statement generated by Raw2Ready can be
+                        traced back to its originating agent.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Information</th>
+
+                                    <th>Originating Agent</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Dataset interpretation</td>
+
+                                    <td>Data Analyst</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Protocol information</td>
+
+                                    <td>Metadata Analyst</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Microbial properties</td>
+
+                                    <td>BacDive Explorer</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Scientific evidence</td>
+
+                                    <td>Literature Reviewer</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Latest web information</td>
+
+                                    <td>Internet Explorer</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Logging Architecture
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready maintains detailed execution logs for
+                        debugging, reproducibility and auditing.
+
+                    </p>
+
+<pre><code>
+User Request
+      │
+      ▼
+Execution Log
+      │
+      ├── Agent Selection
+      ├── Runtime Memory
+      ├── API Calls
+      ├── Execution Time
+      ├── Errors
+      └── Final Response
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Scalability
+
+                    </h2>
+
+                    <p>
+
+                        The modular architecture allows new agents to be
+                        integrated without modifying existing components.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Independent agents</li>
+
+                        <li>Plugin architecture</li>
+
+                        <li>Reusable interfaces</li>
+
+                        <li>Shared Runtime Memory</li>
+
+                        <li>Future knowledge sources</li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        The Multi-Agent framework is designed for continuous
+                        expansion as new biological knowledge sources and
+                        AI capabilities become available.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        End-to-End AI Pipeline
+
+                    </h2>
+
+                    <p>
+
+                        Every user request follows a structured execution
+                        pipeline coordinated by the Agent Orchestrator.
+
+                    </p>
+
+<pre><code>
+User Question
+      │
+      ▼
+Intent Recognition
+      │
+      ▼
+Agent Selection
+      │
+      ▼
+Runtime Memory Access
+      │
+      ▼
+Parallel Agent Execution
+      │
+      ▼
+Evidence Collection
+      │
+      ▼
+Evidence Fusion
+      │
+      ▼
+Master Summarizer
+      │
+      ▼
+Final AI Response
+</code></pre>
+
+                    <p>
+
+                        This pipeline ensures that responses are generated
+                        from multiple complementary knowledge sources
+                        rather than from a single reasoning process.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example User Questions
+
+                    </h2>
+
+                    <p>
+
+                        The Multi-Agent AI framework supports a wide
+                        variety of biological and fermentation-related
+                        questions.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>User Question</th>
+
+                                    <th>Activated Agents</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Explain the fermentation profile.
+
+                                    </td>
+
+                                    <td>
+
+                                        Data Analyst
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Why did dissolved oxygen decrease?
+
+                                    </td>
+
+                                    <td>
+
+                                        Data Analyst + Metadata Analyst
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        What are the optimal growth
+                                        conditions?
+
+                                    </td>
+
+                                    <td>
+
+                                        BacDive Explorer
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        What does the literature report?
+
+                                    </td>
+
+                                    <td>
+
+                                        Literature Reviewer
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Is there recent information about
+                                        this microorganism?
+
+                                    </td>
+
+                                    <td>
+
+                                        Internet Explorer
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Summarize the entire experiment.
+
+                                    </td>
+
+                                    <td>
+
+                                        All Agents
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI-Assisted Reasoning
+
+                    </h2>
+
+                    <p>
+
+                        The Multi-Agent framework combines structured
+                        numerical analysis with biological knowledge,
+                        metadata and scientific evidence to provide
+                        comprehensive explanations.
+
+                    </p>
+
+                    <img src="images/agents/ai_reasoning_pipeline.png"
+                         class="image fit"
+                         alt="AI-Assisted Reasoning Pipeline">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Future Extensions
+
+                    </h2>
+
+                    <p>
+
+                        The modular architecture allows additional agents
+                        to be incorporated without modifying the existing
+                        framework.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Genome Analysis Agent</li>
+
+                        <li>Metabolic Pathway Agent</li>
+
+                        <li>Process Optimization Agent</li>
+
+                        <li>Digital Twin Agent</li>
+
+                        <li>Predictive Analytics Agent</li>
+
+                        <li>Laboratory Notebook Agent</li>
+
+                        <li>Regulatory Compliance Agent</li>
+
+                    </ul>
+
+                    <img src="images/agents/future_agents.png"
+                         class="image fit"
+                         alt="Future Agent Roadmap">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Load datasets before asking analytical
+                            questions.
+
+                        </li>
+
+                        <li>
+
+                            Complete metadata to improve contextual
+                            reasoning.
+
+                        </li>
+
+                        <li>
+
+                            Validate datasets before analysis.
+
+                        </li>
+
+                        <li>
+
+                            Review statistical outputs before requesting
+                            AI interpretation.
+
+                        </li>
+
+                        <li>
+
+                            Verify literature-supported conclusions.
+
+                        </li>
+
+                        <li>
+
+                            Use complete experimental context whenever
+                            possible.
+
+                        </li>
+
+                        <li>
+
+                            Combine AI outputs with expert biological
+                            knowledge.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>No response generated</td>
+
+                                    <td>No active dataset</td>
+
+                                    <td>Load a dataset before querying the AI.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Incomplete biological explanation</td>
+
+                                    <td>Metadata missing</td>
+
+                                    <td>Complete the Metadata Module.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing microorganism information</td>
+
+                                    <td>No BacDive match</td>
+
+                                    <td>Verify organism name and strain.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Literature unavailable</td>
+
+                                    <td>No internet connection</td>
+
+                                    <td>Check external connectivity.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Unexpected answer</td>
+
+                                    <td>Insufficient evidence</td>
+
+                                    <td>Provide additional experimental context.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Raw2Ready Multi-Agent AI Framework combines
+                        specialized Large Language Model agents,
+                        structured metadata, experimental datasets,
+                        microbial repositories and scientific literature
+                        into a unified reasoning system for industrial
+                        biotechnology.
+
+                    </p>
+
+                    <p>
+
+                        By distributing complex reasoning across
+                        specialized agents coordinated by the Agent
+                        Orchestrator, Raw2Ready delivers transparent,
+                        modular and evidence-based AI support for
+                        fermentation research.
+
+                    </p>
+
+                    <blockquote>
+
+                        The Multi-Agent AI Framework transforms Raw2Ready
+                        from a data processing platform into an intelligent
+                        decision-support system for modern bioprocess
+                        analysis.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Documentation Complete
+
+                    </h2>
+
+                    <p>
+
+                        You have reached the end of the Raw2Ready
+                        documentation.
+
+                    </p>
+
+                    <p>
+
+                        Continue exploring the project through the source
+                        code, GitLab repository and future documentation
+                        updates.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="metadata.html"
+                           class="button">
+
+                            Previous: Metadata Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="index.html"
+                           class="button primary">
+
+                            Back to Home
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+            <li>BIOINDUSTRY4.0 Project</li>
+            <li>Athens Research Center</li>
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+  
+
+</section>
+
+<hr>
