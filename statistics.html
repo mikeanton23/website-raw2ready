@@ -1,0 +1,1387 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Statistics Module | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Statistics Module Documentation" />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Menu</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics Module</a></li>
+
+<li><a href="metadata.html">Metadata</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<li><a href="elements.html">Features</a></li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Statistics Module
+
+</h2>
+
+<p>
+
+Exploratory statistical analysis of fermentation datasets.
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<hr>
+
+<section>
+
+<h2>
+
+Overview
+
+</h2>
+
+<p>
+
+The Statistics Module performs exploratory data analysis (EDA) directly on
+the harmonized datasets stored in Runtime Memory.
+
+</p>
+
+<p>
+
+It provides descriptive statistics, missing-value analysis, correlation
+analysis, outlier detection and distribution analysis that assist
+researchers in understanding fermentation experiments before applying
+advanced modelling or machine learning techniques.
+
+</p>
+
+<p>
+
+All statistical analyses are performed automatically on the active dataset
+without requiring external statistical software.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Objectives
+
+</h2>
+
+<ul>
+
+<li>Summarize numerical variables.</li>
+
+<li>Evaluate data quality.</li>
+
+<li>Identify missing values.</li>
+
+<li>Detect outliers.</li>
+
+<li>Study variable distributions.</li>
+
+<li>Measure variable correlations.</li>
+
+<li>Support AI-based interpretation.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Statistical Workflow
+
+</h2>
+
+<pre><code>
+Runtime Memory
+      │
+      ▼
+Variable Selection
+      │
+      ▼
+Descriptive Statistics
+      │
+      ▼
+Distribution Analysis
+      │
+      ▼
+Correlation Analysis
+      │
+      ▼
+Outlier Detection
+      │
+      ▼
+AI Interpretation
+</code></pre>
+
+<p>
+
+Every analysis uses the latest version of the dataset currently stored in
+Runtime Memory.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Supported Statistical Analyses
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Analysis</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Descriptive Statistics</td>
+
+<td>Summary of numerical variables.</td>
+
+</tr>
+
+<tr>
+
+<td>Missing Value Analysis</td>
+
+<td>Identification of incomplete observations.</td>
+
+</tr>
+
+<tr>
+
+<td>Distribution Analysis</td>
+
+<td>Study of variable distributions.</td>
+
+</tr>
+
+<tr>
+
+<td>Correlation Analysis</td>
+
+<td>Relationships between variables.</td>
+
+</tr>
+
+<tr>
+
+<td>Outlier Detection</td>
+
+<td>Identification of abnormal observations.</td>
+
+</tr>
+
+<tr>
+
+<td>Normality Assessment</td>
+
+<td>Evaluation of statistical assumptions.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Descriptive Statistics
+
+</h2>
+
+<p>
+
+Raw2Ready automatically computes descriptive statistics for every
+numerical variable.
+
+</p>
+
+<ul>
+
+<li>Count</li>
+
+<li>Mean</li>
+
+<li>Median</li>
+
+<li>Standard deviation</li>
+
+<li>Minimum</li>
+
+<li>Maximum</li>
+
+<li>Quartiles</li>
+
+</ul>
+
+<img src="images/statistics/descriptive_statistics.png"
+class="image fit"
+alt="Descriptive Statistics">
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Summary Statistics Table
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Statistic</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Mean</td>
+
+<td>Average value.</td>
+
+</tr>
+
+<tr>
+
+<td>Median</td>
+
+<td>Central observation.</td>
+
+</tr>
+
+<tr>
+
+<td>Standard Deviation</td>
+
+<td>Data variability.</td>
+
+</tr>
+
+<tr>
+
+<td>Variance</td>
+
+<td>Squared variability.</td>
+
+</tr>
+
+<tr>
+
+<td>Minimum</td>
+
+<td>Smallest value.</td>
+
+</tr>
+
+<tr>
+
+<td>Maximum</td>
+
+<td>Largest value.</td>
+
+</tr>
+
+<tr>
+
+<td>Quartiles</td>
+
+<td>Distribution boundaries.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Missing Value Analysis
+
+                    </h2>
+
+                    <p>
+
+                        Before performing advanced statistical analyses,
+                        Raw2Ready automatically evaluates the completeness
+                        of the active dataset.
+
+                    </p>
+
+                    <p>
+
+                        Missing values are identified for every variable,
+                        allowing researchers to assess data quality and
+                        determine whether preprocessing is required.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Missing values per column</li>
+
+                        <li>Missing value percentage</li>
+
+                        <li>Complete observations</li>
+
+                        <li>Missing-value visualization</li>
+
+                    </ul>
+
+                    <img src="images/statistics/missing_values.png"
+                         class="image fit"
+                         alt="Missing Value Analysis">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Distribution Analysis
+
+                    </h2>
+
+                    <p>
+
+                        Understanding the distribution of experimental
+                        variables is essential for selecting appropriate
+                        statistical methods and detecting abnormal
+                        measurements.
+
+                    </p>
+
+                    <p>
+
+                        Raw2Ready generates distribution summaries for
+                        every numerical variable stored in Runtime Memory.
+
+                    </p>
+
+                    <img src="images/statistics/distributions.png"
+                         class="image fit"
+                         alt="Distribution Analysis">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Histograms
+
+                    </h2>
+
+                    <p>
+
+                        Histograms illustrate how observations are
+                        distributed across value ranges and help identify
+                        skewness, multimodal behaviour and irregular data
+                        distributions.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Normal distributions</li>
+
+                        <li>Right-skewed variables</li>
+
+                        <li>Left-skewed variables</li>
+
+                        <li>Multimodal distributions</li>
+
+                    </ul>
+
+                    <img src="images/statistics/histograms.png"
+                         class="image fit"
+                         alt="Histograms">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Boxplots
+
+                    </h2>
+
+                    <p>
+
+                        Boxplots summarize the spread of each variable
+                        while highlighting quartiles, medians and possible
+                        outliers.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Median</li>
+
+                        <li>Interquartile range</li>
+
+                        <li>Minimum and maximum</li>
+
+                        <li>Potential outliers</li>
+
+                    </ul>
+
+                    <img src="images/statistics/boxplots.png"
+                         class="image fit"
+                         alt="Boxplots">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Correlation Analysis
+
+                    </h2>
+
+                    <p>
+
+                        Correlation analysis measures the strength of
+                        linear relationships between fermentation
+                        variables.
+
+                    </p>
+
+                    <p>
+
+                        Strong positive or negative correlations often
+                        reveal biologically meaningful interactions
+                        between process variables.
+
+                    </p>
+
+                    <img src="images/statistics/correlation_matrix.png"
+                         class="image fit"
+                         alt="Correlation Matrix">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Correlation Heatmaps
+
+                    </h2>
+
+                    <p>
+
+                        Correlation matrices are visualized using
+                        heatmaps, allowing rapid identification of highly
+                        correlated variables.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Correlation</th>
+
+                                    <th>Interpretation</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>+1.00</td>
+
+                                    <td>Perfect positive relationship</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>+0.70</td>
+
+                                    <td>Strong positive relationship</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>0.00</td>
+
+                                    <td>No linear relationship</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>-0.70</td>
+
+                                    <td>Strong negative relationship</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>-1.00</td>
+
+                                    <td>Perfect negative relationship</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Scatter Matrix
+
+                    </h2>
+
+                    <p>
+
+                        Scatter matrices compare every pair of variables
+                        simultaneously, revealing hidden dependencies and
+                        nonlinear behaviour.
+
+                    </p>
+
+                    <img src="images/statistics/scatter_matrix.png"
+                         class="image fit"
+                         alt="Scatter Matrix">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Outlier Detection
+
+                    </h2>
+
+                    <p>
+
+                        Outlier analysis automatically identifies
+                        observations that deviate substantially from the
+                        remaining dataset.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Extreme sensor values</li>
+
+                        <li>Instrument failures</li>
+
+                        <li>Experimental anomalies</li>
+
+                        <li>Unexpected biological events</li>
+
+                    </ul>
+
+                    <img src="images/statistics/outliers.png"
+                         class="image fit"
+                         alt="Outlier Detection">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Normality Assessment
+
+                    </h2>
+
+                    <p>
+
+                        Many statistical methods assume normally
+                        distributed variables.
+
+                    </p>
+
+                    <p>
+
+                        Raw2Ready evaluates distribution characteristics
+                        to assist researchers in selecting appropriate
+                        statistical analyses.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Histogram inspection</li>
+
+                        <li>Boxplot inspection</li>
+
+                        <li>Distribution symmetry</li>
+
+                        <li>Skewness evaluation</li>
+
+                    </ul>
+
+                    <img src="images/statistics/normality.png"
+                         class="image fit"
+                         alt="Normality Assessment">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Statistical analyses operate directly on the
+                        active dataset stored in Runtime Memory.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+      │
+      ▼
+Statistics Module
+      │
+      ├── Descriptive Statistics
+      ├── Missing Values
+      ├── Correlation Analysis
+      ├── Distribution Analysis
+      ├── Outlier Detection
+      └── Statistical Reports
+</code></pre>
+
+                    <blockquote>
+
+                        Every statistical result always reflects the most
+                        recent preprocessing, merge and calculation
+                        operations performed within Raw2Ready.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI-Assisted Statistical Interpretation
+
+                    </h2>
+
+                    <p>
+
+                        Statistical results generated by Raw2Ready are
+                        automatically available to the Multi-Agent AI
+                        framework.
+
+                    </p>
+
+                    <p>
+
+                        Instead of presenting only numerical summaries,
+                        the Data Analyst Agent interprets the statistical
+                        outputs and produces human-readable explanations
+                        describing the observed behaviour of the
+                        fermentation process.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+        │
+        ▼
+Statistics Module
+        │
+        ▼
+Statistical Results
+        │
+        ▼
+Data Analyst Agent
+        │
+        ▼
+Natural Language Interpretation
+        │
+        ▼
+Master Summarizer
+</code></pre>
+
+                    <blockquote>
+
+                        AI-assisted statistical interpretation transforms
+                        numerical outputs into biologically meaningful
+                        explanations.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Automatic Statistical Reports
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready automatically generates structured
+                        statistical summaries that can be reviewed within
+                        the graphical interface or exported for further
+                        analysis.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Descriptive statistics
+
+                        </li>
+
+                        <li>
+
+                            Missing value summaries
+
+                        </li>
+
+                        <li>
+
+                            Correlation matrices
+
+                        </li>
+
+                        <li>
+
+                            Distribution analysis
+
+                        </li>
+
+                        <li>
+
+                            Outlier reports
+
+                        </li>
+
+                        <li>
+
+                            Statistical interpretation
+
+                        </li>
+
+                    </ul>
+
+                    <img src="images/statistics/report.png"
+                         class="image fit"
+                         alt="Statistical Report">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Exporting Results
+
+                    </h2>
+
+                    <p>
+
+                        Statistical outputs can be exported for
+                        documentation, reporting and publication.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Output</th>
+
+                                    <th>Purpose</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>CSV</td>
+
+                                    <td>Numerical summaries</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Excel</td>
+
+                                    <td>Statistical reports</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>PNG</td>
+
+                                    <td>Figures and visualizations</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>PDF</td>
+
+                                    <td>Publication-ready reports</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Review missing values before analysis.
+
+                        </li>
+
+                        <li>
+
+                            Inspect distributions prior to hypothesis
+                            testing.
+
+                        </li>
+
+                        <li>
+
+                            Investigate outliers rather than removing
+                            them automatically.
+
+                        </li>
+
+                        <li>
+
+                            Interpret correlations together with process
+                            knowledge.
+
+                        </li>
+
+                        <li>
+
+                            Compare statistical summaries across
+                            experiments.
+
+                        </li>
+
+                        <li>
+
+                            Combine visualizations with numerical
+                            statistics.
+
+                        </li>
+
+                        <li>
+
+                            Validate AI-generated interpretations using
+                            expert knowledge.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>No statistics generated</td>
+
+                                    <td>No dataset loaded</td>
+
+                                    <td>Load a dataset before opening the Statistics Module.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Unexpected summary values</td>
+
+                                    <td>Incorrect preprocessing</td>
+
+                                    <td>Review the preprocessing and merge steps.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing variables</td>
+
+                                    <td>Columns removed earlier</td>
+
+                                    <td>Verify the active Runtime Memory dataset.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Correlation unavailable</td>
+
+                                    <td>Insufficient numerical variables</td>
+
+                                    <td>Select datasets containing numerical measurements.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Outliers not detected</td>
+
+                                    <td>Uniform distribution</td>
+
+                                    <td>Inspect boxplots and variable distributions manually.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Statistics Module provides a comprehensive
+                        exploratory analysis environment for fermentation
+                        datasets by combining descriptive statistics,
+                        distribution analysis, correlation analysis,
+                        missing-value assessment and outlier detection.
+
+                    </p>
+
+                    <p>
+
+                        Integrated with Runtime Memory and the Multi-Agent
+                        AI framework, statistical outputs become directly
+                        available for automated interpretation and
+                        evidence-based reasoning.
+
+                    </p>
+
+                    <blockquote>
+
+                        Statistical analysis is the foundation for
+                        understanding experimental behaviour before
+                        applying predictive modelling or machine learning.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        After completing statistical analysis, users can
+                        continue with the <strong>Metadata Module</strong>
+                        to annotate experiments using the Minimum
+                        Information Framework for Fermentation
+                        Experiments (MIFE) and enrich datasets with
+                        structured experimental context.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="plot.html"
+                           class="button">
+
+                            Previous: Plot Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="metadata.html"
+                           class="button primary">
+
+                            Next: Metadata Module
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center</li>
+
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+  
+
+</section>
+
+<hr>
