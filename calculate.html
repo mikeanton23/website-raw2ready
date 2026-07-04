@@ -1,0 +1,1574 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Calculate Module | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Calculate Module Documentation" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+    <!-- Header -->
+
+    <header id="header">
+
+        <h1>
+
+            <a href="index.html">
+
+                Raw2Ready
+
+            </a>
+
+        </h1>
+
+        <nav id="nav">
+
+            <ul>
+
+                <li class="special">
+
+                    <a href="#menu"
+                       class="menuToggle">
+
+                        <span>Menu</span>
+
+                    </a>
+
+                    <div id="menu">
+
+                        <ul>
+
+                            <li><a href="index.html">Home</a></li>
+
+                            <li><a href="overview.html">Overview</a></li>
+
+                            <li><a href="installation.html">Installation</a></li>
+
+                            <li><a href="workflow.html">Workflow</a></li>
+
+                            <li><a href="load.html">Load Module</a></li>
+
+                            <li><a href="merge.html">Merge Module</a></li>
+
+                            <li><a href="calculate.html">Calculate Module</a></li>
+
+                            <li><a href="plot.html">Plot Module</a></li>
+
+                            <li><a href="statistics.html">Statistics</a></li>
+
+                            <li><a href="metadata.html">Metadata</a></li>
+
+                            <li><a href="agents.html">Multi-Agent AI</a></li>
+
+                            <li><a href="elements.html">Features</a></li>
+
+                            <li>
+
+                                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                                   target="_blank">
+
+                                    GitLab Repository
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <article id="main">
+
+        <header>
+
+            <h2>
+
+                Calculate Module
+
+            </h2>
+
+            <p>
+
+                Generate derived variables and biochemical parameters
+                using configurable mathematical expressions.
+
+            </p>
+
+        </header>
+
+        <section class="wrapper style5">
+
+            <div class="inner">
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Overview
+
+                    </h2>
+
+                    <p>
+
+                        The Calculate Module enables users to create new
+                        variables from existing experimental measurements
+                        through configurable mathematical expressions.
+
+                    </p>
+
+                    <p>
+
+                        Instead of manually editing datasets in external
+                        spreadsheet software, Raw2Ready performs all
+                        calculations automatically using a configurable
+                        formula engine.
+
+                    </p>
+
+                    <p>
+
+                        Every generated variable becomes immediately
+                        available to the Plot Module, Statistics Module,
+                        Metadata Module and the AI Multi-Agent framework.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Objectives
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Create derived variables.
+
+                        </li>
+
+                        <li>
+
+                            Execute mathematical expressions.
+
+                        </li>
+
+                        <li>
+
+                            Support user-defined equations.
+
+                        </li>
+
+                        <li>
+
+                            Compute biochemical parameters.
+
+                        </li>
+
+                        <li>
+
+                            Store generated variables.
+
+                        </li>
+
+                        <li>
+
+                            Prepare datasets for downstream analysis.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Why Calculations are Necessary
+
+                    </h2>
+
+                    <p>
+
+                        Raw experimental datasets usually contain only
+                        directly measured variables such as temperature,
+                        dissolved oxygen, agitation speed and substrate
+                        feed.
+
+                    </p>
+
+                    <p>
+
+                        However, researchers frequently require derived
+                        variables that are calculated from these primary
+                        measurements.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Oxygen Uptake Rate (OUR)</li>
+
+                        <li>Carbon Evolution Rate (CER)</li>
+
+                        <li>Specific Growth Rate (μ)</li>
+
+                        <li>Yield Coefficients</li>
+
+                        <li>Productivity</li>
+
+                        <li>Biomass Estimation</li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        The Calculate Module automates these repetitive
+                        computations while ensuring reproducibility and
+                        consistency across experiments.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Formula Engine
+
+                    </h2>
+
+                    <p>
+
+                        At the core of the Calculate Module lies the
+                        Formula Engine.
+
+                    </p>
+
+                    <p>
+
+                        Mathematical expressions are defined in YAML
+                        configuration files and evaluated dynamically at
+                        runtime.
+
+                    </p>
+
+<pre><code>
+Dataset
+      │
+      ▼
+Aliases
+      │
+      ▼
+Constants
+      │
+      ▼
+Formula Parser
+      │
+      ▼
+Expression Evaluation
+      │
+      ▼
+Generated Variables
+</code></pre>
+
+                    <p>
+
+                        This approach separates experimental logic from
+                        program code, allowing researchers to define
+                        custom equations without modifying the software.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Configuration Structure
+
+                    </h2>
+
+                    <p>
+
+                        Calculation rules are organized into three
+                        independent components.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Component</th>
+
+                                    <th>Purpose</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Constants
+
+                                    </td>
+
+                                    <td>
+
+                                        Fixed experiment parameters.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Aliases
+
+                                    </td>
+
+                                    <td>
+
+                                        Human-readable variable mapping.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Formulas
+
+                                    </td>
+
+                                    <td>
+
+                                        Mathematical expressions.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Calculation Workflow
+
+                    </h2>
+
+                    <p>
+
+                        Every formula follows the same execution
+                        pipeline.
+
+                    </p>
+
+<pre><code>
+Load Dataset
+      │
+      ▼
+Load Constants
+      │
+      ▼
+Resolve Aliases
+      │
+      ▼
+Parse Formula
+      │
+      ▼
+Validate Variables
+      │
+      ▼
+Execute Expression
+      │
+      ▼
+Store New Variable
+      │
+      ▼
+Runtime Memory
+</code></pre>
+
+                </section>
+
+                <hr>
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Constants
+
+                    </h2>
+
+                    <p>
+
+                        Constants represent fixed numerical values that
+                        remain unchanged throughout an experiment. These
+                        values are defined once and can be reused by
+                        multiple formulas.
+
+                    </p>
+
+                    <p>
+
+                        Typical examples include reactor volume,
+                        solution density, calibration factors and
+                        experimentally determined coefficients.
+
+                    </p>
+
+<pre><code>
+constants:
+
+    reactor_volume: 2.5
+
+    biomass_density: 1.03
+
+    oxygen_constant: 0.245
+
+    temperature_offset: 0.15
+</code></pre>
+
+                    <blockquote>
+
+                        Centralizing constants improves consistency and
+                        simplifies maintenance when experimental
+                        parameters change.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Variable Aliases
+
+                    </h2>
+
+                    <p>
+
+                        Aliases map long dataset column names into short,
+                        programming-friendly identifiers.
+
+                    </p>
+
+                    <p>
+
+                        This simplifies mathematical expressions while
+                        preserving descriptive column names inside the
+                        final dataset.
+
+                    </p>
+
+<pre><code>
+aliases:
+
+    biomass: "Biomass [g/L]"
+
+    glucose: "Glucose [g/L]"
+
+    oxygen: "Dissolved Oxygen [%]"
+
+    airflow: "Air Flow [L/min]"
+</code></pre>
+
+                    <img src="images/calculate/aliases.png"
+                         class="image fit"
+                         alt="Variable Aliases">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Mathematical Expressions
+
+                    </h2>
+
+                    <p>
+
+                        Each calculated variable is defined by a
+                        mathematical expression written using Python
+                        syntax.
+
+                    </p>
+
+<pre><code>
+formula:
+
+growth_rate = biomass.diff() / time.diff()
+
+oxygen_transfer =
+oxygen * airflow
+
+yield =
+biomass / glucose
+</code></pre>
+
+                    <p>
+
+                        Expressions may combine arithmetic operators,
+                        NumPy functions and supported pandas
+                        functionality.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Formula Dependency Resolution
+
+                    </h2>
+
+                    <p>
+
+                        Some calculated variables depend on previously
+                        generated variables.
+
+                    </p>
+
+                    <p>
+
+                        Raw2Ready automatically determines the correct
+                        execution order before evaluating formulas.
+
+                    </p>
+
+<pre><code>
+Biomass
+      │
+      ▼
+Growth Rate
+      │
+      ▼
+Yield
+      │
+      ▼
+Productivity
+</code></pre>
+
+                    <blockquote>
+
+                        Dependency analysis guarantees that every
+                        variable is calculated only after all required
+                        inputs become available.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Formula Evaluation
+
+                    </h2>
+
+                    <p>
+
+                        During execution the Formula Engine evaluates
+                        every expression dynamically using the currently
+                        loaded dataset.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Parse mathematical expression.
+
+                        </li>
+
+                        <li>
+
+                            Validate referenced variables.
+
+                        </li>
+
+                        <li>
+
+                            Replace aliases.
+
+                        </li>
+
+                        <li>
+
+                            Insert constants.
+
+                        </li>
+
+                        <li>
+
+                            Execute calculation.
+
+                        </li>
+
+                        <li>
+
+                            Store resulting column.
+
+                        </li>
+
+                    </ul>
+
+                    <img src="images/calculate/runtime_engine.png"
+                         class="image fit"
+                         alt="Runtime Formula Evaluation">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Safe Formula Execution
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready executes user-defined formulas inside
+                        a controlled evaluation environment.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Variable validation
+
+                        </li>
+
+                        <li>
+
+                            Syntax checking
+
+                        </li>
+
+                        <li>
+
+                            Division-by-zero protection
+
+                        </li>
+
+                        <li>
+
+                            Missing-variable detection
+
+                        </li>
+
+                        <li>
+
+                            Runtime exception handling
+
+                        </li>
+
+                        <li>
+
+                            Secure execution environment
+
+                        </li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Formula execution is isolated from the operating
+                        system to prevent unsafe code execution.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Error Reporting
+
+                    </h2>
+
+                    <p>
+
+                        When a calculation fails, Raw2Ready provides
+                        detailed diagnostic information.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Error</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Missing Variable
+
+                                    </td>
+
+                                    <td>
+
+                                        Required dataset column not found.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Invalid Formula
+
+                                    </td>
+
+                                    <td>
+
+                                        Formula syntax error.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Division by Zero
+
+                                    </td>
+
+                                    <td>
+
+                                        Invalid mathematical operation.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Unsupported Function
+
+                                    </td>
+
+                                    <td>
+
+                                        Formula uses unavailable function.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        NiceGUI Formula Builder
+
+                    </h2>
+
+                    <p>
+
+                        The graphical interface allows users to create
+                        formulas interactively without editing YAML
+                        files.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Formula editor
+
+                        </li>
+
+                        <li>
+
+                            Variable selector
+
+                        </li>
+
+                        <li>
+
+                            Constant selector
+
+                        </li>
+
+                        <li>
+
+                            Syntax validation
+
+                        </li>
+
+                        <li>
+
+                            Live preview
+
+                        </li>
+
+                        <li>
+
+                            Save formula
+
+                        </li>
+
+                    </ul>
+
+                    <img src="images/calculate/formula_builder.png"
+                         class="image fit"
+                         alt="Formula Builder">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Every calculated variable is appended directly to
+                        the active dataset stored in Runtime Memory.
+
+                    </p>
+
+<pre><code>
+Merged Dataset
+      │
+      ▼
+Calculate Module
+      │
+      ▼
+Generated Variables
+      │
+      ▼
+Updated Dataset
+      │
+      ▼
+Runtime Memory
+      │
+ ├── Plot Module
+ ├── Statistics Module
+ ├── Metadata Module
+ └── AI Agents
+</code></pre>
+
+                </section>
+
+                <hr>
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Generated Output
+
+                    </h2>
+
+                    <p>
+
+                        After successful execution, every calculated
+                        variable is appended as a new column to the
+                        active dataset.
+
+                    </p>
+
+                    <p>
+
+                        The generated dataset remains fully compatible
+                        with every subsequent Raw2Ready module.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Input Variables</th>
+
+                                    <th>Generated Variables</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Biomass
+
+                                    </td>
+
+                                    <td>
+
+                                        Growth Rate
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Oxygen
+
+                                    </td>
+
+                                    <td>
+
+                                        OUR
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Carbon Dioxide
+
+                                    </td>
+
+                                    <td>
+
+                                        CER
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Glucose
+
+                                    </td>
+
+                                    <td>
+
+                                        Yield
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Time
+
+                                    </td>
+
+                                    <td>
+
+                                        Productivity
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <img src="images/calculate/generated_dataset.png"
+                         class="image fit"
+                         alt="Generated Dataset">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI Integration
+
+                    </h2>
+
+                    <p>
+
+                        Newly calculated variables become immediately
+                        available to the Multi-Agent AI framework.
+
+                    </p>
+
+<pre><code>
+Calculate Module
+        │
+        ▼
+Runtime Memory
+        │
+ ├── Plot Module
+ ├── Statistics Module
+ ├── Metadata Module
+ ├── Data Analyst Agent
+ ├── BacDive Explorer
+ ├── Literature Reviewer
+ └── Master Summarizer
+</code></pre>
+
+                    <blockquote>
+
+                        Derived biochemical variables often provide more
+                        informative evidence for AI reasoning than raw
+                        sensor measurements alone.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Keep formulas simple and modular.
+
+                        </li>
+
+                        <li>
+
+                            Store reusable constants separately.
+
+                        </li>
+
+                        <li>
+
+                            Use aliases instead of long column names.
+
+                        </li>
+
+                        <li>
+
+                            Validate every generated variable.
+
+                        </li>
+
+                        <li>
+
+                            Inspect units before combining variables.
+
+                        </li>
+
+                        <li>
+
+                            Document custom equations for reproducibility.
+
+                        </li>
+
+                        <li>
+
+                            Review generated plots after every calculation.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Formula failed
+
+                                    </td>
+
+                                    <td>
+
+                                        Invalid syntax
+
+                                    </td>
+
+                                    <td>
+
+                                        Verify the mathematical expression.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Missing variable
+
+                                    </td>
+
+                                    <td>
+
+                                        Alias not defined
+
+                                    </td>
+
+                                    <td>
+
+                                        Check the alias configuration.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Incorrect values
+
+                                    </td>
+
+                                    <td>
+
+                                        Wrong constant
+
+                                    </td>
+
+                                    <td>
+
+                                        Verify experiment-specific constants.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Runtime error
+
+                                    </td>
+
+                                    <td>
+
+                                        Invalid operation
+
+                                    </td>
+
+                                    <td>
+
+                                        Inspect division-by-zero and missing values.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Unexpected output
+
+                                    </td>
+
+                                    <td>
+
+                                        Dependency order incorrect
+
+                                    </td>
+
+                                    <td>
+
+                                        Verify formula dependencies.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Calculate Module transforms raw experimental
+                        measurements into biologically meaningful process
+                        variables through a flexible and configurable
+                        formula engine.
+
+                    </p>
+
+                    <p>
+
+                        By combining constants, aliases and mathematical
+                        expressions, Raw2Ready enables reproducible
+                        biochemical calculations without requiring
+                        modifications to the underlying source code.
+
+                    </p>
+
+                    <blockquote>
+
+                        Every generated variable becomes an integral part
+                        of the active experimental dataset, supporting
+                        visualization, statistical analysis and
+                        evidence-based AI reasoning.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        After generating derived variables, users
+                        typically continue with the
+                        <strong>Plot Module</strong> to visualize trends,
+                        compare variables and explore experimental
+                        behaviour through interactive figures.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="merge.html"
+                           class="button">
+
+                            Previous: Merge Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="plot.html"
+                           class="button primary">
+
+                            Next: Plot Module
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center</li>
+
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/jquery.scrollex.min.js"></script>
+
+<script src="assets/js/jquery.scrolly.min.js"></script>
+
+<script src="assets/js/browser.min.js"></script>
+
+<script src="assets/js/breakpoints.min.js"></script>
+
+<script src="assets/js/util.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
