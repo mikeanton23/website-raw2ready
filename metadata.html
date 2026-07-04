@@ -1,0 +1,1424 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Metadata Module | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Metadata Module Documentation" />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Menu</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics Module</a></li>
+
+<li><a href="metadata.html">Metadata Module</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<li><a href="elements.html">Features</a></li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Metadata Module
+
+</h2>
+
+<p>
+
+Semantic annotation of fermentation experiments using the
+Minimum Information Framework for Fermentation Experiments (MIFE).
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<hr>
+
+<section>
+
+<h2>
+
+Overview
+
+</h2>
+
+<p>
+
+Experimental measurements alone rarely provide sufficient
+information for interpreting fermentation experiments.
+
+</p>
+
+<p>
+
+Researchers must also capture cultivation protocols,
+experimental conditions, organism information,
+equipment configuration and laboratory procedures.
+
+</p>
+
+<p>
+
+The Metadata Module enables users to create structured,
+machine-readable metadata using the
+Minimum Information Framework for Fermentation Experiments
+(MIFE), ensuring reproducibility, interoperability and
+AI-ready experimental documentation.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Objectives
+
+</h2>
+
+<ul>
+
+<li>Capture experimental context.</li>
+
+<li>Standardize metadata representation.</li>
+
+<li>Support FAIR data principles.</li>
+
+<li>Improve reproducibility.</li>
+
+<li>Provide AI-readable metadata.</li>
+
+<li>Enable semantic search.</li>
+
+<li>Support knowledge integration.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Why Metadata Matters
+
+</h2>
+
+<p>
+
+Two fermentation experiments may contain identical sensor
+measurements while representing completely different
+biological processes.
+
+</p>
+
+<p>
+
+Metadata provides the contextual information necessary to
+correctly interpret experimental observations.
+
+</p>
+
+<ul>
+
+<li>Microorganism</li>
+
+<li>Medium composition</li>
+
+<li>Bioreactor configuration</li>
+
+<li>Cultivation protocol</li>
+
+<li>Sampling schedule</li>
+
+<li>Environmental conditions</li>
+
+<li>Operator information</li>
+
+</ul>
+
+<blockquote>
+
+Without metadata, experimental measurements lose much of
+their scientific value.
+
+</blockquote>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Minimum Information Framework (MIFE)
+
+</h2>
+
+<p>
+
+Raw2Ready implements the Minimum Information Framework
+for Fermentation Experiments (MIFE) developed within the
+BIOINDUSTRY4.0 project.
+
+</p>
+
+<p>
+
+MIFE defines a standardized schema for describing
+fermentation experiments using structured metadata.
+
+</p>
+
+<img src="images/metadata/mife_overview.png"
+class="image fit"
+alt="MIFE Overview">
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Metadata Architecture
+
+</h2>
+
+<pre><code>
+Protocol
+      │
+      ▼
+Metadata Forms
+      │
+      ▼
+MIFE Structure
+      │
+      ▼
+Validation
+      │
+      ▼
+Metadata Repository
+      │
+      ▼
+AI Agents
+</code></pre>
+
+<p>
+
+Every metadata record follows the same standardized
+representation.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Metadata Workflow
+
+</h2>
+
+<pre><code>
+Create Experiment
+      │
+      ▼
+Fill Metadata
+      │
+      ▼
+Validate Fields
+      │
+      ▼
+Save Metadata
+      │
+      ▼
+Runtime Memory
+      │
+      ▼
+AI Reasoning
+</code></pre>
+
+<p>
+
+Metadata accompanies experimental datasets throughout the
+entire Raw2Ready workflow.
+
+</p>
+
+</section>
+
+<hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata Categories
+
+                    </h2>
+
+                    <p>
+
+                        The Metadata Module organizes experimental
+                        information into standardized categories defined
+                        by the MIFE specification.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Category</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Experiment</td>
+
+                                    <td>General experiment information.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Microorganism</td>
+
+                                    <td>Species, strain and taxonomy.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Bioreactor</td>
+
+                                    <td>Equipment configuration.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Medium</td>
+
+                                    <td>Culture media composition.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Cultivation</td>
+
+                                    <td>Operating conditions.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Sampling</td>
+
+                                    <td>Sampling schedule and analysis.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Protocol</td>
+
+                                    <td>Experimental procedures.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Protocol Management
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready enables users to create, edit and manage
+                        experimental protocols using structured metadata
+                        forms.
+
+                    </p>
+
+                    <p>
+
+                        Instead of storing protocols as plain text,
+                        metadata fields remain searchable, reusable and
+                        interpretable by AI agents.
+
+                    </p>
+
+                    <img src="images/metadata/protocol_manager.png"
+                         class="image fit"
+                         alt="Protocol Management">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Experimental Conditions
+
+                    </h2>
+
+                    <p>
+
+                        The Metadata Module records cultivation
+                        conditions that influence fermentation
+                        performance.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Temperature</li>
+
+                        <li>pH</li>
+
+                        <li>Dissolved oxygen</li>
+
+                        <li>Agitation speed</li>
+
+                        <li>Aeration rate</li>
+
+                        <li>Pressure</li>
+
+                        <li>Culture duration</li>
+
+                    </ul>
+
+                    <img src="images/metadata/cultivation_conditions.png"
+                         class="image fit"
+                         alt="Experimental Conditions">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Microorganism Information
+
+                    </h2>
+
+                    <p>
+
+                        Metadata describing the cultivated microorganism
+                        provides essential biological context for
+                        interpreting fermentation experiments.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Scientific name</li>
+
+                        <li>Strain identifier</li>
+
+                        <li>Taxonomy</li>
+
+                        <li>Culture collection</li>
+
+                        <li>Growth characteristics</li>
+
+                    </ul>
+
+                    <img src="images/metadata/organism.png"
+                         class="image fit"
+                         alt="Microorganism Information">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Time-Dependent Events
+
+                    </h2>
+
+                    <p>
+
+                        Fermentation protocols frequently include events
+                        occurring at specific time points during an
+                        experiment.
+
+                    </p>
+
+                    <p>
+
+                        Raw2Ready records these events as structured
+                        metadata.
+
+                    </p>
+
+<pre><code>
+0 h      → Inoculation
+
+2 h      → pH Adjustment
+
+5 h      → Feed Started
+
+12 h     → Sampling
+
+18 h     → Induction
+
+24 h     → Harvest
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Automatic Metadata Extraction
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready can automatically extract structured
+                        metadata from protocol descriptions and laboratory
+                        documentation.
+
+                    </p>
+
+                    <p>
+
+                        The extraction process identifies organisms,
+                        cultivation parameters, reagents, time-dependent
+                        events and experimental conditions.
+
+                    </p>
+
+                    <img src="images/metadata/extraction_pipeline.png"
+                         class="image fit"
+                         alt="Metadata Extraction">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata Validation
+
+                    </h2>
+
+                    <p>
+
+                        Before metadata are stored, Raw2Ready performs
+                        automatic validation to ensure consistency and
+                        completeness.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Required fields</li>
+
+                        <li>Controlled vocabularies</li>
+
+                        <li>Date validation</li>
+
+                        <li>Scientific name verification</li>
+
+                        <li>Duplicate detection</li>
+
+                        <li>Missing field identification</li>
+
+                    </ul>
+
+                    <blockquote>
+
+                        Validation improves metadata quality and
+                        reproducibility across experiments.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata Editor Interface
+
+                    </h2>
+
+                    <p>
+
+                        The NiceGUI interface provides an interactive
+                        metadata editor that simplifies annotation through
+                        structured forms and guided data entry.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Experiment editor</li>
+
+                        <li>Protocol editor</li>
+
+                        <li>Microorganism selector</li>
+
+                        <li>Condition editor</li>
+
+                        <li>Validation messages</li>
+
+                        <li>Save and update actions</li>
+
+                    </ul>
+
+                    <img src="images/metadata/editor.png"
+                         class="image fit"
+                         alt="Metadata Editor">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Metadata are stored alongside the experimental
+                        dataset in Runtime Memory and remain available
+                        throughout the Raw2Ready workflow.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+      │
+      ├── Dataset
+      ├── Metadata
+      ├── Calculated Variables
+      ├── Statistical Results
+      └── AI Context
+</code></pre>
+
+                    <blockquote>
+
+                        Storing metadata together with numerical data
+                        enables context-aware analysis and reasoning
+                        across every Raw2Ready module.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata and AI Integration
+
+                    </h2>
+
+                    <p>
+
+                        Metadata is not only stored for documentation
+                        purposes but also serves as contextual knowledge
+                        for the Raw2Ready Multi-Agent framework.
+
+                    </p>
+
+                    <p>
+
+                        During AI-assisted reasoning, metadata is combined
+                        with experimental datasets, statistical analyses,
+                        BacDive knowledge and scientific literature to
+                        generate biologically meaningful responses.
+
+                    </p>
+
+<pre><code>
+Experimental Dataset
+        │
+        ├────────────┐
+        │            │
+Metadata            Statistics
+        │            │
+        └──────┬─────┘
+               ▼
+       Metadata Analyst
+               │
+               ▼
+        Agent Orchestrator
+               │
+               ▼
+      Master Summarizer
+</code></pre>
+
+                    <blockquote>
+
+                        Metadata provides the contextual information that
+                        allows AI agents to correctly interpret numerical
+                        observations.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Metadata Analyst Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Metadata Analyst Agent automatically processes
+                        structured metadata and transforms experimental
+                        descriptions into knowledge suitable for AI
+                        reasoning.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            Reads protocol metadata
+
+                        </li>
+
+                        <li>
+
+                            Identifies experimental conditions
+
+                        </li>
+
+                        <li>
+
+                            Extracts cultivation parameters
+
+                        </li>
+
+                        <li>
+
+                            Links metadata with datasets
+
+                        </li>
+
+                        <li>
+
+                            Provides contextual evidence
+
+                        </li>
+
+                    </ul>
+
+                    <img src="images/metadata/metadata_agent.png"
+                         class="image fit"
+                         alt="Metadata Analyst Agent">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        FAIR Data Principles
+
+                    </h2>
+
+                    <p>
+
+                        The Metadata Module follows the FAIR principles
+                        to improve the long-term value of fermentation
+                        datasets.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Principle</th>
+
+                                    <th>Implementation</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Findable
+
+                                    </td>
+
+                                    <td>
+
+                                        Structured metadata fields
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Accessible
+
+                                    </td>
+
+                                    <td>
+
+                                        Human-readable interface
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Interoperable
+
+                                    </td>
+
+                                    <td>
+
+                                        Standardized metadata schema
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Reusable
+
+                                    </td>
+
+                                    <td>
+
+                                        Complete experimental context
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Exporting Metadata
+
+                    </h2>
+
+                    <p>
+
+                        Metadata records can be exported for sharing,
+                        archival and integration with external systems.
+
+                    </p>
+
+                    <ul>
+
+                        <li>
+
+                            JSON
+
+                        </li>
+
+                        <li>
+
+                            YAML
+
+                        </li>
+
+                        <li>
+
+                            CSV
+
+                        </li>
+
+                        <li>
+
+                            MIFE-compatible format
+
+                        </li>
+
+                        <li>
+
+                            AI-ready structured output
+
+                        </li>
+
+                    </ul>
+
+                    <img src="images/metadata/export.png"
+                         class="image fit"
+                         alt="Metadata Export">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Complete all required metadata fields.
+
+                        </li>
+
+                        <li>
+
+                            Use standardized scientific names.
+
+                        </li>
+
+                        <li>
+
+                            Record protocol changes immediately.
+
+                        </li>
+
+                        <li>
+
+                            Maintain consistent units.
+
+                        </li>
+
+                        <li>
+
+                            Validate metadata before saving.
+
+                        </li>
+
+                        <li>
+
+                            Update metadata together with datasets.
+
+                        </li>
+
+                        <li>
+
+                            Review metadata before AI analysis.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Metadata cannot be saved
+
+                                    </td>
+
+                                    <td>
+
+                                        Required fields missing
+
+                                    </td>
+
+                                    <td>
+
+                                        Complete all mandatory fields.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Validation failed
+
+                                    </td>
+
+                                    <td>
+
+                                        Invalid values
+
+                                    </td>
+
+                                    <td>
+
+                                        Review highlighted fields.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Protocol not linked
+
+                                    </td>
+
+                                    <td>
+
+                                        Experiment not selected
+
+                                    </td>
+
+                                    <td>
+
+                                        Associate metadata with an experiment.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        AI missing context
+
+                                    </td>
+
+                                    <td>
+
+                                        Metadata incomplete
+
+                                    </td>
+
+                                    <td>
+
+                                        Add cultivation and protocol information.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Export unavailable
+
+                                    </td>
+
+                                    <td>
+
+                                        Metadata not validated
+
+                                    </td>
+
+                                    <td>
+
+                                        Validate before exporting.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Metadata Module enriches fermentation datasets
+                        with structured experimental context using the
+                        Minimum Information Framework for Fermentation
+                        Experiments (MIFE).
+
+                    </p>
+
+                    <p>
+
+                        By combining structured metadata with experimental
+                        measurements, Raw2Ready enables reproducible,
+                        interoperable and AI-ready fermentation research.
+
+                    </p>
+
+                    <blockquote>
+
+                        Metadata transforms experimental measurements into
+                        scientifically interpretable knowledge.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        After datasets and metadata have been prepared,
+                        users can continue to the
+                        <strong>Multi-Agent AI Framework</strong>, where
+                        specialized AI agents combine experimental data,
+                        metadata, microbial knowledge and scientific
+                        literature to provide evidence-based reasoning and
+                        intelligent decision support.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="statistics.html"
+                           class="button">
+
+                            Previous: Statistics Module
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="agents.html"
+                           class="button primary">
+
+                            Next: Multi-Agent AI
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+            <li>BIOINDUSTRY4.0 Project</li>
+            <li>Athens Research Center</li>
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+  
+  
+  
+
+Δημιουργία
+Μήνυμα στους Αλέξανδρος Αντωνιάδης
