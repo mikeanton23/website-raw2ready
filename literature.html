@@ -1,0 +1,1342 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Literature Reviewer | Raw2Ready Documentation</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Literature Reviewer Documentation" />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Menu</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="workflow.html">Workflow</a></li>
+<li><a href="load.html">Load Module</a></li>
+<li><a href="merge.html">Merge Module</a></li>
+<li><a href="calculate.html">Calculate Module</a></li>
+<li><a href="plot.html">Plot Module</a></li>
+<li><a href="statistics.html">Statistics Module</a></li>
+<li><a href="metadata.html">Metadata Module</a></li>
+<li><a href="bacdive.html">BacDive Explorer</a></li>
+<li><a href="literature.html">Literature Reviewer</a></li>
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Literature Reviewer
+
+</h2>
+
+<p>
+
+Scientific literature retrieval and evidence-based knowledge
+integration using CrossRef and publication metadata.
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<hr>
+
+<section>
+
+<h2>
+
+Overview
+
+</h2>
+
+<p>
+
+The Literature Reviewer enriches fermentation experiments
+with scientific evidence retrieved from published research.
+
+</p>
+
+<p>
+
+Rather than relying solely on experimental observations,
+Raw2Ready integrates peer-reviewed literature to provide
+biological explanations supported by scientific publications.
+
+</p>
+
+<p>
+
+The Literature Reviewer searches scientific databases,
+retrieves relevant publications, extracts important findings
+and summarizes the available evidence for the Multi-Agent AI
+framework.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Objectives
+
+</h2>
+
+<ul>
+
+<li>Retrieve scientific publications.</li>
+
+<li>Search CrossRef metadata.</li>
+
+<li>Extract experimental evidence.</li>
+
+<li>Summarize multiple publications.</li>
+
+<li>Support evidence-based reasoning.</li>
+
+<li>Provide publication metadata.</li>
+
+<li>Integrate literature with AI analysis.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Why Scientific Literature?
+
+</h2>
+
+<p>
+
+Fermentation datasets describe experimental observations,
+while scientific publications explain previously reported
+biological mechanisms and experimental findings.
+
+</p>
+
+<p>
+
+Combining both sources enables researchers to compare their
+results with existing scientific knowledge.
+
+</p>
+
+<blockquote>
+
+Scientific literature provides external evidence supporting
+experimental interpretation.
+
+</blockquote>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Literature Architecture
+
+</h2>
+
+<pre><code>
+User Question
+      │
+      ▼
+Literature Reviewer
+      │
+      ▼
+CrossRef Search
+      │
+      ▼
+Publication Metadata
+      │
+      ▼
+Evidence Extraction
+      │
+      ▼
+Runtime Memory
+</code></pre>
+
+<p>
+
+The Literature Reviewer retrieves publication metadata and
+summarizes relevant scientific evidence before making it
+available to the remaining AI agents.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+CrossRef Integration
+
+</h2>
+
+<p>
+
+Raw2Ready integrates the CrossRef API for discovering
+scientific publications relevant to fermentation experiments.
+
+</p>
+
+<p>
+
+CrossRef provides publication metadata including titles,
+authors, journals, publication dates and Digital Object
+Identifiers (DOIs).
+
+</p>
+
+<img src="images/literature/crossref.png"
+class="image fit"
+alt="CrossRef Integration">
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Retrieved Publication Information
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Field</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Title</td>
+
+<td>Publication title</td>
+
+</tr>
+
+<tr>
+
+<td>Authors</td>
+
+<td>Author list</td>
+
+</tr>
+
+<tr>
+
+<td>Journal</td>
+
+<td>Scientific journal</td>
+
+</tr>
+
+<tr>
+
+<td>Year</td>
+
+<td>Publication year</td>
+
+</tr>
+
+<tr>
+
+<td>DOI</td>
+
+<td>Digital Object Identifier</td>
+
+</tr>
+
+<tr>
+
+<td>Keywords</td>
+
+<td>Indexed scientific topics</td>
+
+</tr>
+
+<tr>
+
+<td>Abstract</td>
+
+<td>Publication summary</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Typical Workflow
+
+</h2>
+
+<pre><code>
+User Query
+      │
+      ▼
+Keyword Extraction
+      │
+      ▼
+CrossRef Search
+      │
+      ▼
+Retrieve Publications
+      │
+      ▼
+Evidence Extraction
+      │
+      ▼
+Runtime Memory
+</code></pre>
+
+<p>
+
+The retrieved literature becomes immediately available to
+the Multi-Agent framework for biological reasoning.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>
+
+Supported Search Topics
+
+</h2>
+
+<ul>
+
+<li>Microorganisms</li>
+
+<li>Fermentation conditions</li>
+
+<li>Bioreactor operation</li>
+
+<li>Growth kinetics</li>
+
+<li>Culture media</li>
+
+<li>Metabolic pathways</li>
+
+<li>Enzyme production</li>
+
+<li>Industrial biotechnology</li>
+
+<li>Process optimization</li>
+
+<li>Bioprocess engineering</li>
+
+</ul>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Publication Ranking
+
+                    </h2>
+
+                    <p>
+
+                        After retrieving candidate publications,
+                        the Literature Reviewer ranks them according
+                        to their relevance to the user's question.
+
+                    </p>
+
+                    <p>
+
+                        Ranking considers keyword similarity,
+                        publication metadata, biological relevance
+                        and contextual matching with the active
+                        fermentation experiment.
+
+                    </p>
+
+                    <img src="images/literature/ranking.png"
+                         class="image fit"
+                         alt="Publication Ranking">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Evidence Extraction
+
+                    </h2>
+
+                    <p>
+
+                        Rather than presenting complete publications,
+                        Raw2Ready extracts the information most relevant
+                        to the user's question.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Growth conditions</li>
+
+                        <li>Experimental procedures</li>
+
+                        <li>Reported observations</li>
+
+                        <li>Biological mechanisms</li>
+
+                        <li>Performance metrics</li>
+
+                        <li>Author conclusions</li>
+
+                    </ul>
+
+                    <img src="images/literature/evidence_extraction.png"
+                         class="image fit"
+                         alt="Evidence Extraction">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Multi-Paper Summarization
+
+                    </h2>
+
+                    <p>
+
+                        The Literature Reviewer combines information
+                        from multiple publications to produce a concise
+                        scientific summary.
+
+                    </p>
+
+                    <p>
+
+                        Instead of relying on a single article,
+                        Raw2Ready identifies recurring observations and
+                        reports the overall scientific consensus.
+
+                    </p>
+
+<pre><code>
+Paper A
+     │
+Paper B
+     │
+Paper C
+     │
+Paper D
+     │
+     ▼
+Evidence Aggregation
+     │
+     ▼
+Scientific Consensus
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Citation Management
+
+                    </h2>
+
+                    <p>
+
+                        Retrieved publications remain linked to their
+                        bibliographic metadata throughout the reasoning
+                        process.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Metadata</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Authors</td>
+
+                                    <td>Publication authors</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Journal</td>
+
+                                    <td>Publishing journal</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Year</td>
+
+                                    <td>Publication date</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>DOI</td>
+
+                                    <td>Persistent identifier</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Keywords</td>
+
+                                    <td>Indexed scientific terms</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Literature Reviewer Agent
+
+                    </h2>
+
+                    <p>
+
+                        The Literature Reviewer Agent is responsible for
+                        automatically searching scientific publications,
+                        extracting relevant information and providing
+                        evidence to the Multi-Agent framework.
+
+                    </p>
+
+<pre><code>
+Question
+    │
+    ▼
+Keyword Extraction
+    │
+    ▼
+CrossRef Search
+    │
+    ▼
+Publication Ranking
+    │
+    ▼
+Evidence Extraction
+    │
+    ▼
+Runtime Memory
+</code></pre>
+
+                    <blockquote>
+
+                        Scientific evidence complements experimental
+                        observations with peer-reviewed knowledge.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <p>
+
+                        Literature evidence is stored together with
+                        experimental datasets, metadata and BacDive
+                        information.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+
+├── Experimental Dataset
+
+├── Metadata
+
+├── BacDive Knowledge
+
+├── Scientific Literature
+
+├── Internet Evidence
+
+└── Agent Responses
+</code></pre>
+
+                    <p>
+
+                        Every AI agent can reuse retrieved publications
+                        without repeating literature searches.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI-Assisted Literature Analysis
+
+                    </h2>
+
+                    <p>
+
+                        Literature information is interpreted together
+                        with experimental evidence rather than presented
+                        independently.
+
+                    </p>
+
+                    <p>
+
+                        This enables Raw2Ready to explain experimental
+                        observations using published biological
+                        knowledge.
+
+                    </p>
+
+                    <img src="images/literature/ai_analysis.png"
+                         class="image fit"
+                         alt="AI Literature Analysis">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example Search Result
+
+                    </h2>
+
+                    <p>
+
+                        Example publication summary returned by the
+                        Literature Reviewer.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Field</th>
+
+                                    <th>Example</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Microorganism</td>
+
+                                    <td><em>Escherichia coli</em></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Topic</td>
+
+                                    <td>Fed-batch fermentation</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Journal</td>
+
+                                    <td>Biotechnology Journal</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Year</td>
+
+                                    <td>2024</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Main Finding</td>
+
+                                    <td>Improved biomass production under optimized feeding conditions.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+  <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Scientific Knowledge Integration
+
+                    </h2>
+
+                    <p>
+
+                        The Literature Reviewer is tightly integrated with
+                        the remaining components of Raw2Ready. Scientific
+                        publications are interpreted together with
+                        experimental measurements, metadata and microbial
+                        knowledge to provide evidence-based biological
+                        explanations.
+
+                    </p>
+
+<pre><code>
+Experimental Dataset
+        │
+        ▼
+Statistics Module
+        │
+        ▼
+Metadata Module
+        │
+        ▼
+BacDive Explorer
+        │
+        ▼
+Literature Reviewer
+        │
+        ▼
+Evidence Integration
+        │
+        ▼
+Master Summarizer
+</code></pre>
+
+                    <blockquote>
+
+                        Literature evidence complements experimental
+                        observations and microbial knowledge rather than
+                        replacing them.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Evidence-Based Reasoning
+
+                    </h2>
+
+                    <p>
+
+                        The Multi-Agent framework combines literature
+                        evidence with experimental observations before
+                        generating the final response.
+
+                    </p>
+
+                    <img src="images/literature/evidence_reasoning.png"
+                         class="image fit"
+                         alt="Evidence-Based Reasoning">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example AI Workflow
+
+                    </h2>
+
+<pre><code>
+User Question
+      │
+      ▼
+Identify Keywords
+      │
+      ▼
+CrossRef Search
+      │
+      ▼
+Retrieve Publications
+      │
+      ▼
+Extract Evidence
+      │
+      ▼
+Combine with Dataset
+      │
+      ▼
+Master Summarizer
+      │
+      ▼
+Final Scientific Explanation
+</code></pre>
+
+                    <p>
+
+                        Every retrieved publication contributes additional
+                        scientific evidence that supports the generated
+                        response.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Exporting Literature Results
+
+                    </h2>
+
+                    <p>
+
+                        Retrieved publication metadata and summarized
+                        evidence can be exported for documentation and
+                        reporting purposes.
+
+                    </p>
+
+                    <ul>
+
+                        <li>CSV bibliography</li>
+
+                        <li>JSON metadata</li>
+
+                        <li>BibTeX citations</li>
+
+                        <li>RIS references</li>
+
+                        <li>Publication summaries</li>
+
+                        <li>Evidence reports</li>
+
+                    </ul>
+
+                    <img src="images/literature/export.png"
+                         class="image fit"
+                         alt="Export Literature Results">
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Use specific scientific terminology when
+                            searching the literature.
+
+                        </li>
+
+                        <li>
+
+                            Include microorganism names whenever
+                            possible.
+
+                        </li>
+
+                        <li>
+
+                            Compare retrieved evidence with your own
+                            experimental observations.
+
+                        </li>
+
+                        <li>
+
+                            Review multiple publications before drawing
+                            conclusions.
+
+                        </li>
+
+                        <li>
+
+                            Combine literature evidence with BacDive and
+                            metadata information.
+
+                        </li>
+
+                        <li>
+
+                            Verify publication dates for rapidly evolving
+                            research topics.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Possible Cause</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>No publications found</td>
+
+                                    <td>Query too specific</td>
+
+                                    <td>Use broader biological terms.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Incomplete metadata</td>
+
+                                    <td>Publication record unavailable</td>
+
+                                    <td>Review alternative publications.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Duplicate publications</td>
+
+                                    <td>Similar search terms</td>
+
+                                    <td>Refine the search query.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>No AI interpretation</td>
+
+                                    <td>Evidence unavailable</td>
+
+                                    <td>Combine literature with metadata and experimental data.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Search failed</td>
+
+                                    <td>Network connection</td>
+
+                                    <td>Verify internet connectivity.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Summary
+
+                    </h2>
+
+                    <p>
+
+                        The Literature Reviewer connects Raw2Ready with
+                        the scientific literature, allowing experimental
+                        observations to be interpreted using published
+                        biological knowledge.
+
+                    </p>
+
+                    <p>
+
+                        By combining peer-reviewed publications with
+                        experimental datasets, metadata and microbial
+                        repositories, Raw2Ready delivers transparent,
+                        evidence-based and scientifically supported AI
+                        reasoning.
+
+                    </p>
+
+                    <blockquote>
+
+                        Scientific publications provide the external
+                        evidence that strengthens AI-assisted biological
+                        interpretation.
+
+                    </blockquote>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Next Step
+
+                    </h2>
+
+                    <p>
+
+                        Continue to the
+                        <strong>Multi-Agent AI Framework</strong>
+                        documentation to learn how scientific literature,
+                        BacDive knowledge, metadata and experimental data
+                        are combined into a unified reasoning workflow.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ====================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="bacdive.html"
+                           class="button">
+
+                            Previous: BacDive Explorer
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="agents.html"
+                           class="button primary">
+
+                            Next: Multi-Agent AI
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+            <li>BIOINDUSTRY4.0 Project</li>
+            <li>Athens Research Center</li>
+            <li>Documentation Website</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+</section>
+
+<hr>
