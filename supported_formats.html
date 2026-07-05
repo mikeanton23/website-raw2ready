@@ -1,0 +1,2139 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Raw2Ready | Supported Formats</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Supported File Formats Documentation." />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<!-- ===================================================== -->
+<!-- Header -->
+<!-- ===================================================== -->
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Documentation</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<hr>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics</a></li>
+
+<li><a href="metadata.html">Metadata</a></li>
+
+<hr>
+
+<li><a href="bacdive.html">BacDive</a></li>
+
+<li><a href="literature.html">Literature</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<hr>
+
+<li><a href="api.html">API Reference</a></li>
+
+<li><a href="configuration.html">Configuration</a></li>
+
+<li><a href="supported_formats.html"><strong>Supported Formats</strong></a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+<hr>
+
+<li>
+
+<a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+target="_blank">
+
+GitLab Repository
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- Main -->
+<!-- ===================================================== -->
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Supported File Formats
+
+</h2>
+
+<p>
+
+Input Files • Output Files • Equipment Compatibility • Data Standards
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Introduction
+
+</h2>
+
+<p>
+
+Raw2Ready has been designed to integrate heterogeneous datasets
+generated throughout industrial biotechnology workflows. Rather
+than requiring users to manually convert files, the platform
+provides dedicated parsers for supported laboratory equipment and
+generic tabular formats.
+
+</p>
+
+<p>
+
+All imported datasets are transformed into a standardized internal
+representation before subsequent processing modules—including
+merging, calculations, visualization, statistical analysis,
+metadata annotation and AI-assisted exploration—are executed.
+
+</p>
+
+<p>
+
+The goal of the supported format architecture is to provide a
+consistent and reproducible workflow regardless of the original
+vendor-specific data format.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Supported Equipment
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Equipment</th>
+
+<th>Status</th>
+
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Sartorius Bioreactors</td>
+
+<td>Fully Supported</td>
+
+<td>
+
+Bioreactor process monitoring and fermentation data.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>BioLectorXT</td>
+
+<td>Fully Supported</td>
+
+<td>
+
+High-throughput microbioreactor cultivation platform.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Gas Analyzer</td>
+
+<td>Fully Supported</td>
+
+<td>
+
+Off-gas measurements and respiratory analysis.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Generic CSV</td>
+
+<td>Fully Supported</td>
+
+<td>
+
+Custom experimental datasets.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Microsoft Excel</td>
+
+<td>Fully Supported</td>
+
+<td>
+
+Structured spreadsheet-based datasets.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Supported Input Formats
+
+</h2>
+
+<p>
+
+Raw2Ready currently accepts several categories of experimental
+data files.
+
+</p>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Extension</th>
+
+<th>Description</th>
+
+<th>Module</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>.csv</td>
+
+<td>
+
+Comma-separated experimental datasets.
+
+</td>
+
+<td>
+
+Load Module
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>.xlsx</td>
+
+<td>
+
+Microsoft Excel workbooks.
+
+</td>
+
+<td>
+
+Load Module
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>.xls</td>
+
+<td>
+
+Legacy Microsoft Excel format.
+
+</td>
+
+<td>
+
+Load Module
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>.json</td>
+
+<td>
+
+Configuration files.
+
+</td>
+
+<td>
+
+Configuration
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>.yaml</td>
+
+<td>
+
+Calculation configuration.
+
+</td>
+
+<td>
+
+Calculate Module
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>.yml</td>
+
+<td>
+
+Alternative YAML extension.
+
+</td>
+
+<td>
+
+Calculate Module
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Equipment-Specific Imports
+
+</h2>
+
+<p>
+
+Each supported instrument provides different raw data exports.
+Raw2Ready automatically applies equipment-specific parsing logic
+before transforming the measurements into standardized datasets.
+
+</p>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Equipment</th>
+
+<th>Typical Export</th>
+
+<th>Parser</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Sartorius</td>
+
+<td>
+
+Sensor export files
+
+</td>
+
+<td>
+
+Sartorius Parser
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>BioLectorXT</td>
+
+<td>
+
+Channel-based CSV files
+
+</td>
+
+<td>
+
+BioLectorXT Parser
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Gas Analyzer</td>
+
+<td>
+
+Gas composition CSV
+
+</td>
+
+<td>
+
+Gas Analyzer Parser
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>CSV</td>
+
+<td>
+
+Generic tabular file
+
+</td>
+
+<td>
+
+Generic CSV Parser
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Excel</td>
+
+<td>
+
+Spreadsheet workbook
+
+</td>
+
+<td>
+
+Excel Parser
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Input Processing Pipeline
+
+</h2>
+
+<pre><code>
+Raw Experimental Files
+
+        │
+
+        ▼
+
+Equipment Detection
+
+        │
+
+        ▼
+
+Dedicated Parser
+
+        │
+
+        ▼
+
+Column Translation
+
+        │
+
+        ▼
+
+Datetime Standardization
+
+        │
+
+        ▼
+
+Validation
+
+        │
+
+        ▼
+
+Standardized Dataset
+</code></pre>
+
+<p>
+
+Regardless of the original source, every imported dataset follows
+the same harmonization pipeline before becoming available to the
+remaining Raw2Ready modules.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Why Standardized Formats Matter
+
+</h2>
+
+<p>
+
+Industrial biotechnology experiments frequently combine
+measurements from multiple instruments that use different file
+formats, timestamp conventions and variable naming schemes.
+
+</p>
+
+<p>
+
+Raw2Ready removes these inconsistencies by converting all
+supported datasets into a unified internal representation,
+allowing downstream modules to operate independently of the
+original equipment.
+
+</p>
+
+</section>
+
+<hr>
+<!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Supported Output Formats
+
+                    </h2>
+
+                    <p>
+
+                        After processing, Raw2Ready exports standardized datasets
+                        that can be reused by downstream modules, external
+                        software or machine learning pipelines.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Extension</th>
+
+                                    <th>Description</th>
+
+                                    <th>Generated By</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>.csv</td>
+
+                                    <td>
+
+                                        Standardized experimental dataset.
+
+                                    </td>
+
+                                    <td>
+
+                                        Parse / Merge / Calculate
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>.png</td>
+
+                                    <td>
+
+                                        Static publication-quality figures.
+
+                                    </td>
+
+                                    <td>
+
+                                        Plot Module
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>.html</td>
+
+                                    <td>
+
+                                        Interactive Plotly visualizations.
+
+                                    </td>
+
+                                    <td>
+
+                                        Plot Module
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>.json</td>
+
+                                    <td>
+
+                                        Metadata and configuration exports.
+
+                                    </td>
+
+                                    <td>
+
+                                        Metadata Module
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>.log</td>
+
+                                    <td>
+
+                                        Execution logs.
+
+                                    </td>
+
+                                    <td>
+
+                                        All Modules
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Standard Timestamp Format
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready internally converts timestamps into a
+                        consistent representation to enable synchronization
+                        across multiple instruments.
+
+                    </p>
+
+<pre><code>
+2025-06-04T08:18:15 +02:00
+</code></pre>
+
+                    <p>
+
+                        Whenever possible, timezone information is preserved to
+                        ensure reproducibility and compatibility with
+                        international datasets.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Accepted Timestamp Variants
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Format</th>
+
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>2025-06-04T08:18:15+02:00</td>
+
+                                    <td>Recommended</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>2025-06-04 08:18:15</td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>04/06/2025 08:18</td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Age (h)</td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Unix Timestamp</td>
+
+                                    <td>Supported</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Required Dataset Columns
+
+                    </h2>
+
+                    <p>
+
+                        Although different instruments export different
+                        variables, every harmonized dataset contains a common
+                        structure.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Column</th>
+
+                                    <th>Required</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>datetime</td>
+
+                                    <td>Yes</td>
+
+                                    <td>
+
+                                        Absolute measurement timestamp.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>time [h]</td>
+
+                                    <td>Recommended</td>
+
+                                    <td>
+
+                                        Relative cultivation time.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Protocol Name</td>
+
+                                    <td>Recommended</td>
+
+                                    <td>
+
+                                        Experiment identifier.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Well</td>
+
+                                    <td>BioLectorXT only</td>
+
+                                    <td>
+
+                                        Microplate well identifier.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Standardized Column Naming
+
+                    </h2>
+
+                    <p>
+
+                        Vendor-specific names are translated into standardized
+                        variables before any downstream analysis.
+
+                    </p>
+
+<pre><code>
+Original Equipment Name
+
+        │
+
+        ▼
+
+Column Translation
+
+        │
+
+        ▼
+
+Standardized Variable
+
+        │
+
+        ▼
+
+Shared Dataset
+</code></pre>
+
+                    <p>
+
+                        This guarantees that visualization, statistical
+                        analysis, metadata annotation and AI modules operate
+                        independently of the original instrument.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Validation Rules
+
+                    </h2>
+
+                    <p>
+
+                        Every imported dataset is validated before processing.
+
+                    </p>
+
+                    <ul>
+
+                        <li>File exists.</li>
+
+                        <li>Supported extension.</li>
+
+                        <li>Readable encoding.</li>
+
+                        <li>Valid delimiter.</li>
+
+                        <li>Required columns present.</li>
+
+                        <li>Consistent datetime format.</li>
+
+                        <li>Duplicate timestamps detected.</li>
+
+                        <li>Missing values identified.</li>
+
+                        <li>Column types verified.</li>
+
+                        <li>Output directory accessible.</li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Missing Values
+
+                    </h2>
+
+                    <p>
+
+                        Missing observations frequently occur in industrial
+                        fermentation datasets due to asynchronous measurements,
+                        sensor failures or acquisition interruptions.
+
+                    </p>
+
+                    <p>
+
+                        Raw2Ready identifies missing values during import and
+                        reports them before downstream processing begins.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Condition</th>
+
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Empty cells</td>
+
+                                    <td>Detected and reported.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>NaN values</td>
+
+                                    <td>Preserved unless explicitly handled.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Duplicate timestamps</td>
+
+                                    <td>Warning generated.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Invalid numeric values</td>
+
+                                    <td>Validation warning.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Compatibility Matrix
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Module</th>
+
+                                    <th>CSV</th>
+
+                                    <th>Excel</th>
+
+                                    <th>Sartorius</th>
+
+                                    <th>BioLectorXT</th>
+
+                                    <th>Gas Analyzer</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Load</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Merge</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Calculate</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Plot</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Statistics</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                    <td>✓</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Internal Standard Data Model
+
+                    </h2>
+
+<pre><code>
+Raw File
+
+      │
+
+Equipment Parser
+
+      │
+
+Standardized DataFrame
+
+      │
+
+Merge
+
+      │
+
+Calculate
+
+      │
+
+Visualization
+
+      │
+
+Statistics
+
+      │
+
+Metadata
+
+      │
+
+AI Framework
+</code></pre>
+
+                    <p>
+
+                        Regardless of the original file format, all datasets
+                        converge to the same standardized internal structure,
+                        ensuring interoperability across every Raw2Ready module.
+
+                    </p>
+
+                </section>
+
+                <hr>
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Import Examples
+
+                    </h2>
+
+                    <p>
+
+                        The following examples illustrate common import
+                        workflows supported by Raw2Ready.
+
+                    </p>
+
+<h3>Sartorius Bioreactor</h3>
+
+<pre><code>
+Sensor Export (.csv)
+
+        │
+
+Gas Analyzer (.csv)
+
+        │
+
+Column Translation (.json)
+
+        │
+
+Parse Module
+
+        │
+
+Standardized Dataset
+</code></pre>
+
+<h3>BioLectorXT</h3>
+
+<pre><code>
+Channel 1
+
+Channel 2
+
+Channel 3
+
+Channel 4
+
+Channel 5
+
+Channel 6
+
+        │
+
+BioLectorXT Parser
+
+        │
+
+Unified Dataset
+</code></pre>
+
+<h3>Generic CSV</h3>
+
+<pre><code>
+CSV File
+
+        │
+
+Validation
+
+        │
+
+Column Mapping
+
+        │
+
+Internal Dataset
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Supported Export Files
+
+                    </h2>
+
+                    <p>
+
+                        Every processing module generates standardized output
+                        files that can be reused by subsequent modules or
+                        external software.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Output</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>*.sensors.csv</td>
+
+                                    <td>
+
+                                        Parsed sensor dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.gas_analyzer.csv</td>
+
+                                    <td>
+
+                                        Parsed gas analyzer dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.merged.csv</td>
+
+                                    <td>
+
+                                        Merged experimental dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.calculate.csv</td>
+
+                                    <td>
+
+                                        Dataset containing calculated variables.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.html</td>
+
+                                    <td>
+
+                                        Interactive Plotly visualization.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.png</td>
+
+                                    <td>
+
+                                        Static publication-quality figure.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.log</td>
+
+                                    <td>
+
+                                        Processing log generated by each module.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Complete Data Flow
+
+                    </h2>
+
+<pre><code>
+Raw Equipment Files
+
+        │
+
+Load
+
+        │
+
+Parse
+
+        │
+
+Merge
+
+        │
+
+Calculate
+
+        │
+
+Visualization
+
+        │
+
+Statistics
+
+        │
+
+Metadata
+
+        │
+
+Runtime Memory
+
+        │
+
+Multi-Agent AI
+
+        │
+
+Knowledge Discovery
+</code></pre>
+
+                    <p>
+
+                        Every exported dataset preserves standardized naming,
+                        timestamps and metadata, ensuring compatibility
+                        throughout the complete Raw2Ready workflow.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Keep original raw files unchanged.
+
+                        </li>
+
+                        <li>
+
+                            Store configuration files together with each
+                            experiment.
+
+                        </li>
+
+                        <li>
+
+                            Preserve standardized column names.
+
+                        </li>
+
+                        <li>
+
+                            Always validate datasets before merging.
+
+                        </li>
+
+                        <li>
+
+                            Maintain consistent timestamp formats.
+
+                        </li>
+
+                        <li>
+
+                            Include complete MIFE metadata whenever possible.
+
+                        </li>
+
+                        <li>
+
+                            Use UTF-8 encoding for text-based files.
+
+                        </li>
+
+                        <li>
+
+                            Archive generated output files for reproducibility.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Common Formatting Problems
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Problem</th>
+
+                                    <th>Recommended Solution</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        Different datetime formats
+
+                                    </td>
+
+                                    <td>
+
+                                        Convert timestamps before merging.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Duplicate measurements
+
+                                    </td>
+
+                                    <td>
+
+                                        Remove duplicates or inspect manually.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Missing variables
+
+                                    </td>
+
+                                    <td>
+
+                                        Verify parser and column translation.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Incorrect encoding
+
+                                    </td>
+
+                                    <td>
+
+                                        Save files using UTF-8.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        Inconsistent units
+
+                                    </td>
+
+                                    <td>
+
+                                        Standardize measurement units.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <p>
+
+                        If an import fails, verify the following:
+
+                    </p>
+
+                    <ol>
+
+                        <li>
+
+                            The selected equipment parser matches the source
+                            instrument.
+
+                        </li>
+
+                        <li>
+
+                            The file extension is supported.
+
+                        </li>
+
+                        <li>
+
+                            The configuration file references the correct paths.
+
+                        </li>
+
+                        <li>
+
+                            Required columns are present.
+
+                        </li>
+
+                        <li>
+
+                            Datetime values are valid.
+
+                        </li>
+
+                        <li>
+
+                            Files use UTF-8 encoding whenever possible.
+
+                        </li>
+
+                        <li>
+
+                            Output directories are writable.
+
+                        </li>
+
+                    </ol>
+
+                    <p>
+
+                        Detailed diagnostic information is available in the
+                        corresponding module log files.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Future Format Support
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Format</th>
+
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>JSON Datasets</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>XML</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Apache Parquet</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>HDF5</td>
+
+                                    <td>Future Work</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Direct Database Connections</td>
+
+                                    <td>Future Work</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Cloud Storage Integration</td>
+
+                                    <td>Future Work</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="configuration.html"
+                           class="button">
+
+                            Previous: Configuration
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="faq.html"
+                           class="button primary">
+
+                            Next: FAQ
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- ===================================================== -->
+    <!-- Footer -->
+    <!-- ===================================================== -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center (Athena RC)</li>
+
+            <li>Supported Formats Documentation</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- Scripts -->
+<!-- ===================================================== -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
