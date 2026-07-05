@@ -1,0 +1,1898 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Raw2Ready | Developer Guide</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Developer Guide for Raw2Ready contributors." />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<!-- ===================================================== -->
+<!-- Header -->
+<!-- ===================================================== -->
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Documentation</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<hr>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics</a></li>
+
+<li><a href="metadata.html">Metadata</a></li>
+
+<hr>
+
+<li><a href="bacdive.html">BacDive</a></li>
+
+<li><a href="literature.html">Literature</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<hr>
+
+<li><a href="api.html">API Reference</a></li>
+
+<li><a href="configuration.html">Configuration</a></li>
+
+<li><a href="supported_formats.html">Supported Formats</a></li>
+
+<li><a href="examples.html">Examples</a></li>
+
+<li><a href="developer.html"><strong>Developer Guide</strong></a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+<hr>
+
+<li>
+
+<a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+target="_blank">
+
+GitLab Repository
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- Main -->
+<!-- ===================================================== -->
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Developer Guide
+
+</h2>
+
+<p>
+
+Architecture • Development • Contribution • Extension
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Introduction
+
+</h2>
+
+<p>
+
+Raw2Ready has been designed as a modular, extensible framework for
+industrial biotechnology data processing. Every major functionality
+is implemented as an independent component, allowing developers to
+extend the platform without modifying unrelated modules.
+
+</p>
+
+<p>
+
+The project separates data processing, graphical user interfaces,
+configuration management and AI functionality into distinct layers.
+This architecture simplifies maintenance, improves testability and
+encourages collaborative development.
+
+</p>
+
+<p>
+
+Whether you are implementing support for a new laboratory instrument,
+adding statistical analyses or developing AI agents, the framework
+provides clearly defined extension points.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Project Architecture
+
+</h2>
+
+<pre><code>
+                User Interface
+               (NiceGUI / CLI)
+                      │
+                      ▼
+              Processing Modules
+                      │
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+      Parsing      Merging      Calculations
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
+             Standardized Dataset
+                      │
+      ┌───────────────┼────────────────┐
+      ▼               ▼                ▼
+ Visualization   Statistics     Metadata
+      │               │                │
+      └───────────────┼────────────────┘
+                      ▼
+               Runtime Memory
+                      │
+                      ▼
+              Multi-Agent AI Layer
+</code></pre>
+
+<p>
+
+Each layer has a clearly defined responsibility and communicates
+through standardized data structures.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Repository Structure
+
+</h2>
+
+<p>
+
+The repository is organized into independent packages to simplify
+development and long-term maintenance.
+
+</p>
+
+<pre><code>
+raw2ready/
+
+├── agents/
+├── assets/
+├── config/
+├── examples/
+├── gui/
+├── lib/
+├── llm/
+├── logs/
+├── modules/
+├── tools/
+├── run_app.py
+├── raw2ready.py
+├── requirements.txt
+└── README.md
+</code></pre>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Directory Overview
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Directory</th>
+
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>agents/</td>
+
+<td>
+
+Multi-Agent AI implementation.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>assets/</td>
+
+<td>
+
+Static resources used by the GUI.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>config/</td>
+
+<td>
+
+Configuration templates and defaults.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>examples/</td>
+
+<td>
+
+Example configuration files and datasets.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>gui/</td>
+
+<td>
+
+NiceGUI user interface.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>lib/</td>
+
+<td>
+
+Core processing library.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>modules/</td>
+
+<td>
+
+CLI entry points for processing modules.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>llm/</td>
+
+<td>
+
+Language model integrations.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>tools/</td>
+
+<td>
+
+Utility scripts and helper functions.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>logs/</td>
+
+<td>
+
+Runtime log files.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Core Processing Modules
+
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Module</th>
+
+<th>Responsibility</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Parse</td>
+
+<td>
+
+Import and harmonize raw datasets.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Merge</td>
+
+<td>
+
+Synchronize multiple datasets.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Calculate</td>
+
+<td>
+
+Evaluate derived variables.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Plot</td>
+
+<td>
+
+Generate interactive visualizations.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Statistics</td>
+
+<td>
+
+Perform descriptive analyses.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Metadata</td>
+
+<td>
+
+Manage MIFE annotations.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>AI Agents</td>
+
+<td>
+
+Coordinate intelligent reasoning.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Development Environment
+
+</h2>
+
+<p>
+
+A dedicated Python virtual environment is recommended for
+development to isolate dependencies from the system Python
+installation.
+
+</p>
+
+<pre><code>
+git clone https://gitlab.com/arc3972240/bioindustry/raw2ready
+
+cd raw2ready
+
+python -m venv .venv
+
+source .venv/bin/activate
+
+pip install -r requirements.txt
+</code></pre>
+
+<p>
+
+After installing the dependencies, the graphical interface can be
+started with:
+
+</p>
+
+<pre><code>
+python run_app.py
+</code></pre>
+
+<p>
+
+The command-line interface is available through:
+
+</p>
+
+<pre><code>
+python raw2ready.py --help
+</code></pre>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Developer Workflow
+
+</h2>
+
+<pre><code>
+Clone Repository
+
+        │
+
+Create Virtual Environment
+
+        │
+
+Install Dependencies
+
+        │
+
+Implement Feature
+
+        │
+
+Run Tests
+
+        │
+
+Update Documentation
+
+        │
+
+Commit Changes
+
+        │
+
+Push Branch
+
+        │
+
+Merge Request
+</code></pre>
+
+<p>
+
+Following this workflow helps maintain code quality and ensures
+that new functionality is documented alongside the implementation.
+
+</p>
+
+</section>
+
+<hr>
+<!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Developing New Modules
+
+                    </h2>
+
+                    <p>
+
+                        Every Raw2Ready processing component follows the same
+                        modular design philosophy. New functionality should be
+                        implemented as an independent processing module while
+                        keeping business logic separated from the graphical user
+                        interface.
+
+                    </p>
+
+<pre><code>
+GUI / CLI
+
+      │
+
+      ▼
+
+modules/
+
+      │
+
+      ▼
+
+lib/
+
+      │
+
+      ▼
+
+Utilities
+
+      │
+
+      ▼
+
+Output Files
+</code></pre>
+
+                    <p>
+
+                        The <strong>modules/</strong> directory contains command
+                        entry points, whereas the
+                        <strong>lib/</strong> directory contains reusable
+                        processing logic.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Module Layout
+
+                    </h2>
+
+<pre><code>
+modules/
+
+    parse.py
+
+    merge.py
+
+    calculate.py
+
+    plot.py
+
+    statistics.py
+
+    metadata.py
+</code></pre>
+
+                    <p>
+
+                        Each module should perform a single well-defined task
+                        and communicate using standardized datasets.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Typical Module Execution
+
+                    </h2>
+
+<pre><code>
+Read Configuration
+
+        │
+
+Validate Parameters
+
+        │
+
+Load Dataset
+
+        │
+
+Process Data
+
+        │
+
+Validate Output
+
+        │
+
+Write Files
+
+        │
+
+Generate Log
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Adding Support for New Equipment
+
+                    </h2>
+
+                    <p>
+
+                        New laboratory instruments can be integrated without
+                        modifying the overall workflow. Developers only need to
+                        implement a parser that converts vendor-specific exports
+                        into Raw2Ready's standardized internal data model.
+
+                    </p>
+
+<pre><code>
+New Equipment
+
+        │
+
+Raw Export
+
+        │
+
+Equipment Parser
+
+        │
+
+Column Translation
+
+        │
+
+Standardized Dataset
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Equipment Integration Steps
+
+                    </h2>
+
+                    <ol>
+
+                        <li>
+
+                            Create a parser inside
+                            <strong>lib/parse.py</strong>.
+
+                        </li>
+
+                        <li>
+
+                            Register the parser in
+                            <strong>modules/parse.py</strong>.
+
+                        </li>
+
+                        <li>
+
+                            Define configuration parameters.
+
+                        </li>
+
+                        <li>
+
+                            Create a column translation template.
+
+                        </li>
+
+                        <li>
+
+                            Test using representative datasets.
+
+                        </li>
+
+                        <li>
+
+                            Update the documentation.
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Creating New AI Agents
+
+                    </h2>
+
+                    <p>
+
+                        AI agents are implemented as independent components that
+                        communicate through Runtime Memory. Each agent performs
+                        one specialized task and contributes structured
+                        information to the overall reasoning process.
+
+                    </p>
+
+<pre><code>
+Runtime Memory
+
+        │
+
+        ├── Metadata Agent
+
+        ├── Statistics Agent
+
+        ├── BacDive Agent
+
+        ├── Literature Agent
+
+        ├── Dataset Agent
+
+        └── Report Agent
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI Agent Development Workflow
+
+                    </h2>
+
+<pre><code>
+Create Agent
+
+        │
+
+Read Runtime Memory
+
+        │
+
+Execute Task
+
+        │
+
+Generate Result
+
+        │
+
+Update Runtime Memory
+
+        │
+
+Return Response
+</code></pre>
+
+                    <p>
+
+                        Agents should exchange structured information rather
+                        than directly accessing each other's internal state.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory Integration
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Memory Object</th>
+
+                                    <th>Purpose</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Dataset</td>
+
+                                    <td>
+
+                                        Harmonized experimental data.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Metadata</td>
+
+                                    <td>
+
+                                        MIFE experiment annotations.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Statistics</td>
+
+                                    <td>
+
+                                        Numerical summaries.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Plots</td>
+
+                                    <td>
+
+                                        Visualization references.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>External Knowledge</td>
+
+                                    <td>
+
+                                        BacDive and literature retrieval.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Logging
+
+                    </h2>
+
+                    <p>
+
+                        Every processing module should generate detailed log
+                        files describing the execution process.
+
+                    </p>
+
+<pre><code>
+Module Start
+
+        │
+
+Configuration
+
+        │
+
+Input Files
+
+        │
+
+Processing
+
+        │
+
+Warnings
+
+        │
+
+Output Files
+
+        │
+
+Execution Time
+
+        │
+
+Module Complete
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Testing
+
+                    </h2>
+
+                    <p>
+
+                        New functionality should be validated using both unit
+                        tests and complete workflow tests.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Test Type</th>
+
+                                    <th>Purpose</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Unit Test</td>
+
+                                    <td>
+
+                                        Validate individual functions.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Parser Test</td>
+
+                                    <td>
+
+                                        Verify equipment compatibility.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Integration Test</td>
+
+                                    <td>
+
+                                        Validate complete workflows.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>GUI Test</td>
+
+                                    <td>
+
+                                        Verify NiceGUI functionality.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Regression Test</td>
+
+                                    <td>
+
+                                        Prevent breaking existing features.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Debugging Workflow
+
+                    </h2>
+
+<pre><code>
+Configuration
+
+        │
+
+Check Input Files
+
+        │
+
+Enable Logging
+
+        │
+
+Run Module
+
+        │
+
+Inspect Log
+
+        │
+
+Fix Issue
+
+        │
+
+Repeat Test
+</code></pre>
+
+                    <p>
+
+                        Developers should review execution logs before modifying
+                        processing code, as configuration issues are often the
+                        primary cause of failures.
+
+                    </p>
+
+                </section>
+
+                <hr>
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Coding Standards
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready follows a consistent coding style to improve
+                        readability, maintainability and long-term
+                        collaboration.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Standard</th>
+
+                                    <th>Recommendation</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Python Version</td>
+
+                                    <td>Python 3.11 or newer</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Style Guide</td>
+
+                                    <td>PEP 8</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Formatting</td>
+
+                                    <td>Black formatter</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Imports</td>
+
+                                    <td>Group standard, third-party and local imports</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Documentation</td>
+
+                                    <td>Docstrings for public functions and classes</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Typing</td>
+
+                                    <td>Use type hints where appropriate</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Code Organization
+
+                    </h2>
+
+<pre><code>
+GUI Layer
+
+        │
+
+Modules
+
+        │
+
+Core Library
+
+        │
+
+Utilities
+
+        │
+
+External Libraries
+</code></pre>
+
+                    <p>
+
+                        User interface code should remain independent from data
+                        processing logic. Shared functionality should be placed
+                        inside reusable library modules.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Documentation Guidelines
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Document every public function.
+
+                        </li>
+
+                        <li>
+
+                            Include parameter descriptions.
+
+                        </li>
+
+                        <li>
+
+                            Describe return values.
+
+                        </li>
+
+                        <li>
+
+                            Add usage examples where appropriate.
+
+                        </li>
+
+                        <li>
+
+                            Update documentation whenever functionality changes.
+
+                        </li>
+
+                        <li>
+
+                            Keep examples synchronized with the latest release.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Git Branching Strategy
+
+                    </h2>
+
+                    <p>
+
+                        Development should follow a feature-based workflow to
+                        isolate changes and simplify code reviews.
+
+                    </p>
+
+<pre><code>
+main
+
+    │
+
+    ├── feature/parser
+
+    ├── feature/gui
+
+    ├── feature/statistics
+
+    ├── feature/agents
+
+    └── bugfix/merge
+</code></pre>
+
+                    <p>
+
+                        Each feature branch should focus on a single functional
+                        improvement or bug fix.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Contribution Workflow
+
+                    </h2>
+
+<pre><code>
+Fork Repository
+
+        │
+
+Create Feature Branch
+
+        │
+
+Implement Changes
+
+        │
+
+Run Tests
+
+        │
+
+Update Documentation
+
+        │
+
+Commit Changes
+
+        │
+
+Push Branch
+
+        │
+
+Open Merge Request
+
+        │
+
+Code Review
+
+        │
+
+Merge into Main
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Commit Message Recommendations
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Type</th>
+
+                                    <th>Example</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Feature</td>
+
+                                    <td>
+
+                                        Add BioLectorXT parser
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Bug Fix</td>
+
+                                    <td>
+
+                                        Fix datetime synchronization
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Documentation</td>
+
+                                    <td>
+
+                                        Update API documentation
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Refactor</td>
+
+                                    <td>
+
+                                        Refactor merge module
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Testing</td>
+
+                                    <td>
+
+                                        Add parser unit tests
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Release Checklist
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            All tests pass successfully.
+
+                        </li>
+
+                        <li>
+
+                            Documentation is updated.
+
+                        </li>
+
+                        <li>
+
+                            Configuration examples are validated.
+
+                        </li>
+
+                        <li>
+
+                            New equipment parsers are tested.
+
+                        </li>
+
+                        <li>
+
+                            AI agents operate correctly.
+
+                        </li>
+
+                        <li>
+
+                            GUI components function as expected.
+
+                        </li>
+
+                        <li>
+
+                            Version number is updated.
+
+                        </li>
+
+                        <li>
+
+                            Release notes are prepared.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Contributing
+
+                    </h2>
+
+                    <p>
+
+                        Contributions from researchers, software engineers and
+                        the industrial biotechnology community are welcome.
+                        Whether you are fixing bugs, adding equipment support,
+                        improving documentation or extending the AI framework,
+                        your contributions help improve Raw2Ready.
+
+                    </p>
+
+                    <p>
+
+                        Before submitting a merge request, ensure that your code
+                        follows the project's coding standards, passes all
+                        available tests and includes any necessary
+                        documentation updates.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="examples.html"
+                           class="button">
+
+                            Previous: Examples
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="faq.html"
+                           class="button primary">
+
+                            Next: FAQ
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- ===================================================== -->
+    <!-- Footer -->
+    <!-- ===================================================== -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center (Athena RC)</li>
+
+            <li>Developer Documentation</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- Scripts -->
+<!-- ===================================================== -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
