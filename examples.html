@@ -1,0 +1,1673 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Raw2Ready | Examples</title>
+
+    <meta charset="utf-8"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <meta name="description"
+          content="Practical examples demonstrating complete Raw2Ready workflows."/>
+
+    <link rel="stylesheet"
+          href="assets/css/main.css"/>
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css"/>
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<!-- ===================================================== -->
+<!-- Header -->
+<!-- ===================================================== -->
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Documentation</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<hr>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics</a></li>
+
+<li><a href="metadata.html">Metadata</a></li>
+
+<hr>
+
+<li><a href="bacdive.html">BacDive</a></li>
+
+<li><a href="literature.html">Literature</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<hr>
+
+<li><a href="api.html">API Reference</a></li>
+
+<li><a href="configuration.html">Configuration</a></li>
+
+<li><a href="supported_formats.html">Supported Formats</a></li>
+
+<li><a href="examples.html"><strong>Examples</strong></a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+<hr>
+
+<li>
+
+<a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+target="_blank">
+
+GitLab Repository
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- Main -->
+<!-- ===================================================== -->
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Examples
+
+</h2>
+
+<p>
+
+Complete Experimental Workflows • Practical Tutorials • End-to-End Processing
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Introduction
+
+</h2>
+
+<p>
+
+This section demonstrates complete experimental workflows using
+Raw2Ready. The examples illustrate how heterogeneous raw files are
+transformed into standardized datasets, visualized, statistically
+analysed and explored through AI-assisted reasoning.
+
+</p>
+
+<p>
+
+Each example follows the same philosophy used throughout the
+documentation and can be adapted to different experimental
+configurations.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+General Processing Workflow
+
+</h2>
+
+<pre><code>
+Raw Experimental Files
+
+        │
+
+        ▼
+
+Load
+
+        │
+
+        ▼
+
+Parse
+
+        │
+
+        ▼
+
+Merge
+
+        │
+
+        ▼
+
+Calculate
+
+        │
+
+        ▼
+
+Visualization
+
+        │
+
+        ▼
+
+Statistics
+
+        │
+
+        ▼
+
+Metadata
+
+        │
+
+        ▼
+
+AI Exploration
+
+        │
+
+        ▼
+
+Knowledge Discovery
+</code></pre>
+
+<p>
+
+Although different experiments use different equipment, every
+workflow follows the same processing pipeline.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Example 1
+
+</h2>
+
+<h3>
+
+Complete Sartorius Bioreactor Workflow
+
+</h3>
+
+<p>
+
+This example demonstrates the complete processing of a Sartorius
+fermentation experiment including sensor data, gas analyser
+measurements, calculated variables and interactive visualization.
+
+</p>
+
+<h3>
+
+Input Files
+
+</h3>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>File</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Bioreactor Sensor Export</td>
+
+<td>
+
+Raw Sartorius sensor measurements.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Gas Analyzer Export</td>
+
+<td>
+
+Off-gas composition measurements.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>column_translation.json</td>
+
+<td>
+
+Sensor name harmonization.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>config.json</td>
+
+<td>
+
+Experiment configuration.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>calculate.config.yaml</td>
+
+<td>
+
+Formula definitions.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<hr>
+
+<h3>
+
+Processing Pipeline
+
+</h3>
+
+<pre><code>
+Sensor CSV
+
+      │
+
+Gas Analyzer CSV
+
+      │
+
+Column Translation
+
+      │
+
+Configuration
+
+      │
+
+Parse
+
+      │
+
+Merge
+
+      │
+
+Calculate
+
+      │
+
+Interactive Plots
+
+      │
+
+Statistics
+
+      │
+
+Metadata
+
+      │
+
+AI Agents
+</code></pre>
+
+<hr>
+
+<h3>
+
+Step 1 — Parse Raw Data
+
+</h3>
+
+<pre><code>
+python raw2ready.py parse \
+    -cf config.json
+</code></pre>
+
+<p>
+
+The parser imports raw Sartorius sensor exports and gas analyser
+measurements, applies column translations, converts timestamps into
+the standardized internal format and generates harmonized CSV
+datasets for downstream processing.
+
+</p>
+
+<hr>
+
+<h3>
+
+Expected Output
+
+</h3>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Generated File</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>experiment.sensors.csv</td>
+
+<td>
+
+Parsed sensor measurements.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>experiment.gas_analyzer.csv</td>
+
+<td>
+
+Parsed gas analyser dataset.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>parse.log</td>
+
+<td>
+
+Execution log.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<hr>
+
+<h3>
+
+Example Dataset Structure
+
+</h3>
+
+<pre><code>
+datetime
+
+time [h]
+
+Temperature [°C]
+
+pH [/]
+
+pO2 [%]
+
+Agitation [rpm]
+
+Air Flow [L/min]
+
+CO₂ [%]
+
+O₂ [%]
+</code></pre>
+
+<p>
+
+Once harmonized, the dataset is ready for merging with additional
+experimental measurements.
+
+</p>
+
+</section>
+
+<hr>
+<!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example 2
+
+                    </h2>
+
+                    <h3>
+
+                        BioLectorXT Workflow
+
+                    </h3>
+
+                    <p>
+
+                        This example demonstrates the processing of BioLectorXT
+                        microbioreactor experiments containing multiple channel
+                        measurements collected from microplate cultivations.
+
+                    </p>
+
+                    <h3>
+
+                        Input Files
+
+                    </h3>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>File</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>BioLectorXT Export</td>
+
+                                    <td>
+
+                                        Complete experiment exported from
+                                        BioLectorXT.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>config.json</td>
+
+                                    <td>
+
+                                        Processing configuration.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <hr>
+
+                    <h3>
+
+                        Processing Pipeline
+
+                    </h3>
+
+<pre><code>
+BioLectorXT Export
+
+        │
+
+Channel Extraction
+
+        │
+
+Well Identification
+
+        │
+
+Calibration
+
+        │
+
+Unified DataFrame
+
+        │
+
+Visualization
+
+        │
+
+Statistics
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        CLI Execution
+
+                    </h3>
+
+<pre><code>
+python raw2ready.py parse \
+    -cf config.json
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        Expected Output
+
+                    </h3>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Generated File</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>experiment.data.csv</td>
+
+                                    <td>
+
+                                        Harmonized BioLectorXT dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>parse.log</td>
+
+                                    <td>
+
+                                        Processing log.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example 3
+
+                    </h2>
+
+                    <h3>
+
+                        Gas Analyzer Workflow
+
+                    </h3>
+
+                    <p>
+
+                        Raw2Ready automatically processes gas analyser
+                        measurements and synchronizes them with the
+                        fermentation timeline.
+
+                    </p>
+
+                    <h3>
+
+                        Input
+
+                    </h3>
+
+<pre><code>
+Gas Analyzer CSV
+
+config.json
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        CLI Execution
+
+                    </h3>
+
+<pre><code>
+python raw2ready.py parse \
+    -cf config.json
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        Output
+
+                    </h3>
+
+<pre><code>
+experiment.gas_analyzer.csv
+
+parse.log
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        Dataset Example
+
+                    </h3>
+
+<pre><code>
+datetime
+
+CO₂ [%]
+
+O₂ [%]
+
+N₂ [%]
+
+Channel
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Example 4
+
+                    </h2>
+
+                    <h3>
+
+                        Generic CSV / Excel Workflow
+
+                    </h3>
+
+                    <p>
+
+                        Raw2Ready also supports user-generated CSV and Excel
+                        files that already contain experimental measurements.
+
+                    </p>
+
+                    <h3>
+
+                        Input Files
+
+                    </h3>
+
+<pre><code>
+experiment.csv
+
+or
+
+experiment.xlsx
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        Workflow
+
+                    </h3>
+
+<pre><code>
+CSV / Excel
+
+        │
+
+Validation
+
+        │
+
+Column Detection
+
+        │
+
+Datetime Parsing
+
+        │
+
+Standardized Dataset
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        CLI Execution
+
+                    </h3>
+
+<pre><code>
+python raw2ready.py parse \
+    -cf config.json
+</code></pre>
+
+                    <hr>
+
+                    <h3>
+
+                        Output
+
+                    </h3>
+
+<pre><code>
+experiment.csv
+
+parse.log
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Complete Command-Line Workflow
+
+                    </h2>
+
+                    <p>
+
+                        A complete experiment can be processed using three
+                        consecutive commands.
+
+                    </p>
+
+<pre><code>
+python raw2ready.py parse \
+    -cf config.json
+
+python raw2ready.py merge \
+    -cf config.json
+
+python raw2ready.py calculate \
+    -cf config.json
+</code></pre>
+
+                    <p>
+
+                        Once calculations are completed, the resulting dataset
+                        can be explored through the Plot, Statistics,
+                        Metadata and AI modules.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Generated Files
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>File</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>*.sensors.csv</td>
+
+                                    <td>
+
+                                        Parsed sensor dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.gas_analyzer.csv</td>
+
+                                    <td>
+
+                                        Parsed gas analyser dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.merged.csv</td>
+
+                                    <td>
+
+                                        Time-synchronized dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.calculate.csv</td>
+
+                                    <td>
+
+                                        Dataset containing calculated
+                                        variables.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>*.log</td>
+
+                                    <td>
+
+                                        Processing logs.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Complete End-to-End Workflow
+
+                    </h2>
+
+                    <p>
+
+                        The following diagram summarizes the complete Raw2Ready
+                        processing pipeline from raw experimental files to
+                        AI-assisted knowledge discovery.
+
+                    </p>
+
+<pre><code>
+Raw Experimental Files
+
+        │
+
+        ▼
+
+Configuration (config.json)
+
+        │
+
+        ▼
+
+Parse Module
+
+        │
+
+        ▼
+
+Standardized CSV Files
+
+        │
+
+        ▼
+
+Merge Module
+
+        │
+
+        ▼
+
+Merged Dataset
+
+        │
+
+        ▼
+
+Calculate Module
+
+        │
+
+        ▼
+
+Derived Variables
+
+        │
+
+        ▼
+
+Visualization
+
+        │
+
+        ├── Interactive Plotly Figures
+
+        ├── Publication Figures
+
+        └── Dashboards
+
+        │
+
+        ▼
+
+Statistics
+
+        │
+
+        ▼
+
+Metadata Annotation
+
+        │
+
+        ▼
+
+Runtime Memory
+
+        │
+
+        ▼
+
+Multi-Agent AI
+
+        │
+
+        ▼
+
+Knowledge Discovery
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Expected Project Output
+
+                    </h2>
+
+                    <p>
+
+                        After completing the workflow, the experiment directory
+                        typically contains the following files.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>File</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>experiment.sensors.csv</td>
+
+                                    <td>Parsed sensor measurements.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>experiment.gas_analyzer.csv</td>
+
+                                    <td>Processed gas analyser data.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>experiment.merged.csv</td>
+
+                                    <td>Time-synchronized dataset.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>experiment.calculate.csv</td>
+
+                                    <td>Dataset including calculated variables.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>plots/</td>
+
+                                    <td>Generated interactive and static figures.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>metadata.json</td>
+
+                                    <td>MIFE metadata annotations.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>logs/</td>
+
+                                    <td>Execution logs for each module.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Visualization Example
+
+                    </h2>
+
+                    <p>
+
+                        Once the Calculate module has completed, the processed
+                        dataset can immediately be explored using the Plot
+                        module.
+
+                    </p>
+
+<pre><code>
+Calculated Dataset
+
+        │
+
+Select X-axis
+
+        │
+
+Select Variables
+
+        │
+
+Interactive Plot
+
+        │
+
+Zoom
+
+Pan
+
+Export Figure
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Statistical Analysis Example
+
+                    </h2>
+
+                    <p>
+
+                        The Statistics module automatically computes descriptive
+                        metrics for every numerical variable.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Metric</th>
+
+                                    <th>Example</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Mean</td>
+
+                                    <td>37.52</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Median</td>
+
+                                    <td>37.41</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Standard Deviation</td>
+
+                                    <td>1.84</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Minimum</td>
+
+                                    <td>33.90</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Maximum</td>
+
+                                    <td>41.05</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI-Assisted Exploration
+
+                    </h2>
+
+                    <p>
+
+                        After the dataset has been processed, the Runtime Memory
+                        integrates experimental measurements with metadata,
+                        BacDive knowledge and scientific literature.
+
+                    </p>
+
+<pre><code>
+Calculated Dataset
+
+        │
+
+Metadata
+
+        │
+
+BacDive
+
+        │
+
+Literature
+
+        │
+
+Runtime Memory
+
+        │
+
+Multi-Agent AI
+
+        │
+
+Research Insights
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>Keep the original raw files unchanged.</li>
+
+                        <li>Use descriptive experiment names.</li>
+
+                        <li>Validate configuration files before processing.</li>
+
+                        <li>Review parser log files after each execution.</li>
+
+                        <li>Maintain complete metadata for every experiment.</li>
+
+                        <li>Verify calculated variables before publication.</li>
+
+                        <li>Archive configuration files together with datasets.</li>
+
+                        <li>Store generated plots and statistics alongside processed data.</li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Issue</th>
+
+                                    <th>Recommendation</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Parser failed</td>
+
+                                    <td>Verify the configuration file and input paths.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Merge failed</td>
+
+                                    <td>Inspect timestamp formats and reference dataset.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Formula errors</td>
+
+                                    <td>Check aliases and YAML expressions.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing variables</td>
+
+                                    <td>Review the column translation configuration.</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Unexpected plots</td>
+
+                                    <td>Confirm that numerical variables were imported correctly.</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="supported_formats.html"
+                           class="button">
+
+                            Previous: Supported Formats
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="faq.html"
+                           class="button primary">
+
+                            Next: FAQ
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- ===================================================== -->
+    <!-- Footer -->
+    <!-- ===================================================== -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">GitLab</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">Email</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center (Athena RC)</li>
+
+            <li>Examples Documentation</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- Scripts -->
+<!-- ===================================================== -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
