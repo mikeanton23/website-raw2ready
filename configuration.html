@@ -1,0 +1,1852 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Raw2Ready | Configuration Reference</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready Configuration Reference and User Guide." />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<!-- ===================================================== -->
+<!-- Header -->
+<!-- ===================================================== -->
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Documentation</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<hr>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics</a></li>
+
+<li><a href="metadata.html">Metadata</a></li>
+
+<hr>
+
+<li><a href="bacdive.html">BacDive</a></li>
+
+<li><a href="literature.html">Literature</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<li><a href="api.html">API Reference</a></li>
+
+<li><a href="configuration.html">Configuration</a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+<hr>
+
+<li>
+
+<a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+target="_blank">
+
+GitLab Repository
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- Main -->
+<!-- ===================================================== -->
+
+<article id="main">
+
+<header>
+
+<h2>
+
+Configuration Reference
+
+</h2>
+
+<p>
+
+JSON Configuration • YAML Formulas • Metadata • Runtime Parameters
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Introduction
+
+</h2>
+
+<p>
+
+Every processing module inside Raw2Ready is driven by external
+configuration files. Instead of modifying Python source code,
+users specify experiment information, input files, processing
+parameters and output settings through structured JSON and YAML
+documents.
+
+</p>
+
+<p>
+
+This design separates configuration from implementation,
+making workflows reproducible, portable and easy to share
+between researchers and laboratories.
+
+</p>
+
+<p>
+
+The same configuration philosophy is used by every Raw2Ready
+module, including parsing, merging, calculations, metadata
+annotation and AI-assisted analysis.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Configuration Philosophy
+
+</h2>
+
+<p>
+
+Raw2Ready follows a configuration-driven architecture.
+
+</p>
+
+<pre><code>
+Configuration Files
+        │
+        ▼
+Parse Module
+        │
+        ▼
+Merge Module
+        │
+        ▼
+Calculate Module
+        │
+        ▼
+Visualization
+        │
+        ▼
+Statistics
+        │
+        ▼
+Metadata
+        │
+        ▼
+AI Agents
+</code></pre>
+
+<p>
+
+Every processing stage reads only the parameters relevant to
+its own execution while sharing the same experiment definition.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Configuration Files
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>File</th>
+
+<th>Purpose</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>config.json</td>
+
+<td>Main experiment configuration.</td>
+
+</tr>
+
+<tr>
+
+<td>calculate.config.yaml</td>
+
+<td>Formula definitions and constants.</td>
+
+</tr>
+
+<tr>
+
+<td>column_translation.json</td>
+
+<td>Sensor column mapping.</td>
+
+</tr>
+
+<tr>
+
+<td>MIFE Metadata</td>
+
+<td>Experiment metadata.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Main Configuration File
+
+</h2>
+
+<p>
+
+The primary configuration file is a JSON document that
+contains both global experiment parameters and
+module-specific configuration blocks.
+
+</p>
+
+<pre><code>
+config.json
+
+├── output directory
+├── experiment name
+├── experiment start date
+├── equipment
+│
+├── parse parameters
+│
+├── merge parameters
+│
+└── calculate parameters
+</code></pre>
+
+<p>
+
+Each module accesses only the corresponding section of the
+configuration file while ignoring unrelated parameters.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Example Configuration Structure
+
+</h2>
+
+<pre><code>{
+    "output directory": "...",
+
+    "experiment name": "...",
+
+    "experiment start date": "...",
+
+    "equipment": "...",
+
+    "parse parameters": {
+
+    },
+
+    "merge parameters": {
+
+    },
+
+    "calculate parameters": {
+
+    }
+}
+</code></pre>
+
+<p>
+
+Although this represents the minimum structure, each module
+can contain additional optional parameters depending on the
+supported equipment and processing workflow.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Global Parameters
+
+</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Parameter</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>output directory</td>
+
+<td>
+
+Destination directory where all generated files,
+logs and reports will be stored.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>experiment name</td>
+
+<td>
+
+Unique identifier used for naming output files
+and log files.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>experiment start date</td>
+
+<td>
+
+Reference date used by equipment requiring
+absolute timestamps.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>equipment</td>
+
+<td>
+
+Specifies which equipment parser should be
+executed.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Supported Equipment
+
+</h2>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Equipment</th>
+
+<th>Status</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Sartorius</td>
+
+<td>Supported</td>
+
+<td>Bioreactor sensor exports.</td>
+
+</tr>
+
+<tr>
+
+<td>BioLectorXT</td>
+
+<td>Supported</td>
+
+<td>Microbioreactor platform.</td>
+
+</tr>
+
+<tr>
+
+<td>Gas Analyzer</td>
+
+<td>Supported</td>
+
+<td>Gas composition measurements.</td>
+
+</tr>
+
+<tr>
+
+<td>CSV</td>
+
+<td>Supported</td>
+
+<td>Generic tabular datasets.</td>
+
+</tr>
+
+<tr>
+
+<td>Excel</td>
+
+<td>Supported</td>
+
+<td>XLSX experimental files.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Configuration Lifecycle
+
+</h2>
+
+<pre><code>
+Create Configuration
+        │
+        ▼
+Validate Parameters
+        │
+        ▼
+Load Raw Data
+        │
+        ▼
+Execute Processing Modules
+        │
+        ▼
+Generate Outputs
+        │
+        ▼
+Runtime Memory
+        │
+        ▼
+AI Exploration
+</code></pre>
+
+<p>
+
+Configuration files remain unchanged throughout the workflow,
+ensuring that experiments are reproducible and processing
+steps can be repeated consistently.
+
+</p>
+
+</section>
+
+<hr>
+<!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Parse Parameters
+
+                    </h2>
+
+                    <p>
+
+                        The <strong>parse parameters</strong> block defines all
+                        information required for importing and harmonizing raw
+                        experimental data. The exact parameters depend on the
+                        selected equipment.
+
+                    </p>
+
+<pre><code>
+"parse parameters": {
+
+    "sensor input files": "...",
+
+    "sensor column translation file": "...",
+
+    "sensor output file": "...",
+
+    "gas analyzer input file": "...",
+
+    "gas analyzer target channel": 3,
+
+    "gas analyzer reference channel": 6,
+
+    "gas analyzer output file": "..."
+
+}
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Parse Parameter Reference
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Parameter</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>sensor input files</td>
+
+                                    <td>
+
+                                        One or more raw sensor files. Multiple
+                                        files are separated by commas.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>sensor column translation file</td>
+
+                                    <td>
+
+                                        JSON file mapping vendor-specific names
+                                        to standardized column names.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>sensor output file</td>
+
+                                    <td>
+
+                                        Output CSV generated after parsing.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>gas analyzer input file</td>
+
+                                    <td>
+
+                                        Raw gas analyzer export.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>gas analyzer target channel</td>
+
+                                    <td>
+
+                                        Channel corresponding to the
+                                        fermentation experiment.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>gas analyzer reference channel</td>
+
+                                    <td>
+
+                                        Reference gas channel.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>gas analyzer output file</td>
+
+                                    <td>
+
+                                        Parsed gas analyzer dataset.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Merge Parameters
+
+                    </h2>
+
+                    <p>
+
+                        The Merge Module combines multiple time-series datasets
+                        using datetime synchronization.
+
+                    </p>
+
+<pre><code>
+"merge parameters": {
+
+    "reference input file": "...",
+
+    "input files": "...",
+
+    "output file": "..."
+
+}
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Merge Parameter Reference
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Parameter</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>reference input file</td>
+
+                                    <td>
+
+                                        Dataset whose datetime column is used
+                                        as the synchronization reference.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>input files</td>
+
+                                    <td>
+
+                                        One or more datasets that will be
+                                        aligned to the reference dataset.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>output file</td>
+
+                                    <td>
+
+                                        Final merged dataset.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Calculate Parameters
+
+                    </h2>
+
+                    <p>
+
+                        The Calculate Module evaluates mathematical expressions
+                        defined in a YAML configuration file and creates new
+                        dataset columns.
+
+                    </p>
+
+<pre><code>
+"calculate parameters": {
+
+    "calculate config file": "...",
+
+    "input file": "...",
+
+    "output file": "..."
+
+}
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Calculate Parameter Reference
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Parameter</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>calculate config file</td>
+
+                                    <td>
+
+                                        YAML file containing constants,
+                                        aliases and mathematical formulas.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>input file</td>
+
+                                    <td>
+
+                                        Dataset used for formula execution.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>output file</td>
+
+                                    <td>
+
+                                        Extended dataset containing newly
+                                        generated variables.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Column Translation File
+
+                    </h2>
+
+                    <p>
+
+                        Raw equipment exports often use vendor-specific
+                        variable names. The column translation file maps those
+                        names to standardized, human-readable variables.
+
+                    </p>
+
+<pre><code>{
+    "PDatTime":"PDatTime",
+
+    "Age (h)":"Age (h)",
+
+    "pH:Value":"pH [/]",
+
+    "TEMP:Value":"Temperature [°C]",
+
+    "PO2:Value":"pO2 [%]",
+
+    "STIR:Value":"Agitation [rpm]"
+}
+</code></pre>
+
+                    <p>
+
+                        The left-hand side contains the original equipment
+                        variables, whereas the right-hand side specifies the
+                        standardized names that will appear throughout the
+                        platform.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        YAML Formula Configuration
+
+                    </h2>
+
+                    <p>
+
+                        Dynamic calculations are defined using a dedicated
+                        YAML configuration file.
+
+                    </p>
+
+<pre><code>
+constants:
+
+    den_ph_ctrl_sol: 0.9425
+
+    starting_feed: 0.5
+
+
+aliases:
+
+    base_weight: "Base Weight [g]"
+
+    oxygen: "Oxygen [%]"
+
+    substrate: "Substrate Feed [%]"
+
+
+formulas:
+
+- name: rel_feed
+
+  alias: "Relative Feed"
+
+  formula: "substrate-starting_feed"
+
+  required_columns:
+
+      - "Substrate Feed [%]"
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        YAML Blocks
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Block</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>constants</td>
+
+                                    <td>
+
+                                        Experiment-specific numerical values.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>aliases</td>
+
+                                    <td>
+
+                                        Maps column names to Python variables.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>formulas</td>
+
+                                    <td>
+
+                                        Mathematical expressions executed
+                                        during processing.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Formula Execution Pipeline
+
+                    </h2>
+
+<pre><code>
+Dataset
+
+      │
+
+Column Aliases
+
+      │
+
+Constants
+
+      │
+
+Formula Evaluation
+
+      │
+
+Validation
+
+      │
+
+New Variables
+
+      │
+
+Updated Dataset
+</code></pre>
+
+                    <p>
+
+                        Every formula is validated before execution. Required
+                        columns are checked automatically, preventing invalid
+                        expressions from being evaluated.
+
+                    </p>
+
+                </section>
+
+                <hr>
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        MIFE Metadata Configuration
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready supports semantic annotation through the
+                        <strong>Minimum Information Framework for Fermentation
+                        Experiments (MIFE)</strong>. Metadata accompanies every
+                        processed dataset and enables reproducibility,
+                        interoperability and AI-assisted reasoning.
+
+                    </p>
+
+<pre><code>{
+    "experiment": {
+
+        "title": "Fed-Batch Fermentation",
+
+        "organism": "Escherichia coli",
+
+        "strain": "BL21(DE3)",
+
+        "medium": "Defined Medium",
+
+        "bioreactor": "Sartorius",
+
+        "operator": "Researcher",
+
+        "start_date": "2025-06-04"
+
+    }
+}
+</code></pre>
+
+                    <p>
+
+                        Metadata are stored independently from numerical
+                        measurements and become available to the AI framework,
+                        statistical modules and literature retrieval agents.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Configuration
+
+                    </h2>
+
+                    <p>
+
+                        During execution, Raw2Ready creates an internal runtime
+                        environment where datasets, metadata, statistical
+                        results and AI-generated knowledge are shared between
+                        processing modules.
+
+                    </p>
+
+<pre><code>
+Configuration Files
+        │
+        ▼
+Processing Modules
+        │
+        ▼
+Runtime Memory
+        │
+        ├── Harmonized Dataset
+        ├── Metadata
+        ├── Statistics
+        ├── Figures
+        ├── BacDive Knowledge
+        ├── Literature
+        └── AI Context
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Configuration Validation
+
+                    </h2>
+
+                    <p>
+
+                        Before executing any module, Raw2Ready validates the
+                        supplied configuration to prevent runtime failures.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Validation</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Required fields</td>
+
+                                    <td>
+
+                                        Confirms mandatory configuration
+                                        parameters exist.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Input files</td>
+
+                                    <td>
+
+                                        Verifies referenced files exist.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Equipment type</td>
+
+                                    <td>
+
+                                        Checks parser compatibility.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Output directory</td>
+
+                                    <td>
+
+                                        Creates missing directories when
+                                        required.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Formula validation</td>
+
+                                    <td>
+
+                                        Detects invalid mathematical
+                                        expressions.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Metadata validation</td>
+
+                                    <td>
+
+                                        Ensures MIFE fields follow the expected
+                                        structure.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Complete Processing Example
+
+                    </h2>
+
+<pre><code>
+config.json
+        │
+        ▼
+Parse
+        │
+        ▼
+Sensors.csv
+GasAnalyzer.csv
+        │
+        ▼
+Merge
+        │
+        ▼
+Merged.csv
+        │
+        ▼
+Calculate
+        │
+        ▼
+Calculated.csv
+        │
+        ▼
+Visualization
+Statistics
+Metadata
+        │
+        ▼
+AI Exploration
+</code></pre>
+
+                    <p>
+
+                        A single configuration file controls the complete
+                        experimental workflow from raw data import to
+                        AI-assisted knowledge discovery.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>
+
+                            Keep configuration files under version control.
+
+                        </li>
+
+                        <li>
+
+                            Avoid modifying generated output files manually.
+
+                        </li>
+
+                        <li>
+
+                            Use descriptive experiment names.
+
+                        </li>
+
+                        <li>
+
+                            Keep metadata complete and consistent.
+
+                        </li>
+
+                        <li>
+
+                            Validate formulas before executing calculations.
+
+                        </li>
+
+                        <li>
+
+                            Maintain standardized column names across all
+                            datasets.
+
+                        </li>
+
+                        <li>
+
+                            Store configuration files together with raw data
+                            whenever possible.
+
+                        </li>
+
+                        <li>
+
+                            Update configuration templates when new equipment
+                            is introduced.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Common Configuration Errors
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Error</th>
+
+                                    <th>Possible Cause</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Missing input file</td>
+
+                                    <td>
+
+                                        Incorrect file path.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Unknown equipment</td>
+
+                                    <td>
+
+                                        Unsupported parser selected.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Invalid formula</td>
+
+                                    <td>
+
+                                        Syntax or missing variables.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Missing column</td>
+
+                                    <td>
+
+                                        Column translation mismatch.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Datetime mismatch</td>
+
+                                    <td>
+
+                                        Incorrect timestamp formatting.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Metadata validation failed</td>
+
+                                    <td>
+
+                                        Missing required MIFE fields.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Troubleshooting
+
+                    </h2>
+
+                    <p>
+
+                        If configuration problems occur, verify the following:
+
+                    </p>
+
+                    <ol>
+
+                        <li>
+
+                            The configuration file is valid JSON.
+
+                        </li>
+
+                        <li>
+
+                            All referenced files exist.
+
+                        </li>
+
+                        <li>
+
+                            Equipment names match supported parsers.
+
+                        </li>
+
+                        <li>
+
+                            Output directories are writable.
+
+                        </li>
+
+                        <li>
+
+                            YAML formulas contain valid expressions.
+
+                        </li>
+
+                        <li>
+
+                            Required metadata fields are present.
+
+                        </li>
+
+                    </ol>
+
+                    <p>
+
+                        Detailed diagnostic information is available in the
+                        application log files generated during execution.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="api.html"
+                           class="button">
+
+                            Previous: API Reference
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="faq.html"
+                           class="button primary">
+
+                            Next: FAQ
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- ===================================================== -->
+    <!-- Footer -->
+    <!-- ===================================================== -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center (Athena RC)</li>
+
+            <li>Configuration Documentation</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- Scripts -->
+<!-- ===================================================== -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
