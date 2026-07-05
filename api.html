@@ -1,0 +1,1570 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Raw2Ready | API Reference</title>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description"
+          content="Raw2Ready API Reference and Developer Documentation." />
+
+    <link rel="stylesheet"
+          href="assets/css/main.css" />
+
+    <noscript>
+
+        <link rel="stylesheet"
+              href="assets/css/noscript.css" />
+
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+
+<div id="page-wrapper">
+
+<!-- ===================================================== -->
+<!-- Header -->
+<!-- ===================================================== -->
+
+<header id="header">
+
+<h1>
+
+<a href="index.html">
+
+Raw2Ready
+
+</a>
+
+</h1>
+
+<nav id="nav">
+
+<ul>
+
+<li class="special">
+
+<a href="#menu" class="menuToggle">
+
+<span>Documentation</span>
+
+</a>
+
+<div id="menu">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="overview.html">Overview</a></li>
+
+<li><a href="installation.html">Installation</a></li>
+
+<li><a href="workflow.html">Workflow</a></li>
+
+<hr>
+
+<li><a href="load.html">Load Module</a></li>
+
+<li><a href="merge.html">Merge Module</a></li>
+
+<li><a href="calculate.html">Calculate Module</a></li>
+
+<li><a href="plot.html">Plot Module</a></li>
+
+<li><a href="statistics.html">Statistics</a></li>
+
+<li><a href="metadata.html">Metadata</a></li>
+
+<hr>
+
+<li><a href="bacdive.html">BacDive</a></li>
+
+<li><a href="literature.html">Literature</a></li>
+
+<li><a href="agents.html">Multi-Agent AI</a></li>
+
+<hr>
+
+<li><a href="api.html">API Reference</a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+<hr>
+
+<li>
+
+<a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+target="_blank">
+
+GitLab Repository
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- Main -->
+<!-- ===================================================== -->
+
+<article id="main">
+
+<header>
+
+<h2>
+
+API Reference
+
+</h2>
+
+<p>
+
+Developer Documentation • Command Line Interface • Python Modules • Runtime Architecture
+
+</p>
+
+</header>
+
+<section class="wrapper style5">
+
+<div class="inner">
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Introduction
+
+</h2>
+
+<p>
+
+The Raw2Ready API provides the programmatic interface used throughout the
+platform for processing, harmonizing, analysing and exploring industrial
+biotechnology datasets.
+
+Although most users interact with Raw2Ready through the NiceGUI graphical
+interface, every operation is executed by modular Python components that
+can also be invoked directly from the command line or integrated into
+custom Python workflows.
+
+</p>
+
+<p>
+
+The API has been designed around a modular architecture where each
+processing stage is implemented as an independent component. This
+facilitates reproducibility, extensibility and straightforward integration
+of new fermentation equipment, preprocessing algorithms and AI services.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Architecture Overview
+
+</h2>
+
+<p>
+
+The internal software architecture is divided into independent layers,
+allowing each component to perform a well-defined responsibility while
+sharing standardized datasets through the Runtime Memory.
+
+</p>
+
+<pre><code>
+Raw Data
+      │
+      ▼
+Load Module
+      │
+      ▼
+Merge Module
+      │
+      ▼
+Calculate Module
+      │
+      ▼
+Visualization
+      │
+      ▼
+Statistics
+      │
+      ▼
+Metadata (MIFE)
+      │
+      ▼
+Runtime Memory
+      │
+      ▼
+Multi-Agent AI Framework
+</code></pre>
+
+<p>
+
+Each processing stage produces standardized outputs that become available
+to subsequent modules and AI agents without requiring additional user
+intervention.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Project Structure
+
+</h2>
+
+<pre><code>
+raw2ready/
+
+├── raw2ready.py
+├── run_app.py
+│
+├── modules/
+│     ├── parse.py
+│     ├── merge.py
+│     ├── calculate.py
+│
+├── lib/
+│     ├── parse.py
+│     ├── merge.py
+│     ├── calculate.py
+│     ├── utilities.py
+│
+├── gui/
+│
+├── llm/
+│
+├── agents/
+│
+├── config/
+│
+├── examples/
+│
+└── assets/
+</code></pre>
+
+<p>
+
+The separation between <strong>modules</strong> and <strong>lib</strong>
+allows the command-line interface to remain lightweight while delegating
+all processing logic to reusable library functions.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Command Line API
+
+</h2>
+
+<p>
+
+The primary interface for automated processing is the
+<strong>raw2ready.py</strong> executable.
+
+</p>
+
+<pre><code>
+python raw2ready.py [module] [options]
+</code></pre>
+
+<h3>
+
+Available Modules
+
+</h3>
+
+<div class="table-wrapper">
+
+<table class="alt">
+
+<thead>
+
+<tr>
+
+<th>Module</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>parse</td>
+
+<td>Parse and harmonize raw fermentation datasets.</td>
+
+</tr>
+
+<tr>
+
+<td>merge</td>
+
+<td>Synchronize multiple time-series datasets.</td>
+
+</tr>
+
+<tr>
+
+<td>calculate</td>
+
+<td>Create derived variables using dynamic formulas.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<h3>
+
+General Syntax
+
+</h3>
+
+<pre><code>
+python raw2ready.py parse      -cf config.json
+
+python raw2ready.py merge      -cf config.json
+
+python raw2ready.py calculate  -cf config.json
+</code></pre>
+
+<p>
+
+Each module uses the same configuration file while only executing the
+parameters relevant to its own functionality.
+
+</p>
+
+</section>
+
+<hr>
+
+<!-- ===================================================== -->
+
+<section>
+
+<h2>
+
+Module Execution Order
+
+</h2>
+
+<p>
+
+Although individual modules may be executed independently, the recommended
+processing pipeline follows the sequence below.
+
+</p>
+
+<pre><code>
+1. Parse
+        ↓
+
+2. Merge
+        ↓
+
+3. Calculate
+        ↓
+
+4. Visualization
+        ↓
+
+5. Statistics
+        ↓
+
+6. Metadata Annotation
+        ↓
+
+7. AI Exploration
+</code></pre>
+
+<p>
+
+This workflow ensures that every downstream component receives validated,
+harmonized and semantically enriched experimental data.
+
+</p>
+
+</section>
+
+<hr>
+  <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Python API
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready has been designed using a modular Python
+                        architecture. Each processing stage is implemented as an
+                        independent module that can be executed individually or
+                        combined into larger processing pipelines.
+
+                    </p>
+
+<pre><code>
+from modules import parse
+from modules import merge
+from modules import calculate
+</code></pre>
+
+                    <p>
+
+                        These modules act as the entry points for the command
+                        line interface and internally delegate processing to the
+                        corresponding functions implemented inside the
+                        <strong>lib</strong> package.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Core Library
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Library</th>
+
+                                    <th>Purpose</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>lib.parse</td>
+
+                                    <td>
+
+                                        Equipment-specific parsing and
+                                        harmonization functions.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>lib.merge</td>
+
+                                    <td>
+
+                                        Datetime synchronization and
+                                        nearest-neighbor merging.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>lib.calculate</td>
+
+                                    <td>
+
+                                        Formula execution engine.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>lib.utilities</td>
+
+                                    <td>
+
+                                        Common helper functions shared by
+                                        every module.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Configuration Files
+
+                    </h2>
+
+                    <p>
+
+                        Every processing module is driven by external
+                        configuration files. This allows experiments to be
+                        reproduced without modifying the source code.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>File</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>config.json</td>
+
+                                    <td>
+
+                                        Main experiment configuration.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>calculate.config.yaml</td>
+
+                                    <td>
+
+                                        Formula definitions and constants.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>column_translation.json</td>
+
+                                    <td>
+
+                                        Maps raw sensor names to
+                                        standardized column names.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>MIFE metadata</td>
+
+                                    <td>
+
+                                        Experimental metadata and
+                                        cultivation information.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Configuration Flow
+
+                    </h2>
+
+<pre><code>
+config.json
+
+       │
+
+       ▼
+
+Parse Module
+
+       │
+
+Merge Module
+
+       │
+
+Calculate Module
+
+       │
+
+Visualization
+
+       │
+
+Statistics
+
+       │
+
+Metadata
+
+       │
+
+AI Agents
+</code></pre>
+
+                    <p>
+
+                        Every module reads only the configuration parameters
+                        relevant to its own execution while sharing the same
+                        experiment definition.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Data Structures
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready represents every processed dataset using
+                        standardized Pandas DataFrames.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Object</th>
+
+                                    <th>Description</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Pandas DataFrame</td>
+
+                                    <td>
+
+                                        Harmonized experimental data.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Metadata Dictionary</td>
+
+                                    <td>
+
+                                        MIFE experimental metadata.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Runtime Memory</td>
+
+                                    <td>
+
+                                        Shared memory used by AI agents.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Configuration Object</td>
+
+                                    <td>
+
+                                        Parsed experiment configuration.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Runtime Memory
+
+                    </h2>
+
+                    <p>
+
+                        Runtime Memory is the central communication layer of
+                        Raw2Ready.
+
+                    </p>
+
+                    <p>
+
+                        During execution, datasets, metadata, statistical
+                        analyses and AI-generated knowledge are stored in a
+                        shared memory space that enables collaboration between
+                        independent agents.
+
+                    </p>
+
+<pre><code>
+Experimental Data
+
+        │
+
+Metadata
+
+        │
+
+Statistics
+
+        │
+
+Visualizations
+
+        │
+
+Scientific Literature
+
+        │
+
+BacDive Information
+
+        │
+
+Internet Knowledge
+
+        │
+
+Runtime Memory
+</code></pre>
+
+                    <p>
+
+                        Every AI agent can access Runtime Memory while
+                        contributing additional information that becomes
+                        immediately available to the remaining agents.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        AI APIs
+
+                    </h2>
+
+                    <p>
+
+                        The Multi-Agent Framework exposes several specialized
+                        APIs responsible for different reasoning tasks.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Agent</th>
+
+                                    <th>Primary Responsibility</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Master Agent</td>
+
+                                    <td>
+
+                                        Coordinates all reasoning tasks.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Dataset Analyst</td>
+
+                                    <td>
+
+                                        Understands processed datasets.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Metadata Agent</td>
+
+                                    <td>
+
+                                        Interprets MIFE metadata.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>BacDive Agent</td>
+
+                                    <td>
+
+                                        Retrieves microbial knowledge.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Literature Agent</td>
+
+                                    <td>
+
+                                        Searches scientific publications.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Internet Agent</td>
+
+                                    <td>
+
+                                        Retrieves external information.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        NiceGUI Integration
+
+                    </h2>
+
+                    <p>
+
+                        The NiceGUI application provides the graphical
+                        interface for Raw2Ready while relying entirely on the
+                        underlying Python modules described above.
+
+                    </p>
+
+<pre><code>
+NiceGUI Interface
+
+       │
+
+User Interaction
+
+       │
+
+Python Modules
+
+       │
+
+Core Libraries
+
+       │
+
+Data Processing
+
+       │
+
+Runtime Memory
+
+       │
+
+AI Agents
+</code></pre>
+
+                    <p>
+
+                        This separation allows the graphical interface, command
+                        line interface and AI framework to share the same
+                        processing pipeline without duplicating code.
+
+                    </p>
+
+                </section>
+
+                <hr>
+  <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        API Examples
+
+                    </h2>
+
+                    <p>
+
+                        The following examples illustrate common ways of
+                        interacting with Raw2Ready from the command line.
+
+                    </p>
+
+<h3>Parse Raw Data</h3>
+
+<pre><code>
+python raw2ready.py parse \
+    -cf config.json
+</code></pre>
+
+<h3>Merge Multiple Datasets</h3>
+
+<pre><code>
+python raw2ready.py merge \
+    -cf config.json
+</code></pre>
+
+<h3>Calculate Derived Variables</h3>
+
+<pre><code>
+python raw2ready.py calculate \
+    -cf config.json
+</code></pre>
+
+<h3>Launch the NiceGUI Application</h3>
+
+<pre><code>
+python run_app.py
+</code></pre>
+
+<h3>Open the Documentation Website</h3>
+
+<pre><code>
+https://mikeanton23.github.io/website-raw2ready/
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Typical Developer Workflow
+
+                    </h2>
+
+                    <p>
+
+                        Developers extending Raw2Ready typically follow the
+                        workflow below.
+
+                    </p>
+
+<pre><code>
+Clone Repository
+        │
+        ▼
+Create Virtual Environment
+        │
+        ▼
+Install Dependencies
+        │
+        ▼
+Implement New Module
+        │
+        ▼
+Test Module
+        │
+        ▼
+Integrate with NiceGUI
+        │
+        ▼
+Update Documentation
+        │
+        ▼
+Commit & Push Changes
+</code></pre>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Extension Points
+
+                    </h2>
+
+                    <p>
+
+                        Raw2Ready has been designed as an extensible platform.
+                        New functionality can be incorporated without modifying
+                        the overall processing workflow.
+
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table class="alt">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Component</th>
+
+                                    <th>Extension Strategy</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>New Equipment</td>
+
+                                    <td>
+
+                                        Add new parsing functions in
+                                        <strong>lib/parse.py</strong> and
+                                        register them in
+                                        <strong>modules/parse.py</strong>.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>New AI Agent</td>
+
+                                    <td>
+
+                                        Create an additional agent inside
+                                        the <strong>agents/</strong> package
+                                        and connect it to Runtime Memory.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>New Visualization</td>
+
+                                    <td>
+
+                                        Extend the plotting module with
+                                        additional Plotly or Matplotlib
+                                        figures.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>New Statistical Method</td>
+
+                                    <td>
+
+                                        Integrate the corresponding analysis
+                                        inside the Statistics module.
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>New Metadata Schema</td>
+
+                                    <td>
+
+                                        Extend the MIFE metadata model while
+                                        maintaining backward compatibility.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Logging
+
+                    </h2>
+
+                    <p>
+
+                        Every module generates detailed execution logs to
+                        facilitate debugging and reproducibility.
+
+                    </p>
+
+<pre><code>
+Parse Module
+        │
+Merge Module
+        │
+Calculate Module
+        │
+Statistics
+        │
+AI Agents
+        │
+Application Log Files
+</code></pre>
+
+                    <p>
+
+                        Logs contain execution timestamps, processed files,
+                        warnings, runtime errors and processing statistics.
+
+                    </p>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Error Handling
+
+                    </h2>
+
+                    <ul>
+
+                        <li>Configuration file validation</li>
+
+                        <li>Missing column detection</li>
+
+                        <li>Equipment compatibility checks</li>
+
+                        <li>Datetime validation</li>
+
+                        <li>Formula validation</li>
+
+                        <li>Metadata validation</li>
+
+                        <li>Runtime exception handling</li>
+
+                        <li>AI service availability checks</li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Best Practices
+
+                    </h2>
+
+                    <ul>
+
+                        <li>Keep parsing logic independent of the graphical interface.</li>
+
+                        <li>Reuse the existing library functions whenever possible.</li>
+
+                        <li>Always validate datasets before downstream analysis.</li>
+
+                        <li>Preserve standardized column naming conventions.</li>
+
+                        <li>Update configuration templates when introducing new functionality.</li>
+
+                        <li>Maintain compatibility with Runtime Memory.</li>
+
+                        <li>Document every new module before release.</li>
+
+                        <li>Keep the GitLab repository synchronized with the documentation.</li>
+
+                    </ul>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <section>
+
+                    <h2>
+
+                        Future API Roadmap
+
+                    </h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Feature</th>
+
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Python SDK</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>REST API</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Plugin Architecture</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Docker Deployment</td>
+
+                                    <td>Planned</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Cloud Execution</td>
+
+                                    <td>Future Work</td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <hr>
+
+                <!-- ===================================================== -->
+
+                <ul class="actions">
+
+                    <li>
+
+                        <a href="agents.html"
+                           class="button">
+
+                            Previous: Multi-Agent AI
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="faq.html"
+                           class="button primary">
+
+                            Next: FAQ
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </article>
+
+    <!-- ===================================================== -->
+    <!-- Footer -->
+    <!-- ===================================================== -->
+
+    <footer id="footer">
+
+        <ul class="icons">
+
+            <li>
+
+                <a href="https://gitlab.com/arc3972240/bioindustry/raw2ready"
+                   target="_blank"
+                   class="icon brands fa-gitlab">
+
+                    <span class="label">
+
+                        GitLab
+
+                    </span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="mailto:ggeorgakilas@athenarc.gr"
+                   class="icon solid fa-envelope">
+
+                    <span class="label">
+
+                        Email
+
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <ul class="copyright">
+
+            <li>&copy; 2026 Raw2Ready</li>
+
+            <li>BIOINDUSTRY4.0 Project</li>
+
+            <li>Athens Research Center (Athena RC)</li>
+
+            <li>API Documentation</li>
+
+        </ul>
+
+    </footer>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- Scripts -->
+<!-- ===================================================== -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
